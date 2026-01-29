@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Student Services – UNIGuide</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<header class="navbar">
+    <span class="logo">🎓 UNIGuide <b>BVCEC</b></span>
+</header>
+
+<section class="page-hero">
+    <h1>Student Services</h1>
+    <p>Everything students need, in one place</p>
+    <img src="/static/images/student-services.png"
+     alt="Student Services"
+     style="max-width:450px;margin-top:30px;">
+
+</section>
+
+<section class="page-content">
+    <div class="content-box">
+        <h3>Exams & Results</h3>
+        <p>Information about exams, schedules, and results.</p>
+    </div>
+
+    <div class="content-box">
+        <h3>Fees & Scholarships</h3>
+        <p>Guidance on fee payments and financial support.</p>
+    </div>
+
+    <div class="content-box">
+        <h3>Certificates & Documents</h3>
+        <p>Bonafide, transcripts, and official certificates.</p>
+    </div>
+
+    <div class="content-box">
+        <h3>Hostel & Transport</h3>
+        <p>Details about accommodation and transport facilities.</p>
+    </div>
+
+    <div style="text-align:center; margin-top:30px;">
+        <button class="launch-btn" onclick="location.href='/'">
+            Ask UNIGuide
+        </button>
+    </div>
+</section>
+
+</body>
+</html>

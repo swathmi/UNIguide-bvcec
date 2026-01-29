@@ -1,0 +1,193 @@
+{
+  "department": {
+    "name": "Electrical & Electronics Engineering",
+    "short_name": "EEE",
+    "college": "Bonam Venkata Chalamayya Engineering College (Autonomous)",
+    "location": "Odalarevu, East Godavari, Andhra Pradesh",
+    "introduced_year": "1998",
+    "intake_capacity": 60
+  },
+
+  "head_of_department": {
+    "name": "Dr. Sambana Srikanth",
+    "designation": "Professor & Head of Department",
+    "qualification": "M.Tech., Ph.D.",
+    "experience_years": 22,
+    "email": null,
+    "phone": null
+  },
+
+  "faculty": [
+    { "name": "Dr. Sambana Srikanth", "designation": "Professor & HOD", "qualification": "M.Tech., Ph.D." },
+    { "name": "Dr. Mantri Srinivasa Rao", "designation": "Professor", "qualification": "M.Tech., Ph.D." },
+    { "name": "Mr. Katari Ramcharan", "designation": "Associate Professor", "qualification": "M.E." },
+    { "name": "Mr. Adabala Rama Krishna", "designation": "Associate Professor", "qualification": "M.Tech." },
+    { "name": "Mr. Ganapavarapu Lova Raju", "designation": "Associate Professor", "qualification": "M.Tech." },
+    { "name": "Mr. Nandyala Siva Nagendra", "designation": "Assistant Professor", "qualification": "M.Tech." },
+    { "name": "Mr. Adabala Siva Sarpakara Rao", "designation": "Assistant Professor", "qualification": "M.Tech." },
+    { "name": "Mr. Esram Raju", "designation": "Assistant Professor", "qualification": "M.Tech." },
+    { "name": "Mr. Adabala Venkata Narayana", "designation": "Assistant Professor", "qualification": "M.Tech." },
+    { "name": "Mr. Chaladi Maniteja", "designation": "Assistant Professor", "qualification": "M.Tech." },
+    { "name": "Mrs. Chedalla Swetha", "designation": "Assistant Professor", "qualification": "M.Tech." },
+    { "name": "Mr. Tarapatla Mani Ratnam", "designation": "Assistant Professor", "qualification": "M.Tech." },
+    { "name": "Mr. Kambala Vijaya Prasad", "designation": "Assistant Professor", "qualification": "M.Tech." }
+  ],
+
+  "vision": "To produce globally competent electrical engineers with strong fundamentals, professional ethics, and innovative skills to meet industry and societal needs.",
+
+  "mission": [
+    "Provide quality education in electrical and electronics engineering",
+    "Promote research, innovation, and lifelong learning",
+    "Develop industry-ready graduates with ethical responsibility"
+  ],
+
+  "academic_structure": {
+    "year_1": {
+      "semester_1": {
+        "subjects": [
+          "Mathematics – I",
+          "Engineering Physics",
+          "Programming for Problem Solving",
+          "Engineering Graphics",
+          "Communicative English"
+        ],
+        "labs": [
+          "Physics Lab",
+          "Programming Lab",
+          "English Communication Lab"
+        ]
+      },
+      "semester_2": {
+        "subjects": [
+          "Mathematics – II",
+          "Engineering Chemistry",
+          "Basic Electrical Engineering",
+          "Data Structures",
+          "Environmental Science"
+        ],
+        "labs": [
+          "Chemistry Lab",
+          "Electrical Engineering Lab",
+          "Data Structures Lab"
+        ]
+      }
+    },
+
+    "year_2": {
+      "semester_3": {
+        "subjects": [
+          "Network Theory",
+          "Electrical Machines – I",
+          "Analog Electronics",
+          "Electromagnetic Fields",
+          "Universal Human Values"
+        ],
+        "labs": [
+          "Analog Electronics Lab",
+          "Electrical Machines Lab – I"
+        ]
+      },
+      "semester_4": {
+        "subjects": [
+          "Electrical Machines – II",
+          "Power Systems – I",
+          "Control Systems",
+          "Digital Electronics",
+          "Design Thinking"
+        ],
+        "labs": [
+          "Digital Electronics Lab",
+          "Control Systems Lab",
+          "Electrical Machines Lab – II"
+        ]
+      }
+    },
+
+    "year_3": {
+      "semester_5": {
+        "subjects": [
+          "Power Systems – II",
+          "Power Electronics",
+          "Microprocessors and Microcontrollers",
+          "Signals and Systems",
+          "Open Elective – I"
+        ],
+        "labs": [
+          "Power Electronics Lab",
+          "Microprocessors Lab"
+        ]
+      },
+      "semester_6": {
+        "subjects": [
+          "Electrical Drives",
+          "Renewable Energy Systems",
+          "Switchgear and Protection",
+          "Industrial Management",
+          "Open Elective – II"
+        ],
+        "labs": [
+          "Electrical Drives Lab",
+          "Simulation Lab"
+        ]
+      }
+    },
+
+    "year_4": {
+      "semester_7": {
+        "subjects": [
+          "Smart Grid Technologies",
+          "High Voltage Engineering",
+          "Professional Elective – I",
+          "Professional Elective – II",
+          "Disaster Management"
+        ],
+        "labs": [
+          "High Voltage Lab",
+          "Seminar"
+        ]
+      },
+      "semester_8": {
+        "subjects": [
+          "Major Project Phase – I",
+          "Major Project Phase – II",
+          "Internship / Industry Training",
+          "Comprehensive Viva",
+          "Technical Seminar"
+        ],
+        "labs": [
+          "Project Lab",
+          "Internship Evaluation"
+        ]
+      }
+    }
+  },
+
+  "syllabus_links": {
+    "BR18_BTech": "https://bvcec.edu.in/wp-content/uploads/EEE-BR18-BTECH.pdf",
+    "BR20_BTech": "https://bvcec.edu.in/wp-content/uploads/EEE-BR20-BTECH.pdf",
+    "BR23_BTech": "https://bvcec.edu.in/wp-content/uploads/EEE-BR23-BTECH.pdf"
+  },
+
+  "student_projects": [
+    "Solar Powered Inverter System",
+    "Electric Vehicle Battery Management System",
+    "Smart Energy Meter using IoT",
+    "Automatic Power Factor Correction",
+    "Renewable Energy Monitoring System"
+  ],
+
+  "higher_studies": [
+    "M.Tech in Power Systems",
+    "M.Tech in Power Electronics",
+    "MBA",
+    "MS (Abroad)",
+    "Ph.D"
+  ],
+
+  "entrepreneurship": [
+    "Electrical Contracting",
+    "Solar Power Installations",
+    "EV Charging Infrastructure",
+    "Energy Auditing Services"
+  ]
+}

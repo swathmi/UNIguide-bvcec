@@ -1,0 +1,193 @@
+{
+  "department": {
+    "name": "Information & Technology",
+    "short_name": "IT",
+    "college": "Bonam Venkata Chalamayya Engineering College (Autonomous)",
+    "location": "Odalarevu, East Godavari, Andhra Pradesh",
+    "introduced_year": "2002",
+    "intake_capacity": 60
+  },
+
+  "vision_mission": {
+    "vision": "To become a center of excellence in Computer Science & Engineering by imparting quality education, fostering innovation, research, and ethical values.",
+    "mission": [
+      "To provide strong fundamentals in Computer Science and Engineering.",
+      "To encourage students to develop problem-solving and analytical skills.",
+      "To promote research, innovation, and industry collaboration.",
+      "To inculcate professional ethics and lifelong learning."
+    ]
+  },
+
+  "head_of_department": {
+    "name": "Dr. Meera Sharif Sheik",
+    "designation": "Professor & HOD",
+    "qualification": "M.Tech, Ph.D",
+    "experience": "19+ years teaching, 7 years research",
+    "research_interests": [
+      "Computer Networks",
+      "Cryptography & Network Security",
+      "Machine Learning",
+      "Deep Learning",
+      "Artificial Intelligence",
+      "Data Mining",
+      "Ethical Hacking"
+    ]
+  },
+
+  "faculty": [
+    { "name": "Dr. Meera Sharif Sheik", "designation": "Professor & HOD", "qualification": "M.Tech, Ph.D" },
+    { "name": "Mr. Bodapati Narasimharao", "designation": "Associate Professor", "qualification": "M.Tech" },
+    { "name": "Mr. Yedidha Maruti Suryanarayana Datta Sastry", "designation": "Associate Professor", "qualification": "M.Tech" },
+    { "name": "Mrs. Bonam Sirisha", "designation": "Assistant Professor", "qualification": "M.Tech" },
+    { "name": "Mr. Turaga Venkata Lakshmi Srinivasa Rao", "designation": "Assistant Professor", "qualification": "M.Tech" },
+    { "name": "Mr. Mutcharla Venkata Krishna Subash", "designation": "Assistant Professor", "qualification": "M.Tech" },
+    { "name": "Ms. Ainagadda Priyanka", "designation": "Assistant Professor", "qualification": "M.Tech" },
+    { "name": "Mrs. Ganisetty Santhoshi Lakshmi", "designation": "Assistant Professor", "qualification": "MCA" },
+    { "name": "Mrs. Akula Sai Krishna Veni", "designation": "Assistant Professor", "qualification": "M.Tech" },
+    { "name": "Ms. Beenaboyina Sirisha", "designation": "Assistant Professor", "qualification": "MCA" },
+    { "name": "Mr. Chavatapalli Tatayya Naidu", "designation": "Assistant Professor", "qualification": "M.Tech" },
+    { "name": "Mr. Vasireddi Narasimham", "designation": "Assistant Professor", "qualification": "M.Tech" },
+    { "name": "Mr. Nimmana Ramesh", "designation": "Assistant Professor", "qualification": "M.Tech" },
+    { "name": "Mr. Kanumonu Venkata Rama Kumar", "designation": "Assistant Professor", "qualification": "M.Tech" },
+    { "name": "Ms. Polisetty Jhansi S K Satyasri", "designation": "Assistant Professor", "qualification": "M.Tech" },
+    { "name": "Mr. Sanivarapu Suresh Kumar", "designation": "Assistant Professor", "qualification": "M.Tech" },
+    { "name": "Ms. Menda Santhi Priya", "designation": "Assistant Professor", "qualification": "MCA" },
+    { "name": "Mrs. Adabala Lakshmi Satyavathi", "designation": "Assistant Professor", "qualification": "M.Tech" },
+    { "name": "Ms. D Siva Keerthi", "designation": "Assistant Professor", "qualification": "M.Tech" }
+  ],
+
+  "academic_structure": {
+    "year_1": {
+      "semester_1": {
+        "subjects": [
+          "Mathematics – I",
+          "Engineering Physics",
+          "Programming for Problem Solving (C)",
+          "Engineering Graphics",
+          "Communicative English"
+        ],
+        "labs": [
+          "C Programming Lab",
+          "Physics Lab",
+          "English Communication Lab"
+        ]
+      },
+      "semester_2": {
+        "subjects": [
+          "Mathematics – II",
+          "Engineering Chemistry",
+          "Data Structures",
+          "Basic Electrical Engineering",
+          "Environmental Science"
+        ],
+        "labs": [
+          "Data Structures Lab",
+          "Chemistry Lab",
+          "Basic Electrical Lab"
+        ]
+      }
+    },
+
+    "year_2": {
+      "semester_3": {
+        "subjects": [
+          "Discrete Mathematics",
+          "Object Oriented Programming with Java",
+          "Computer Organization",
+          "Python Programming",
+          "Universal Human Values"
+        ],
+        "labs": [
+          "Java Programming Lab",
+          "Python Programming Lab",
+          "Computer Organization Lab"
+        ]
+      },
+      "semester_4": {
+        "subjects": [
+          "Probability and Statistics",
+          "Operating Systems",
+          "Database Management Systems",
+          "Software Engineering",
+          "Design Thinking"
+        ],
+        "labs": [
+          "Operating Systems Lab",
+          "DBMS Lab",
+          "Software Engineering Lab"
+        ]
+      }
+    },
+
+    "year_3": {
+      "semester_5": {
+        "subjects": [
+          "Computer Networks",
+          "Compiler Design",
+          "Web Technologies",
+          "Artificial Intelligence",
+          "Professional Elective – I"
+        ],
+        "labs": [
+          "Computer Networks Lab",
+          "Web Technologies Lab",
+          "Mini Project Lab"
+        ]
+      },
+      "semester_6": {
+        "subjects": [
+          "Machine Learning",
+          "Data Mining",
+          "Cryptography and Network Security",
+          "Professional Elective – II",
+          "Open Elective – I"
+        ],
+        "labs": [
+          "Machine Learning Lab",
+          "Data Mining Lab",
+          "Security Lab"
+        ]
+      }
+    },
+
+    "year_4": {
+      "semester_7": {
+        "subjects": [
+          "Software Testing Methodologies",
+          "Management Science",
+          "Professional Elective – III",
+          "Open Elective – II",
+          "Seminar"
+        ],
+        "labs": [
+          "Internship / Industrial Training Evaluation"
+        ]
+      },
+      "semester_8": {
+        "subjects": [
+          "Major Project Phase – I",
+          "Major Project Phase – II",
+          "Internship / Industry Training",
+          "Comprehensive Viva",
+          "Technical Seminar"
+        ],
+        "labs": [
+          "Project Lab"
+        ]
+      }
+    }
+  },
+
+  "industrial_visits": [
+    {
+      "company": "Chemeca Drugs Pvt Limited",
+      "location": "Visakhapatnam",
+      "date": "30-09-2023"
+    },
+    {
+      "company": "Miracle Software Systems (IT SEZ)",
+      "location": "Rushikonda, Visakhapatnam, Andhra Pradesh",
+      "date": "22-09-2023"
+    }
+  ]
+}

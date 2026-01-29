@@ -1,0 +1,190 @@
+{
+  "admission_overview": [
+    "BVCEC offers admissions into B.Tech and M.Tech programs through government quota, lateral entry, management quota, and international admissions.",
+    "Admissions are conducted as per APSCHE and Government of Andhra Pradesh guidelines."
+  ],
+
+  "admission_modes": [
+    "AP EAMCET (Government Quota)",
+    "AP ECET (Lateral Entry)",
+    "Management Quota",
+    "International Admissions"
+  ],
+
+  "btech_admission_process": [
+    "Admissions into B.Tech are primarily through AP EAMCET counseling.",
+    "Candidates must qualify AP EAMCET and participate in APSCHE counseling.",
+    "Seat allotment is based on rank, reservation, and availability."
+  ],
+
+  "btech_eligibility": [
+    "Candidates must have completed Intermediate (10+2).",
+    "Mathematics, Physics, and Chemistry are mandatory subjects.",
+    "Admission is based on AP EAMCET rank."
+  ],
+
+  "btech_entrance_exam": [
+    "AP EAMCET is the entrance exam for B.Tech admissions.",
+    "The exam is conducted by APSCHE.",
+    "Only qualified candidates are eligible for counseling."
+  ],
+
+  "btech_counseling": [
+    "Counseling is conducted online by APSCHE.",
+    "Candidates must register on the APSCHE portal.",
+    "Web options must be exercised to select preferred colleges."
+  ],
+
+  "lateral_entry_overview": [
+    "Lateral entry admissions are for diploma and eligible B.Sc candidates.",
+    "Admission is directly into the second year of B.Tech."
+  ],
+
+  "lateral_entry_eligibility": [
+    "Candidates must hold a diploma in engineering or a B.Sc degree with Mathematics.",
+    "Admission is based on AP ECET rank."
+  ],
+
+  "lateral_entry_entrance_exam": [
+    "AP ECET is the entrance exam for lateral entry admissions.",
+    "The exam is conducted by APSCHE."
+  ],
+
+  "management_quota_overview": [
+    "Management quota admissions are available for limited seats.",
+    "Admission is subject to college and APSCHE norms."
+  ],
+
+  "management_quota_eligibility": [
+    "Candidates must meet minimum academic eligibility.",
+    "Entrance exam is not mandatory for management quota."
+  ],
+
+  "management_quota_process": [
+    "Candidates must apply directly at the college.",
+    "Seat allotment is based on availability and eligibility."
+  ],
+
+  "important_admission_dates": [
+    "Admission notifications are usually released in May.",
+    "Certificate verification is conducted in June.",
+    "Seat allotment takes place between July and August.",
+    "Academic year generally starts in August."
+  ],
+
+  "documents_required_mandatory": [
+    "AP EAMCET / ECET Rank Card",
+    "Intermediate / Diploma Marks Memo",
+    "SSC Certificate",
+    "Transfer Certificate (TC)",
+    "Aadhaar Card",
+    "Passport size photographs"
+  ],
+
+  "documents_required_category": [
+    "Caste Certificate (SC/ST/BC)",
+    "Income Certificate",
+    "EWS Certificate",
+    "PwD Certificate (if applicable)"
+  ],
+
+  "counseling_authority": [
+    "Counseling is conducted by APSCHE (Andhra Pradesh State Council of Higher Education)."
+  ],
+
+  "counseling_steps": [
+    "Online registration on APSCHE portal",
+    "Certificate verification",
+    "Web option entry",
+    "Seat allotment",
+    "Reporting to the allotted college"
+  ],
+
+  "seat_allotment_rules": [
+    "Seats are allotted based on rank, reservation, and availability.",
+    "Candidates must report to the college to confirm admission."
+  ],
+
+  "reservation_policy_overview": [
+    "Reservation policy is followed as per Government of Andhra Pradesh norms."
+  ],
+
+  "reservation_sc": [
+    "Reservation is applicable for Scheduled Caste candidates as per norms."
+  ],
+
+  "reservation_st": [
+    "Reservation is applicable for Scheduled Tribe candidates as per norms."
+  ],
+
+  "reservation_bc": [
+    "Reservation is applicable for Backward Class candidates as per norms."
+  ],
+
+  "reservation_ews": [
+    "Economically Weaker Section reservation is applicable as per government rules."
+  ],
+
+  "reservation_pwd": [
+    "PwD reservation is applicable for eligible candidates."
+  ],
+
+  "management_quota_reservation": [
+    "Reservation policies are not applicable for management quota admissions."
+  ],
+
+  "admission_officer_details": [
+    "Administrative Officer: Mr. A Y R V Prasad"
+  ],
+
+  "admission_contact_numbers": [
+    "Phone: +91 98496 42742",
+    "Alternate Phone: +91 88562 50825"
+  ],
+
+  "admission_email_contacts": [
+    "Email: bvce@bvcgroup.in",
+    "Email: admissions@bvcec.edu.in"
+  ],
+
+  "international_students_overview": [
+    "BVCEC admits international students, including students from Nepal and other countries."
+  ],
+
+  "nepal_students_availability": [
+    "Yes, students from Nepal are currently studying at BVCEC."
+  ],
+
+  "nepal_registered_office_details": [
+    "Nepal Registered Office In-charge: Mr. Rajesh Bashyal",
+    "Phone: +977 98510 88024",
+    "Email: rajesh.bashyal@bvcgroup.in",
+    "Address: Putali Sadak, Kathmandu, Nepal"
+  ],
+
+  "international_admissions_incharge": [
+    "International Admissions Coordinator: Dr. Meera Sharif Sheik"
+  ],
+
+  "international_admissions_contact": [
+    "Phone: +91 9490790137",
+    "WhatsApp: +91 9490790137",
+    "Email: sharief.bvce@bvcgroup.in"
+  ],
+
+  "international_admissions_address": [
+    "BONAM VENKATA CHALAMAYYA ENGINEERING COLLEGE",
+    "Odalarevu, Andhra Pradesh, India"
+  ],
+
+  "general_admission_rules": [
+    "Seat allotment is strictly based on merit and reservation.",
+    "Change of branch is not permitted after admission.",
+    "Hostel facility is subject to availability."
+  ],
+  "degrees_offered": [
+  "BVCEC offers undergraduate and postgraduate engineering programs.",
+  "The degrees offered are B.Tech and M.Tech."
+]
+
+}

@@ -1,0 +1,215 @@
+{
+  "department": {
+    "name": "Civil Engineering",
+    "short_name": "CE",
+    "college": "Bonam Venkata Chalamayya Engineering College (Autonomous)",
+    "location": "Odalarevu, Konaseema District, Andhra Pradesh",
+    "program_level": "B.Tech",
+    "branch_code": "CE"
+  },
+
+  "head_of_department": {
+    "name": "Dr. Korakuti Hanumanthu",
+    "designation": "Associate Professor & HOD",
+    "qualification": "M.Tech., Ph.D.",
+    "profile_url": "https://bvcec.edu.in/departments/civil-engineering/ce-hod/"
+  },
+
+  "faculty": [
+    {
+      "name": "Dr. Korakuti Hanumanthu",
+      "designation": "Associate Professor & HOD",
+      "qualification": "M.Tech., Ph.D."
+    },
+    {
+      "name": "Dr. Nandyala Sivakumar",
+      "designation": "Associate Professor",
+      "qualification": "M.Tech., Ph.D."
+    },
+    {
+      "name": "Dr. Ravi Kumar",
+      "designation": "Assistant Professor",
+      "qualification": "M.Tech., Ph.D."
+    },
+    {
+      "name": "Mr. Chinta Sivanarayana",
+      "designation": "Associate Professor",
+      "qualification": "M.E."
+    },
+    {
+      "name": "Dr. Nagalapalli Satish",
+      "designation": "Assistant Professor",
+      "qualification": "M.Tech"
+    },
+    {
+      "name": "Mr. Kishor Kumar G",
+      "designation": "Assistant Professor",
+      "qualification": "M.Tech"
+    },
+    {
+      "name": "Ms. Magapu Durga",
+      "designation": "Assistant Professor",
+      "qualification": "M.Tech"
+    },
+    {
+      "name": "Ms. Vipparthi Anitha",
+      "designation": "Assistant Professor",
+      "qualification": "M.Tech"
+    },
+    {
+      "name": "Mr. Bathula Hemaprasad",
+      "designation": "Assistant Professor",
+      "qualification": "M.Tech"
+    }
+  ],
+
+  "vision_and_mission": {
+    "vision": "To produce competent civil engineers capable of contributing to sustainable infrastructure development and societal needs.",
+    "mission": [
+      "Provide strong fundamentals in civil engineering disciplines",
+      "Encourage practical exposure through labs, projects and internships",
+      "Promote ethical values and lifelong learning"
+    ]
+  },
+
+  "academic_structure": {
+    "year_1": {
+      "semester_1": {
+        "subjects": [
+          "Mathematics – I",
+          "Engineering Physics",
+          "Programming for Problem Solving",
+          "Engineering Graphics",
+          "Communicative English"
+        ],
+        "labs": [
+          "Physics Lab",
+          "Programming Lab",
+          "English Communication Lab"
+        ]
+      },
+      "semester_2": {
+        "subjects": [
+          "Mathematics – II",
+          "Engineering Chemistry",
+          "Basic Electrical Engineering",
+          "Engineering Mechanics",
+          "Environmental Science"
+        ],
+        "labs": [
+          "Chemistry Lab",
+          "Electrical Engineering Lab",
+          "Engineering Mechanics Lab"
+        ]
+      }
+    },
+
+    "year_2": {
+      "semester_3": {
+        "subjects": [
+          "Strength of Materials",
+          "Surveying – I",
+          "Building Materials & Construction",
+          "Fluid Mechanics",
+          "Universal Human Values"
+        ],
+        "labs": [
+          "Strength of Materials Lab",
+          "Surveying Lab",
+          "Fluid Mechanics Lab"
+        ]
+      },
+      "semester_4": {
+        "subjects": [
+          "Structural Analysis – I",
+          "Geotechnical Engineering – I",
+          "Hydrology",
+          "Concrete Technology",
+          "Design Thinking"
+        ],
+        "labs": [
+          "Concrete Technology Lab",
+          "Geotechnical Engineering Lab",
+          "Hydrology Lab"
+        ]
+      }
+    },
+
+    "year_3": {
+      "semester_5": {
+        "subjects": [
+          "Structural Analysis – II",
+          "Geotechnical Engineering – II",
+          "Environmental Engineering – I",
+          "Transportation Engineering – I",
+          "Open Elective – I"
+        ],
+        "labs": [
+          "Environmental Engineering Lab",
+          "Transportation Engineering Lab",
+          "Mini Project Lab"
+        ]
+      },
+      "semester_6": {
+        "subjects": [
+          "Design of RCC Structures",
+          "Environmental Engineering – II",
+          "Transportation Engineering – II",
+          "Water Resources Engineering",
+          "Professional Elective – I"
+        ],
+        "labs": [
+          "Environmental Engineering Lab – II",
+          "Water Resources Engineering Lab",
+          "Advanced Surveying Lab"
+        ]
+      }
+    },
+
+    "year_4": {
+      "semester_7": {
+        "subjects": [
+          "Design of Steel Structures",
+          "Construction Planning & Management",
+          "Disaster Management",
+          "Professional Elective – II",
+          "Open Elective – II"
+        ],
+        "labs": [
+          "CAD Lab",
+          "Internship / Industry Training"
+        ]
+      },
+      "semester_8": {
+        "subjects": [
+          "Major Project Phase – I",
+          "Major Project Phase – II",
+          "Seminar",
+          "Comprehensive Viva",
+          "Internship Evaluation"
+        ],
+        "labs": [
+          "Project Lab"
+        ]
+      }
+    }
+  },
+
+  "syllabus": {
+    "regulations": [
+      {
+        "regulation": "BR23",
+        "program": "B.Tech Civil Engineering",
+        "syllabus_link": "https://bvcec.edu.in/departments/civil-engineering/syllabus/"
+      }
+    ]
+  },
+
+  "department_activities": [
+    "Student Projects",
+    "Internships",
+    "Industry Interaction",
+    "Faculty Development Programs",
+    "Workshops & Guest Lectures"
+  ]
+}

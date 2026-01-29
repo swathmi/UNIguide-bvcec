@@ -1,0 +1,131 @@
+{
+  "department": {
+    "name": "Mechanical Engineering",
+    "short_name": "MECH",
+    "college": "Bonam Venkata Chalamayya Engineering College (Autonomous)",
+    "location": "Odalarevu, East Godavari, Andhra Pradesh",
+    "website_base": "https://bvcec.edu.in/departments/mechanical-engineering/"
+  },
+
+  "administration": {
+    "principal": {
+      "name": "Dr. D. Maheswar",
+      "designation": "Principal",
+      "qualification": "M.Tech, Ph.D"
+    }
+  },
+
+  "head_of_department": {
+    "name": "Dr. M. Naveen Srinivas",
+    "designation": "HOD – Mechanical Engineering",
+    "qualification": "Ph.D",
+    "profile_page": "https://bvcec.edu.in/departments/mechanical-engineering/me-hod/"
+  },
+
+  "faculty": [
+    { "name": "Dr. G. Narasa Raju", "designation": "Professor", "qualification": "Ph.D" },
+    { "name": "Dr. S. Vijaya Kumar", "designation": "Professor", "qualification": "Ph.D" },
+    { "name": "B. Srinivas", "designation": "Professor & CE", "qualification": "M.Tech" },
+    { "name": "Dr. Sujeet Kumar", "designation": "Assistant Professor", "qualification": "Ph.D" },
+    { "name": "Mr. Y. V. Ramana Murty", "designation": "Associate Professor", "qualification": "M.Tech" },
+    { "name": "Mr. G. Venkateswara Rao", "designation": "Associate Professor", "qualification": "M.Tech" },
+    { "name": "Mr. N. Vasudeva Rao", "designation": "Associate Professor", "qualification": "M.Tech" },
+    { "name": "Mr. G. Ganesh", "designation": "Assistant Professor", "qualification": "M.Tech" },
+    { "name": "Mr. Ch. Vinodh", "designation": "Assistant Professor", "qualification": "M.Tech" },
+    { "name": "Mr. S. S. S. Krishna Kumar", "designation": "Assistant Professor", "qualification": "M.Tech" },
+    { "name": "Mr. N. Guru Murthy", "designation": "Assistant Professor", "qualification": "M.Tech" },
+    { "name": "Mr. Ch. Durga Jaya Teja", "designation": "Assistant Professor", "qualification": "M.Tech" }
+  ],
+
+  "sections": {
+    "research_and_development": {
+      "source_pages": [
+        "https://bvcec.edu.in/departments/mechanical-engineering/research-development/"
+      ],
+      "text_content_source": "website_scraped.txt",
+      "images_source": "website_images.json",
+      "pdfs_source": "website_pdfs.json"
+    },
+
+    "professional_societies_and_activities": {
+      "source_pages": [
+        "https://bvcec.edu.in/departments/mechanical-engineering/professional-societies-activities/"
+      ],
+      "text_content_source": "website_scraped.txt",
+      "images_source": "website_images.json"
+    },
+
+    "newsletters": {
+      "source_pages": [
+        "https://bvcec.edu.in/departments/mechanical-engineering/newsletters/"
+      ],
+      "pdfs_source": "website_pdfs.json"
+    },
+
+    "nba_e_sar": {
+      "source_pages": [
+        "https://bvcec.edu.in/departments/mechanical-engineering/nba-e-sar/"
+      ],
+      "pdfs_source": "website_pdfs.json"
+    },
+
+    "magazines": {
+      "source_pages": [
+        "https://bvcec.edu.in/departments/mechanical-engineering/magazines/"
+      ],
+      "pdfs_source": "website_pdfs.json",
+      "images_source": "website_images.json"
+    },
+
+    "industry_institution_interaction": {
+      "source_pages": [
+        "https://bvcec.edu.in/departments/mechanical-engineering/industry-institution-interaction/"
+      ],
+      "text_content_source": "website_scraped.txt",
+      "images_source": "website_images.json"
+    },
+
+    "gallery": {
+      "source_pages": [
+        "https://bvcec.edu.in/departments/mechanical-engineering/gallery/"
+      ],
+      "images_source": "website_images.json"
+    },
+
+    "entrepreneurship_and_higher_studies": {
+      "source_pages": [
+        "https://bvcec.edu.in/departments/mechanical-engineering/entrepreneurship-higher-studies/"
+      ],
+      "text_content_source": "website_scraped.txt"
+    },
+
+    "distinguished_alumni": {
+      "source_pages": [
+        "https://bvcec.edu.in/departments/mechanical-engineering/distinguished-alumni/"
+      ],
+      "text_content_source": "website_scraped.txt",
+      "images_source": "website_images.json"
+    },
+
+    "department_placements": {
+      "source_pages": [
+        "https://bvcec.edu.in/departments/mechanical-engineering/placements/"
+      ],
+      "text_content_source": "website_scraped.txt"
+    },
+
+    "academic_audit": {
+      "source_pages": [
+        "https://bvcec.edu.in/departments/mechanical-engineering/academic-audit/"
+      ],
+      "pdfs_source": "website_pdfs.json"
+    },
+
+    "old_question_papers": {
+      "source_pages": [
+        "https://bvcec.edu.in/departments/mechanical-engineering/old-question-papers/"
+      ],
+      "pdfs_source": "website_pdfs.json"
+    }
+  }
+}

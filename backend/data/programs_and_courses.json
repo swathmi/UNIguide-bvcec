@@ -1,0 +1,162 @@
+{
+  "academic_levels": {
+    "undergraduate": {
+      "degree": "B.Tech",
+      "programs": [
+        "Computer Science & Engineering (CSE)",
+        "CSE – Artificial Intelligence & Machine Learning",
+        "CSE – Artificial Intelligence & Data Science",
+        "Information Technology (IT)",
+        "Electronics & Communication Engineering (ECE)",
+        "Electrical & Electronics Engineering (EEE)",
+        "Mechanical Engineering (ME)",
+        "Civil Engineering"
+      ]
+    },
+    "postgraduate": {
+      "degree": "M.Tech",
+      "programs": [
+        "M.Tech – Computer Science & Engineering",
+        "M.Tech – Embedded Systems",
+        "M.Tech – Power Electronics",
+        "M.Tech – Advanced Manufacturing Systems",
+        "M.Tech – Structural Engineering"
+      ]
+    }
+  },
+
+  "course_codes": {
+    "ug_codes": {
+      "CSE": "CSE",
+      "CSE_AI_ML": "CSM",
+      "CSE_AI_DS": "CAD",
+      "AI-ML":"AIML",
+      "IT": "IT",
+      "ECE":"ECE",
+      "EEE": "EEE",
+      "ME": "ME",
+      "CIVIL": "CIVIL"
+    },
+    "pg_codes": {
+      "MTECH_CSE": "PG-CSE",
+      "EMBEDDED_SYSTEMS": "PG-ES",
+      "POWER_ELECTRONICS": "PG-PE",
+      "ADV_MANUFACTURING": "PG-AMS",
+      "STRUCTURAL_ENGINEERING": "PG-SE"
+    }
+  },
+
+  "eligibility": {
+    "ug_eligibility": {
+      "qualification": "10+2 (Intermediate)",
+      "required_subjects": ["Mathematics", "Physics", "Chemistry"],
+      "minimum_percentage": "As per government norms",
+      "entrance_exams": ["EAMCET"]
+    },
+    "pg_eligibility": {
+      "qualification": "B.Tech / B.E in relevant discipline",
+      "minimum_percentage": "As per university norms",
+      "entrance_exams": ["PGECET", "GATE"]
+    },
+    "lateral_entry": {
+      "qualification": "Diploma in Engineering",
+      "admission_year": "Second Year B.Tech",
+      "entrance_exam": "ECET"
+    }
+  },
+
+  "fee_structure": {
+    "ug_fees": "As prescribed by the Government of Andhra Pradesh",
+    "pg_fees": "As prescribed by APSCHE",
+    "hostel_fees": "Separate hostel fee structure applicable",
+    "scholarships": [
+      "Government Scholarships",
+      "Merit-based Scholarships",
+      "SC / ST / BC Scholarships"
+    ]
+  },
+
+  "intake_capacity": {
+    "CSE": 180,
+    "CSE_AI_ML": 60,
+    "CSE_AI_DS": 60,
+    "IT": 60,
+    "ECE": 120,
+    "EEE": 60,
+    "ME": 60,
+    "CIVIL": 60
+  },
+
+  
+
+  
+
+  "teaching_methodology": {
+    "methods": [
+      "Classroom Teaching",
+      "Project-Based Learning",
+      "Problem Solving Sessions",
+      "Industry-Oriented Training"
+    ]
+  },
+
+  "syllabus_and_curriculum": {
+    "structure": [
+      "First Year – Common Engineering Subjects",
+      "Second & Third Year – Core Subjects",
+      "Final Year – Electives & Project Work"
+    ],
+    "regulations": ["R20", "R23"]
+  },
+
+  "placements": {
+    "placement_percentage": "Consistently improving placement record",
+    "top_recruiters": [
+      "TCS",
+      "Infosys",
+      "Wipro",
+      "Cognizant",
+      "Capgemini"
+    ],
+    "packages": {
+      "average_package": "3.5 LPA",
+      "highest_package": "Up to 10 LPA"
+    },
+    "internships": [
+      "Industry Internships",
+      "Summer Internships",
+      "Virtual Internships"
+    ]
+  },
+
+  "value_added_courses": {
+    "technical": [
+      "Python Programming",
+      "Full Stack Development",
+      "Data Science Basics"
+    ],
+    "soft_skills": [
+      "Communication Skills",
+      "Aptitude Training",
+      "Personality Development"
+    ]
+  },
+
+  "research_and_innovation": {
+    "activities": [
+      "Student Research Projects",
+      "Hackathons",
+      "Paper Publications",
+      "Technical Competitions"
+    ]
+  },
+
+  "industry_exposure": {
+    "activities": [
+      "Industrial Visits",
+      "Guest Lectures",
+      "Industry Projects",
+      "MoUs with Companies"
+    ]
+  }
+}

@@ -1,0 +1,195 @@
+{
+  "department": {
+    "name": "Electronics and Communication Engineering",
+    "short_name": "ECE",
+    "college": "Bonam Venkata Chalamayya Engineering College (Autonomous)",
+    "location": "Odalarevu, East Godavari, Andhra Pradesh",
+    "introduced_year": "2001",
+    "intake_capacity": 120
+  },
+
+  "head_of_department": {
+    "name": "Dr. Thoram Saran Kumar",
+    "designation": "Associate Professor & HOD",
+    "qualification": "M.Tech, Ph.D",
+    "experience": "15+ Years",
+    "research_interests": [
+      "VLSI",
+      "Communication Systems",
+      "Signal Processing",
+      "Embedded Systems"
+    ]
+  },
+
+  "faculty": [
+    { "name": "Dr. Akula Pravin", "designation": "Professor & Vice-Principal", "qualification": "M.Tech, Ph.D" },
+    { "name": "Dr. Thoram Saran Kumar", "designation": "Associate Professor & HOD", "qualification": "M.Tech, Ph.D" },
+    { "name": "Dr. Valluri Dhanaraj", "designation": "Professor", "qualification": "M.Tech, Ph.D" },
+    { "name": "Dr. Saladi Kanaka Durga", "designation": "Professor", "qualification": "M.Tech, Ph.D" },
+    { "name": "Dr. Kusuma Raja Sekhar", "designation": "Professor", "qualification": "M.Tech, Ph.D" },
+    { "name": "Dr. Kompella Bhaskara Srinivasa Sarma", "designation": "Professor", "qualification": "M.Tech, Ph.D" },
+    { "name": "Dr. Namburi Satya Nagendra Lakshmipathiraju", "designation": "Professor", "qualification": "M.Tech, Ph.D" },
+    { "name": "Dr. Mandem Nomitha Reddy", "designation": "Assistant Professor", "qualification": "Ph.D" },
+    { "name": "Mrs. Chavakula Sridevi", "designation": "Associate Professor", "qualification": "M.Tech" },
+    { "name": "Ms. Pangam Harika", "designation": "Associate Professor", "qualification": "M.Tech" },
+    { "name": "Mrs. Vallabhareddi Sandhya", "designation": "Associate Professor", "qualification": "M.Tech" },
+    { "name": "Mr. Nadimpalli Phanikumar", "designation": "Assistant Professor", "qualification": "M.Tech" },
+    { "name": "Mrs. Marisetty Mounika Varalakshmi", "designation": "Assistant Professor", "qualification": "M.Tech" },
+    { "name": "Mrs. Jalli Umamaheswari", "designation": "Assistant Professor", "qualification": "M.Tech" },
+    { "name": "Mr. Yegireddi Satya Vinod", "designation": "Assistant Professor", "qualification": "M.Tech" },
+    { "name": "Mr. Inukonda Rama Satya Nageswara Rao", "designation": "Assistant Professor", "qualification": "M.Tech" },
+    { "name": "Ms. Samsani Naga Venkata Durga Lakshmi Priyanka", "designation": "Assistant Professor", "qualification": "M.Tech" },
+    { "name": "Ms. Gubbala Lakshmi Durga", "designation": "Assistant Professor", "qualification": "M.Tech" },
+    { "name": "Ms. Tikkireddy Sri Satya Mounika", "designation": "Assistant Professor", "qualification": "M.Tech" },
+    { "name": "Ms. Seelam Naga Bharghavi", "designation": "Assistant Professor", "qualification": "M.Tech" },
+    { "name": "Ms. Gubbala Asha", "designation": "Assistant Professor", "qualification": "M.Tech" },
+    { "name": "Ms. Gosangi Sukanya", "designation": "Assistant Professor", "qualification": "M.Tech" },
+    { "name": "Mrs. Kondamuri Lakshmipriyanka", "designation": "Assistant Professor", "qualification": "M.Tech" },
+    { "name": "Mr. Gidla Sudheer Babu", "designation": "Assistant Professor", "qualification": "M.Tech" },
+    { "name": "Ms. Kanakala Sivaranjini", "designation": "Assistant Professor", "qualification": "M.Tech" },
+    { "name": "Ms. Kankipati Swathi", "designation": "Assistant Professor", "qualification": "M.Tech" },
+    { "name": "Ms. Dunaboyina Tulasi", "designation": "Assistant Professor", "qualification": "M.Tech" },
+    { "name": "Ms. Sabbathi Leelaveni Veni", "designation": "Assistant Professor", "qualification": "M.Tech" },
+    { "name": "Mrs. Chikkam Surya Ramagouri", "designation": "Assistant Professor", "qualification": "M.Tech" },
+    { "name": "Ms. Bokka Sai Sri", "designation": "Assistant Professor", "qualification": "M.Tech" },
+    { "name": "Mr. Yelisetty Narayana Murthy", "designation": "Assistant Professor", "qualification": "M.Tech" }
+  ],
+
+  "academic_structure": {
+    "year_1": {
+      "semester_1": {
+        "subjects": [
+          "Mathematics-I",
+          "Engineering Physics",
+          "Basic Electrical Engineering",
+          "Programming for Problem Solving",
+          "Communicative English"
+        ],
+        "labs": [
+          "Physics Lab",
+          "Programming Lab",
+          "English Communication Lab"
+        ]
+      },
+      "semester_2": {
+        "subjects": [
+          "Mathematics-II",
+          "Engineering Chemistry",
+          "Electronic Devices",
+          "Engineering Mechanics",
+          "Environmental Science"
+        ],
+        "labs": [
+          "Chemistry Lab",
+          "Electronic Devices Lab",
+          "Engineering Workshop"
+        ]
+      }
+    },
+
+    "year_2": {
+      "semester_3": {
+        "subjects": [
+          "Network Theory",
+          "Analog Circuits",
+          "Signals and Systems",
+          "Digital Logic Design",
+          "Universal Human Values"
+        ],
+        "labs": [
+          "Analog Circuits Lab",
+          "Digital Logic Lab",
+          "Signals Lab"
+        ]
+      },
+      "semester_4": {
+        "subjects": [
+          "Control Systems",
+          "Analog Communications",
+          "Linear Integrated Circuits",
+          "Probability Theory",
+          "Design Thinking"
+        ],
+        "labs": [
+          "LIC Lab",
+          "Analog Communication Lab",
+          "Control Systems Lab"
+        ]
+      }
+    },
+
+    "year_3": {
+      "semester_5": {
+        "subjects": [
+          "Digital Communications",
+          "Microprocessors & Microcontrollers",
+          "Electromagnetic Theory",
+          "VLSI Design",
+          "Open Elective-I"
+        ],
+        "labs": [
+          "Microprocessor Lab",
+          "Digital Communication Lab",
+          "VLSI Lab"
+        ]
+      },
+      "semester_6": {
+        "subjects": [
+          "Embedded Systems",
+          "Wireless Communications",
+          "Digital Signal Processing",
+          "Professional Elective-I",
+          "Management Economics"
+        ],
+        "labs": [
+          "DSP Lab",
+          "Embedded Systems Lab",
+          "Mini Project Lab"
+        ]
+      }
+    },
+
+    "year_4": {
+      "semester_7": {
+        "subjects": [
+          "Internet of Things",
+          "Professional Elective-II",
+          "Open Elective-II",
+          "Disaster Management",
+          "Research Methodology"
+        ],
+        "labs": [
+          "IoT Lab",
+          "Internship Evaluation"
+        ]
+      },
+      "semester_8": {
+        "subjects": [
+          "Major Project Phase-I",
+          "Major Project Phase-II",
+          "Seminar",
+          "Comprehensive Viva",
+          "Industry Internship"
+        ],
+        "labs": [
+          "Project Lab",
+          "Internship Assessment"
+        ]
+      }
+    }
+  },
+
+  "student_projects": [
+    "IoT Based Environmental Monitoring System",
+    "Zigbee Based Agricultural Robot",
+    "Railway Pedestrian Crossing Automation",
+    "Smart Energy Meter Using GSM"
+  ],
+
+  "infrastructure": [
+    "VLSI Lab",
+    "DSP Lab",
+    "Embedded Systems Lab",
+    "Communication Systems Lab"
+  ]
+}

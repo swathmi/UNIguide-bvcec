@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>UNIGuide – BVCEC Campus Assistant</title>
+
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<!-- ===================================================== -->
+<!-- ================= LANDING PAGE ====================== -->
+<!-- ===================================================== -->
+<div id="landing">
+
+    <!-- Background shapes -->
+    <div class="bg-shape bg-shape-1"></div>
+    <div class="bg-shape bg-shape-2"></div>
+
+    <!-- ================= NAVBAR ================= -->
+    <header class="navbar">
+        <div class="nav-left">
+            <span class="logo">🎓 UNIGuide <b>BVCEC</b></span>
+        </div>
+
+        <nav class="nav-center">
+            <a href="/">Home</a>
+            <a href="/about">About</a>
+            <a href="/features">Features</a>
+            <a href="/student-services">Student Services</a>
+            <a href="/contact">Contact / Help</a>
+        </nav>
+
+        <<div class="nav-right">
+    <!-- 🌙 Dark Mode Toggle -->
+    <button class="theme-toggle" onclick="toggleTheme()" title="Toggle Dark Mode">🌙</button>
+
+    <!-- ✅ LOGIN -->
+    <button class="login-btn" onclick="window.location.href='/login'">
+        Log In
+    </button>
+
+    <!-- ✅ SIGN UP -->
+    <button class="signup-btn" onclick="window.location.href='/signup'">
+        Sign Up
+    </button>
+</div>
+>
+    </header>
+
+    <!-- ================= HERO SECTION ================= -->
+    <section class="hero">
+        <div class="hero-left">
+            <h1>Your Smart <span>College Assistant</span> for BVCEC</h1>
+            <p>Get answers to all your campus queries, instantly.</p>
+
+            <div class="hero-buttons">
+                <button class="get-started-btn">Get Started</button>
+                <button class="launch-btn" onclick="openChat()">Launch UNIGuide</button>
+            </div>
+        </div>
+
+        <div class="hero-right">
+            <img 
+                src="/static/images/ai_chatbot.png"
+                alt="UNIGuide AI Assistant"
+                class="hero-ai-image"
+            >
+        </div>
+    </section>
+
+    <!-- ===== WAVE DIVIDER ===== -->
+    <div class="wave-divider"></div>
+
+    <!-- ================= FEATURE CARDS ================= -->
+    <section class="features reveal">
+        <div class="feature-card reveal">
+            <img src="/static/images/icons/admission.png" class="feature-icon">
+            <h3>Admission Details</h3>
+            <p>Learn about joining BVCEC.</p>
+        </div>
+
+        <div class="feature-card reveal">
+            <img src="/static/images/icons/course.png" class="feature-icon">
+            <h3>Course Information</h3>
+            <p>Explore academic programs.</p>
+        </div>
+
+        <div class="feature-card reveal">
+            <img src="/static/images/icons/document.png" class="feature-icon">
+            <h3>Document Search</h3>
+            <p>Find brochures & notices.</p>
+        </div>
+    </section>
+
+    <!-- ===== WAVE DIVIDER ===== -->
+    <div class="wave-divider"></div>
+
+    <!-- ================= CHAT PREVIEW ================= -->
+    <section class="chat-preview reveal">
+        <h2>Ask UNIGuide Anything!</h2>
+        <p>How can I assist you today?</p>
+
+        <div class="chat-preview-box">
+            <div class="chat-preview-question">
+                What are the CSE department facilities?
+            </div>
+
+            <div class="chat-preview-answer">
+                The CSE department has advanced labs, programming clubs, and high-speed internet.
+            </div>
+
+            <div class="chat-preview-input">
+                <input placeholder="Type your question here..." disabled />
+                <button>Send</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== WAVE DIVIDER ===== -->
+    <div class="wave-divider"></div>
+
+    <!-- ================= WHY CHOOSE ================= -->
+    <section class="why reveal">
+        <h2>Why Choose UNIGuide?</h2>
+
+        <div class="why-grid">
+            <div class="why-card reveal">
+                <img src="/static/images/icons/instant.png">
+                <h4>Instant Responses</h4>
+                <p>Quick, accurate answers.</p>
+            </div>
+
+            <div class="why-card reveal">
+                <img src="/static/images/icons/support.png">
+                <h4>24/7 Assistance</h4>
+                <p>Always here to help you.</p>
+            </div>
+
+            <div class="why-card reveal">
+                <img src="/static/images/icons/trusted.png">
+                <h4>Trusted & Reliable</h4>
+                <p>Powered by advanced AI.</p>
+            </div>
+        </div>
+    </section>
+
+</div>
+<!-- ================= END LANDING PAGE ================= -->
+
+
+<!-- ================= BACKGROUND FOR CHATBOT ================= -->
+<div class="background"></div>
+
+<!-- ================= CHATBOT UI (UNCHANGED) ================= -->
+<div class="chat-container" id="chatbotContainer" style="display:none;">
+    <div class="chat-header">
+        UNIGuide 🤖<br>
+        <small>BVCEC Smart Campus Assistant</small>
+    </div>
+
+    <div class="chat-body" id="chat-body">
+        <div class="message bot-message">
+            Hello 👋 I'm <b>UNIGuide</b> — your BVCEC Smart Assistant!
+            Ask me any campus-related questions 😊
+        </div>
+    </div>
+
+    <div class="chat-footer">
+        <input id="userInput" placeholder="Ask here..." />
+        <button onclick="sendMessage()">➤</button>
+    </div>
+</div>
+
+<!-- ================= SCROLLING BANNER ================= -->
+<div class="scrolling-banner">
+• CSM Batch 8 (2022 – 2026) • CSM Batch 8 (2022 – 2026) •
+</div>
+
+<!-- ================= FOOTER ================= -->
+<footer class="site-footer">
+    <div class="footer-container">
+        <div class="footer-col">
+            <h3>UNIGuide BVCEC</h3>
+            <p>
+                An AI-powered smart campus assistant designed to help
+                students with instant and accurate information.
+            </p>
+        </div>
+
+        <div class="footer-col">
+            <h4>Quick Links</h4>
+            <a href="/">Home</a>
+            <a href="/features">Features</a>
+            <a href="/student-services">Student Services</a>
+            <a href="/contact">Contact</a>
+        </div>
+
+        <div class="footer-col">
+            <h4>Contact</h4>
+            <p>Email: support@bvcec.edu.in</p>
+            <p>Phone: +91 XXXXX XXXXX</p>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        © 2026 UNIGuide BVCEC. All rights reserved.
+    </div>
+</footer>
+
+<!-- ================= MAIN CHATBOT JS ================= -->
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+
+<!-- ================= LANDING PAGE JS ONLY ================= -->
+<script>
+function openChat() {
+    document.getElementById("landing").style.display = "none";
+    document.getElementById("chatbotContainer").style.display = "block";
+    setTimeout(() => {
+        document.getElementById("userInput").focus();
+    }, 300);
+}
+</script>
+
+</body>
+</html>

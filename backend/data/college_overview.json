@@ -1,0 +1,152 @@
+{
+  "basic_identity": {
+    "college_name": "Bonam Venkata Chalamayya Engineering College",
+    "short_name": "BVCEC",
+
+    "college code": "22",
+    "college_code": "22",
+
+    "college_type": "Private Engineering College affiliated to JNTUK",
+    "trust_name": "BVC Educational Society",
+    "established_year": 2008
+  },
+
+  "vision_mission": {
+    "vision": "To emerge as a center of excellence in engineering education by nurturing innovative, ethical, and socially responsible professionals.",
+    "mission": [
+      "To provide quality technical education with strong academic foundations and ethical values.",
+      "To encourage research, innovation, and industry-oriented learning.",
+      "To develop leadership qualities and lifelong learning skills among students."
+    ]
+  },
+
+  "management": {
+    "members": [
+      {
+        "name": "Dr Bonam Kanaka Durga Garu",
+        "designation": "Chairman",
+        "qualification": "M.A., Educationist",
+        "description": "She provides visionary leadership and strategic direction to the institution, ensuring continuous academic and infrastructural development.",
+        "photo": "/static/images/chairman.jpg"
+      },
+      {
+        "name": "Sri Bonam Venkata Rajesh",
+        "designation": "Former Chairman",
+        "qualification": "B.Tech",
+        "description": "He played a significant role in strengthening the academic standards and overall growth of the institution.",
+        "photo": "/static/images/former_chairman.jpg"
+      },
+      {
+        "name": "Sri Bonam Venkata Chalamayya",
+        "designation": "Founder",
+        "qualification": "Philanthropist",
+        "description": "Founder of BVCEC with a noble vision to provide quality technical education, especially to students from rural backgrounds.",
+        "photo": "/static/images/founder.jpg"
+      },
+      {
+        "name": "Dr. D. Maheswar Dutta",
+        "designation": "Principal",
+        "qualification": "Ph.D",
+        "description": "He is responsible for academic planning, administration, quality assurance, and overall institutional governance.",
+        "photo": "/static/images/principal.jpg"
+      },
+      {
+        "name": "Dr. A. Pravin",
+        "designation": "Vice Principal",
+        "qualification": "Ph.D",
+        "description": "He supports academic administration and plays a key role in student development and faculty coordination.",
+        "photo": "/static/images/vice_principal.jpg"
+      },
+      {
+        "name": "Sri Bonam Kanakayya Garu",
+        "designation": "Secretary",
+        "qualification": "Philanthropist",
+        "description": "He manages the administrative, financial, and operational affairs of the institution.",
+        "photo": "/static/images/group_head.jpg"
+      }
+    ]
+  },
+
+  "location": {
+    "address": "Odalarevu Village, Allavaram Mandal, East Godavari District, Andhra Pradesh",
+    "state": "Andhra Pradesh",
+    "pincode": "533210",
+    "landmark": "Near Allavaram",
+    "google_maps_link": "https://maps.google.com"
+  },
+
+  "contact": {
+    "office_phone": "+91-9849642742",
+    "admission_helpline": "+91-9392522444",
+    "official_email": "info@bvcec.edu.in",
+    "admissions_email": "admissions@bvcec.edu.in"
+  },
+
+  "accreditation_and_approvals": {
+    "aicte": "Approved by AICTE, New Delhi.",
+    "naac": "Accredited by NAAC with a recognized grade.",
+    "nba": "Selected academic programs are accredited by NBA.",
+    "ugc": "Affiliated to JNTUK and recognized under UGC norms."
+  },
+
+  "rankings_and_recognitions": {
+    "national_rankings": "The institution continuously strives for national-level rankings through academic excellence.",
+    "recognitions": "Recognized for its commitment to quality education and institutional development."
+  },
+
+  "campus_and_infrastructure": {
+    "campus_area": "Over 20 acres of green and eco-friendly campus.",
+    "facilities": [
+      "Spacious and well-ventilated classrooms",
+      "Advanced laboratories with modern equipment",
+      "Central library with digital resources",
+      "Seminar halls and conference rooms",
+      "Auditorium for academic and cultural events"
+    ]
+  },
+
+  "college_timings": {
+    "working_days": "Monday to Saturday",
+    "college_hours": "9:00 AM to 4:30 PM",
+    "office_hours": "9:00 AM to 5:00 PM"
+  },
+
+  "online_presence": {
+    "official_website": "https://www.bvcec.edu.in",
+    "facebook": "https://www.facebook.com/bvcec",
+    "instagram": "https://www.instagram.com/bvcec",
+    "linkedin": "https://www.linkedin.com/company/bvcec",
+    "youtube": "https://www.youtube.com/@bvcec"
+  },
+
+  "academic_environment": {
+    "teaching_methodology": "The institution follows outcome-based education with a strong focus on practical learning and industry relevance.",
+    "digital_learning": "Smart classrooms and digital learning platforms are used to enhance the teaching-learning process."
+  },
+
+  "student_and_faculty_strength": {
+    "students": "The college has a diverse student community across multiple engineering disciplines.",
+    "faculty": "Highly qualified and experienced faculty members dedicated to academic excellence.",
+    "student_faculty_ratio": "Maintained as per regulatory and academic standards."
+  },
+
+  "culture_and_values": {
+    "discipline": "The institution maintains strict discipline and a professional academic environment.",
+    "ethics": "Strong emphasis on ethical values, integrity, and social responsibility."
+  },
+
+  "safety_and_facilities": {
+    "security": "24/7 campus security with CCTV surveillance.",
+    "medical": "First-aid and basic medical facilities available on campus.",
+    "transport": "College transportation facilities available for students and staff."
+  },
+
+  "why_choose_bvcec": {
+    "highlights": [
+      "Student-centric learning environment",
+      "Experienced faculty and modern infrastructure",
+      "Strong focus on placements and career development",
+      "Emphasis on ethics, discipline, and innovation"
+    ]
+  }
+}

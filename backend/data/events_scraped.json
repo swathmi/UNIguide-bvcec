@@ -1,0 +1,747 @@
+{
+  "placements": {
+    "overview": "The Training and Placement Cell of BVCEC facilitates campus placements, internships, and skill development programs to enhance student employability.",
+
+    "placement_head": {
+      "designation": "Head – Training & Placement Cell",
+      "name": "Dr. K. Rajasekhar",
+      "email": "placement@bvcec.edu.in"
+    },
+
+    "batch_wise_placements": {
+      "2026": {
+        "first_placement": {
+          "student_name": "Mr. Gubbala Nagendra Kumar",
+          "roll_number": "23225A4502",
+          "branch": "CSE (AI & DS)",
+          "company": "BVS Infotech",
+          "package": "6 LPA",
+          "date": "03-12-2025"
+        }
+      }
+    },
+
+    "drives_summary": {
+      "total_drives_conducted": 6,
+      "drive_list": [
+        {
+          "company": "Efftronics Systems Pvt. Ltd.",
+          "drive_date": "11-12-2025",
+          "drive_type": "Campus Recruitment Drive",
+          "students_selected": 5,
+          "average_package": "3 LPA",
+          "eligible_branches": ["ECE", "EEE", "MECH"]
+        },
+        {
+          "company": "Ocean Link Services",
+          "drive_date": "16-10-2025",
+          "drive_type": "Online Recruitment Drive",
+          "students_selected": 3,
+          "average_package": "5.75–6.75 LPA",
+          "eligible_branches": ["EEE", "ECE", "Mechanical"]
+        },
+        {
+          "company": "Renault Nissan Automotive India Pvt. Ltd.",
+          "drive_date": "16-10-2025",
+          "drive_type": "Campus Drive",
+          "students_selected": 55,
+          "average_package": "2.5lpa",
+          "eligible_branches": ["Mechanical", "EEE"]
+        },
+        {
+          "company": "Soft Suave",
+          "drive_date": "08-11-2025",
+          "drive_type": "Campus Recruitment Drive",
+          "students_selected": null,
+          "average_package": "3.5 LPA",
+          "eligible_branches": ["CSE", "IT"]
+        },
+        {
+          "company": "Motherson",
+          "drive_date": "03-12-2025",
+          "drive_type": "Placement Announcement",
+          "students_selected": 4,
+          "average_package": "3.0 LPA",
+          "eligible_branches": ["Mechanical", "EEE"]
+        },
+        {
+          "company": "BVS Infotech",
+          "drive_date": "03-12-2025",
+          "drive_type": "Placement Announcement",
+          "students_selected": 1,
+          "average_package": "6 LPA",
+          "eligible_branches": ["CSE (AI & DS)"]
+        }
+      ]
+    },
+
+    "ongoing_drives": {
+      "status": "No active placement drives at present"
+    },
+
+    "upcoming_drives": {
+      "status": "Upcoming placement drives will be announced by the Training & Placement Cell",
+      "expected_companies": []
+    },
+
+    "next_placement_drive": {
+      "date": null,
+      "note": "Next placement drive schedule is yet to be announced"
+    },
+
+    "top_leading_recruiters": [
+      "BVS Infotech",
+      "Efftronics Systems Pvt. Ltd.",
+      "Ocean Link Services",
+      "Renault Nissan Automotive India Pvt. Ltd.",
+      "Soft Suave",
+      "Motherson",
+      "Infosys",
+      "Wipro",
+      "Cognizant",
+      "IBM",
+      "TechMahindra",
+      "Deloite",
+      "Virtusa",
+      "HCLTech"
+
+    ],
+
+    "training_and_preparation": {
+      "placement_training_programs": [
+        "Aptitude training",
+        "Technical training",
+        "Soft skills training",
+        "Resume building",
+        "Interview preparation",
+        "Industry training",
+        "Internship guidance"
+      ],
+      "soft_skills_training": {
+        "available": true,
+        "topics": [
+          "Communication skills",
+          "Group discussions",
+          "Personality development"
+        ]
+      },
+      "aptitude_training": {
+        "available": true,
+        "topics": [
+          "Quantitative aptitude",
+          "Logical reasoning",
+          "Verbal ability"
+        ]
+      },
+      "coding_practice_platforms": [
+        "CodeChef",
+        "HackerRank",
+        "LeetCode"
+      ],
+      "resume_building": {
+        "available": true,
+        "activities": [
+          "Resume workshops",
+          "Profile review sessions"
+        ]
+      },
+      "interview_preparation": {
+        "available": true,
+        "activities": [
+          "Mock interviews",
+          "HR interview training",
+          "Technical interview guidance"
+        ]
+      }
+    },
+
+    "branch_wise_analysis": {
+      "it_branches": {
+        "branches": ["CSE", "IT", "CSE (AI & DS)", "AIML"],
+        "placement_trend": "Higher opportunities with better packages",
+        "average_package_range": "3.5 – 6 LPA"
+      },
+      "core_branches": {
+        "branches": ["ECE", "EEE", "Mechanical", "Civil"],
+        "placement_trend": "Moderate opportunities with domain-specific roles",
+        "average_package_range": "3 – 5 LPA"
+      }
+    },
+
+    "placements_trend": {
+      "year_wise": {
+        "2024": "Steady placement performance",
+        "2025": "Improved placements with higher packages and more recruiters"
+      }
+    },
+
+    "company_lookup": {
+      "Efftronics Systems Pvt. Ltd.": {
+        "drive_date": "11-12-2025",
+        "package": "3 LPA",
+        "branches": ["ECE", "EEE", "CSE", "CAD", "AIML", "CSM"]
+      },
+      "Ocean Link Services": {
+        "drive_date": "16-10-2025",
+        "package": "5.75–6.75 LPA",
+        "branches": ["EEE", "ECE", "Mechanical"]
+      },
+      "Renault Nissan Automotive India Pvt. Ltd.": {
+        "drive_date": "16-10-2025",
+        "package": "2.5lpa",
+        "branches": ["Mechanical", "EEE"]
+      },
+      "Soft Suave": {
+        "drive_date": "08-11-2025",
+        "package": "3.5 LPA",
+        "branches": ["CSE", "IT"]
+      },
+      "Motherson": {
+        "drive_date": "03-12-2025",
+        "package": "3.0 LPA",
+        "branches": ["Mechanical", "EEE"]
+      },
+      "BVS Infotech": {
+        "drive_date": "03-12-2025",
+        "package": "6 LPA",
+        "branches": ["CSE (AI & DS)"]
+      }
+    }
+  },
+
+
+
+  "events": {
+    "event_types_conducted": [
+      "Technical Events",
+      "Hackathons",
+      "Workshops & Seminars",
+      "Training Programs",
+      "Cultural Events",
+      "Sports Events",
+      "NSS & Social Activities",
+      "Guest Lectures",
+      "Industrial Visits",
+      "Academic Events",
+      "Faculty Development Programs",
+      "Entrepreneurship Programs"
+    ],
+
+    "technical_events": [
+      "IEEE Xtreme Global Coding Hackathon",
+      "Smart India Hackathon Internal Round",
+      "Department Level Coding Contest",
+      "Technical Quiz Competition",
+      "Paper Presentation Contest",
+      "Project Expo",
+      "Debugging Challenge",
+      "Web Development Contest",
+      "AI & ML Mini Hackathon",
+      "IoT Innovation Challenge"
+    ],
+
+    "workshops_and_seminars": [
+      "Workshop on Product Design using CATIA",
+      "Workshop on AutoCAD for Civil Engineering",
+      "Workshop on UAV Technology",
+      "Seminar on Emerging Trends in AI",
+      "Seminar on Cyber Security",
+      "Faculty Workshop on Outcome Based Education",
+      "Workshop on Data Science with Python",
+      "Seminar on Cloud Computing",
+      "Workshop on Embedded Systems",
+      "Workshop on Stress Management"
+    ],
+
+    "training_programs": [
+      "15-Day Placement Training Program",
+      "4-Week Professional Competency Development Program",
+      "Aptitude Training Program",
+      "Soft Skills Development Program",
+      "Technical Skill Enhancement Training",
+      "Coding Practice Bootcamp",
+      "Career Guidance Program",
+      "Industry Readiness Training",
+      "Internship Orientation Program",
+      "Pre-Placement Training Sessions"
+    ],
+
+    "cultural_events": [
+      "Engineers’ Day Celebrations",
+      "Sankranti Celebrations – KRANTHI",
+      "Vasant Panchami Celebrations",
+      "Freshers’ Day",
+      "Farewell Day",
+      "Annual Day Celebrations",
+      "Cultural Fest",
+      "Traditional Day",
+      "Teachers’ Day Celebrations",
+      "New Year Celebrations"
+    ],
+
+    "nss_and_social_activities": [
+      "NSS Special Camp",
+      "Blood Donation Camp",
+      "Swachh Bharat Program",
+      "Tree Plantation Drive",
+      "National Voters’ Day Celebrations",
+      "Awareness Program on Health & Hygiene",
+      "Village Development Program",
+      "Road Safety Awareness Program",
+      "Yoga Day Celebrations",
+      "Stress Management Workshop"
+    ],
+
+    "guest_lectures": [
+      "Guest Lecture on Embedded Systems",
+      "Guest Lecture on Software Architecture",
+      "Guest Lecture on Career Opportunities",
+      "Guest Lecture on Industry Expectations",
+      "Guest Lecture on Research Opportunities",
+      "Guest Lecture on Higher Education",
+      "Guest Lecture on AI Applications",
+      "Guest Lecture on Cyber Security",
+      "Guest Lecture on Entrepreneurship",
+      "Guest Lecture on Data Analytics"
+    ],
+
+    "industrial_visits": [
+      "Industrial Visit to Andhra Pradesh MedTech Zone (AMTZ)",
+      "Industrial Visit to Thermal Power Plant",
+      "Industrial Visit to Manufacturing Unit",
+      "Industrial Visit to Software Company",
+      "Industrial Visit to Automobile Industry",
+      "Industrial Visit to Electrical Substation",
+      "Industrial Visit to Research Center",
+      "Industrial Visit to IT Park",
+      "Industrial Visit to Port Facility",
+      "Industrial Visit to Renewable Energy Plant"
+    ],
+
+    "academic_events": [
+      "Avishkandhra Virtual Launch Event",
+      "Academic Orientation Program",
+      "Research Methodology Workshop",
+      "Faculty Development Program",
+      "Internal Academic Audit",
+      "Curriculum Review Meeting",
+      "Outcome Based Education Training",
+      "Examination Awareness Program",
+      "Project Review Meet",
+      "Academic Planning Session"
+    ],
+
+    "recent_events": [
+      "National Voters’ Day Celebrations – Jan 2026",
+      "Guest Lecture on Future of ECE – Jan 2026",
+      "Vasant Panchami Celebrations – Jan 2026",
+      "Industrial Visit to AMTZ – Jan 2026",
+      "Placement Training Program – Dec 2025",
+      "Faculty Workshop on OBE – Dec 2025",
+      "Hackathon for SIH – Dec 2025",
+      "Engineers’ Day Celebrations – Sep 2025",
+      "CATIA Workshop – Sep 2025",
+      "NSS Special Camp – 2025"
+    ]
+  },
+
+  "latest_updates": [
+    {
+      "title": "Extension Activities Cell successfully organized National Voters’ Day Celebrations",
+      "date": "24-01-2026",
+      "description": "Celebrated with the theme “My India, My Vote.”"
+    },
+    {
+      "title": "ECE Department successfully organized a Guest Lecture on Navigating the Future of ECE",
+      "date": "27-01-2026",
+      "topic": "Embedded Systems and Software Architecture"
+    },
+    {
+      "title": "HackMelaa 2026 – 24-Hour Centralized National Hackathon | Konaseema Edition",
+      "date": "07-02-2026 to 08-02-2026",
+      "description": "24-hour global coding event hosted at BVCEC, Odalarevu."
+    },
+    {
+      "title": "Congratulations to Civil Engineering Faculty – ATAL FDP on Sustainable Infrastructure & Materials",
+      "date": "23-01-2026",
+      "description": "Faculty training program successfully conducted."
+    },
+    {
+      "title": "BVCE successfully celebrated Vasant Panchami",
+      "date": "23-01-2026",
+      "description": "Cultural event honoring Goddess Saraswati."
+    },
+    {
+      "title": "BVCE Celebrates Netaji Subhash Chandra Bose Jayanti",
+      "date": "23-01-2026",
+      "description": "National commemorative celebration."
+    },
+    {
+      "title": "Proud Achievement: Dr. A. Nageswara Rao Delivered UGC Resource Person Lectures on IKS at JNTUH",
+      "date": "22-01-2026",
+      "description": "Faculty achievement in delivering lectures at a university event."
+    },
+    {
+      "title": "BVCE Aadhaar Updation & Enrollment Camp",
+      "date": "19-01-2026 to 24-01-2026",
+      "description": "Aadhaar enrollment and update camp held at Central Library, BVCE."
+    },
+    {
+      "title": "Congratulations Dr. Ravi Kumar | Research Paper Presented at JB Institute of Engineering & Technology",
+      "date": "20-01-2026",
+      "description": "Faculty achievement in national research conference."
+    },
+    {
+      "title": "Happy Kanuma Celebration",
+      "date": "16-01-2026",
+      "description": "Festival celebration with wishes for prosperity."
+    },
+    {
+      "title": "Happy Sankranti Wishes at BVCE KRANTHI ’26",
+      "date": "15-01-2026",
+      "description": "Sankranti cultural celebration."
+    },
+    {
+      "title": "BVCE Celebrates National Youth Day – Swami Vivekananda Jayanti",
+      "date": "12-01-2026",
+      "description": "National youth day celebration."
+    },
+    {
+      "title": "BVCE Signs MoU with HackBoats for Robotics & AI Knowledge Sharing",
+      "date": "10-01-2026",
+      "description": "Institutional collaboration signed."
+    },
+    {
+      "title": "BVCE Students Sharing Their Knowledge on Artificial Intelligence",
+      "date": "06-01-2026",
+      "description": "Student achievement in sharing AI insights."
+    },
+    {
+      "title": "Happy New Year 2026 Wishes from BVCE",
+      "date": "01-01-2026",
+      "description": "New Year greetings."
+    }
+  ],
+
+
+  "faculty_development_programs": {
+    "department": "Computer Science & Engineering",
+    "academic_years": ["2021-22", "2022-23"],
+    "programs": [
+      {
+        "s_no": 1,
+        "faculty_name": "D S V Prasad",
+        "title": "Emerging trends and technologies in cyber security",
+        "mode": "Virtual",
+        "duration": "14/11/2022 - 18/11/2022",
+        "conducted_by": "MITS"
+      },
+      {
+        "s_no": 2,
+        "faculty_name": "D S V Prasad",
+        "title": "Recent trends in ML techniques and its applications using Python",
+        "mode": "Virtual",
+        "duration": "06/09/2022 - 16/09/2022",
+        "conducted_by": "NIT(W) & BVCEC(A)"
+      },
+      {
+        "s_no": 3,
+        "faculty_name": "S S Venu Madhav",
+        "title": "Recent trends in ML techniques and its applications using Python",
+        "mode": "Virtual",
+        "duration": "06/09/2022 - 16/09/2023",
+        "conducted_by": "NIT(W) & BVCEC(A)"
+      },
+      {
+        "s_no": 4,
+        "faculty_name": "V Swami Naidu",
+        "title": "Recent trends in ML techniques and its applications using Python",
+        "mode": "Virtual",
+        "duration": "06/09/2022 - 16/09/2024",
+        "conducted_by": "NIT(W) & BVCEC(A)"
+      },
+      {
+        "s_no": 5,
+        "faculty_name": "A Priyanka",
+        "title": "Recent trends in ML techniques and its applications using Python",
+        "mode": "Virtual",
+        "duration": "06/09/2022 - 16/09/2023",
+        "conducted_by": "NIT(W) & BVCEC(A)"
+      },
+      {
+        "s_no": 6,
+        "faculty_name": "K Lakshmi Devi",
+        "title": "Recent trends in ML techniques and its applications using Python",
+        "mode": "Virtual",
+        "duration": "06/09/2022 - 16/09/2023",
+        "conducted_by": "NIT(W) & BVCEC(A)"
+      },
+      {
+        "s_no": 7,
+        "faculty_name": "N Jeevana Jyothi",
+        "title": "FDP on Data Science & ChatGPT",
+        "mode": "Virtual",
+        "duration": "15/05/2023 - 19/05/2023",
+        "conducted_by": "KL Deemed to be University in collaboration with EXCELR"
+      },
+      {
+        "s_no": 8,
+        "faculty_name": "N Jeevana Jyothi",
+        "title": "Recent trends in ML techniques and its applications using Python",
+        "mode": "Virtual",
+        "duration": "06/09/2022 - 16/09/2022",
+        "conducted_by": "NIT(W) & BVCEC(A)"
+      },
+      {
+        "s_no": 9,
+        "faculty_name": "B Narasimha Rao",
+        "title": "Advanced Python Programming Master Class (30 Days)",
+        "mode": "Online",
+        "duration": "30 Days",
+        "conducted_by": "Skill AP / SSDC"
+      },
+      {
+        "s_no": 10,
+        "faculty_name": "V G Bhavani",
+        "title": "Recent trends in ML techniques and its applications using Python",
+        "mode": "Online",
+        "duration": "06/09/2022 - 16/09/2022",
+        "conducted_by": "NIT(W) & BVCEC(A)"
+      },
+      {
+        "s_no": 11,
+        "faculty_name": "KNVPSB Ramesh",
+        "title": "Recent trends in ML techniques and its applications using Python",
+        "mode": "Online",
+        "duration": "06/09/2022 - 16/09/2022",
+        "conducted_by": "NIT(W) & BVCEC(A)"
+      },
+      {
+        "s_no": 12,
+        "faculty_name": "S S Venu Madhav",
+        "title": "Research insights on recent revolutions and evolutions in Information Technology",
+        "mode": "Online",
+        "duration": "12/06/2023 - 17/06/2023",
+        "conducted_by": "Madanapalli Institute of Technology & Science"
+      },
+      {
+        "s_no": 13,
+        "faculty_name": "Y M S D Sastry",
+        "title": "Recent trends in ML techniques and its applications using Python",
+        "mode": "Virtual",
+        "duration": "06/09/2022 - 16/09/2023",
+        "conducted_by": "NIT(W) & BVCEC(A)"
+      },
+      {
+        "s_no": 14,
+        "faculty_name": "Y M S D Sastry",
+        "title": "Artificial Intelligence with Machine Learning using Java",
+        "mode": "Virtual",
+        "duration": "10 September 2022",
+        "conducted_by": "Oracle Academy"
+      },
+      {
+        "s_no": 15,
+        "faculty_name": "Y M S D Sastry",
+        "title": "Cryptography and Information Theory",
+        "mode": "Virtual",
+        "duration": "07 September 2022",
+        "conducted_by": "Coursera"
+      },
+      {
+        "s_no": 16,
+        "faculty_name": "Y M S D Sastry",
+        "title": "Amazon Web Services",
+        "mode": "Virtual",
+        "duration": "22/08/2022 - 27/08/2022",
+        "conducted_by": "Brainovision & BVCEC"
+      },
+      {
+        "s_no": 17,
+        "faculty_name": "Y M S D Sastry",
+        "title": "MATLAB Master Class",
+        "mode": "Virtual",
+        "duration": "May 2021 - June 2021",
+        "conducted_by": "APSSDC"
+      },
+      {
+        "s_no": 18,
+        "faculty_name": "B Srilatha",
+        "title": "FDP on Data Science & ChatGPT",
+        "mode": "Virtual",
+        "duration": "15/05/2023 - 19/05/2023",
+        "conducted_by": "KL Deemed to be University in collaboration with EXCELR"
+      },
+      {
+        "s_no": 19,
+        "faculty_name": "B Srilatha",
+        "title": "Recent trends in ML techniques and its applications using Python",
+        "mode": "Virtual",
+        "duration": "06/09/2022 - 16/09/2022",
+        "conducted_by": "NIT(W) & BVCEC(A)"
+      },
+      {
+        "s_no": 20,
+        "faculty_name": "T Priyanka",
+        "title": "FDP on Data Science & ChatGPT",
+        "mode": "Virtual",
+        "duration": "15/05/2023 - 19/05/2023",
+        "conducted_by": "KL Deemed to be University in collaboration with EXCELR"
+      },
+      {
+        "s_no": 21,
+        "faculty_name": "T Priyanka",
+        "title": "Recent trends in ML techniques and its applications using Python",
+        "mode": "Virtual",
+        "duration": "06/09/2022 - 16/09/2022",
+        "conducted_by": "NIT(W) & BVCEC(A)"
+      },
+      {
+        "s_no": 22,
+        "faculty_name": "Dr. B S N Murthy",
+        "title": "7-Day National Level FDP on Outcome Based Education (OBE)",
+        "mode": "Online",
+        "duration": "7 Days",
+        "conducted_by": "National Level Program"
+      },
+      {
+        "s_no": 23,
+        "faculty_name": "Mr. B P N Madhu Kumar",
+        "title": "Recent trends in ML techniques and its applications using Python",
+        "mode": "Virtual",
+        "duration": "06/09/2022 - 16/09/2022",
+        "conducted_by": "NIT(W) & BVCEC(A)"
+      }
+    ],
+  
+  "research_publications": {
+    "institution": "BVC Engineering College (BVCEC)",
+    "description": "List of research papers published by faculty across departments.",
+
+    "publications": [
+      {
+        "faculty_name": "Adapa Durga Madhuri",
+        "paper_title": "Data Modeling of Statistical Models using Anova",
+        "indexing": "Scopus",
+        "journal_volume_issue": "Volume 54, Issue II, October 2022",
+        "issn": "ISSN 2096-3246",
+        "publisher": "AES"
+      },
+      {
+        "faculty_name": "P. V. Sandhya",
+        "paper_title": "Data Modeling of Statistical Models using Anova",
+        "indexing": "Scopus",
+        "journal_volume_issue": "Volume 54, Issue II, October 2022",
+        "issn": "ISSN 2096-3246",
+        "publisher": "AES"
+      },
+      {
+        "faculty_name": "V. V. V. Satyanarayana",
+        "paper_title": "Data Modeling of Statistical Models using Anova",
+        "indexing": "Scopus",
+        "journal_volume_issue": "Volume 54, Issue II, October 2022",
+        "issn": "ISSN 2096-3246",
+        "publisher": "AES"
+      },
+      {
+        "faculty_name": "M. B. Rajesawari",
+        "paper_title": "Data Modeling of Statistical Models using Anova",
+        "indexing": "Scopus",
+        "journal_volume_issue": "Volume 54, Issue II, October 2022",
+        "issn": "ISSN 2096-3246",
+        "publisher": "AES"
+      },
+      {
+        "faculty_name": "Adapa Durga Madhuri",
+        "paper_title": "A Study on Applications of Linear Algebra",
+        "indexing": "Scopus",
+        "journal_volume_issue": "Volume 71, Issue IV, 2022",
+        "issn": "ISSN 2326-9869",
+        "publisher": "Mathematical Statistician and Engineering Application"
+      },
+      {
+        "faculty_name": "P. V. N. Sagar",
+        "paper_title": "A Study on Applications of Linear Algebra",
+        "indexing": "Scopus",
+        "journal_volume_issue": "Volume 71, Issue IV, 2022",
+        "issn": "ISSN 2326-9869",
+        "publisher": "Mathematical Statistician and Engineering Application"
+      },
+      {
+        "faculty_name": "P. Ganga Raju",
+        "paper_title": "A Study on Applications of Linear Algebra",
+        "indexing": "Scopus",
+        "journal_volume_issue": "Volume 71, Issue IV, 2022",
+        "issn": "ISSN 2326-9869",
+        "publisher": "Mathematical Statistician and Engineering Application"
+      },
+      {
+        "faculty_name": "E. S. V. Subrahmanyam",
+        "paper_title": "Action of LUFFA cylindrica on ground water for the elimination of chlorides",
+        "indexing": "Scopus",
+        "journal_volume_issue": "Volume 9, Issue I, January 2022",
+        "issn": "Online ISSN 2348",
+        "publisher": "IJISET"
+      },
+      {
+        "faculty_name": "Dr. A. Nageswara Rao",
+        "paper_title": "Syntactic Use of English among Indian ESL Students",
+        "indexing": "Scopus",
+        "doi": "10.9756/INTJECSE/V14I2.1007",
+        "journal": "International Journal of Early Childhood Special Education"
+      },
+      {
+        "faculty_name": "Dr. A. Nageswara Rao",
+        "paper_title": "The Existential Fight of Voiceless People in the Writings of SAVERA",
+        "indexing": "Scopus",
+        "journal": "Turkish Online Journal of Qualitative Inquiry"
+      },
+
+      {
+        "faculty_name": "Dr. B. S. N. Murthy",
+        "paper_title": "Outcome Based Education Framework for Engineering Programs",
+        "indexing": "UGC Care",
+        "journal": "Journal of Engineering Education Transformations",
+        "year": 2023
+      },
+      {
+        "faculty_name": "Dr. Ravi Kumar",
+        "paper_title": "Predictive Analytics using Machine Learning Models",
+        "indexing": "Scopus",
+        "journal": "International Journal of Data Science",
+        "year": 2022
+      },
+      {
+        "faculty_name": "Dr. S. Venu Madhav",
+        "paper_title": "Recent Revolutions in Information Technology",
+        "indexing": "Scopus",
+        "journal": "Journal of Information Systems",
+        "year": 2023
+      },
+      {
+        "faculty_name": "Y. M. S. D. Sastry",
+        "paper_title": "Cryptography Techniques for Secure Communication",
+        "indexing": "Scopus",
+        "journal": "International Journal of Network Security",
+        "year": 2022
+      },
+      {
+        "faculty_name": "B. Srilatha",
+        "paper_title": "Applications of Data Science in Education",
+        "indexing": "UGC Care",
+        "journal": "Journal of Educational Technology",
+        "year": 2023
+      },
+      {
+        "faculty_name": "T. Priyanka",
+        "paper_title": "Machine Learning Applications in Real-Time Systems",
+        "indexing": "Scopus",
+        "journal": "International Journal of Computer Applications",
+        "year": 2022
+      }
+    ]
+  }
+}
+
+}
+
