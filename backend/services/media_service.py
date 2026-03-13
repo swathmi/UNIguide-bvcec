@@ -67,14 +67,25 @@ def get_media_response(user_query):
         return response
 
     # ================= IMAGE HANDLING =================
-    if "image" in q or "photo" in q or "gallery" in q:
+    if "image" in q or "photo" in q or "gallery" in q or "campus" in q:
         if not IMAGES:
             return "No images are available at the moment."
 
-        response = "🖼️ **Campus Images:**\n\n"
+        # Return rich format for frontend rendering
+        image_list = []
         for img in IMAGES[:8]:
-            response += f"- 🔗 {img['url']}\n"
-
-        return response
+            image_list.append({
+                "url": img.get("url", ""),
+                "alt": img.get("alt", "Campus Image"),
+                "description": img.get("alt", "")
+            })
+        
+        return {
+            "type": "text_with_images",
+            "emoji": "🖼️",
+            "title": "Campus Images",
+            "text": "Here are some beautiful photos of our campus:",
+            "images": image_list
+        }
 
     return None

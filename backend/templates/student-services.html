@@ -12,41 +12,128 @@
 </header>
 
 <section class="page-hero">
-    <h1>Student Services</h1>
-    <p>Everything students need, in one place</p>
-    <img src="/static/images/student-services.png"
-     alt="Student Services"
-     style="max-width:450px;margin-top:30px;">
-
+    <div class="hero-left">
+        <h1>Student Services</h1>
+        <p>Everything students need, in one place</p>
+    </div>
+    <div class="hero-right">
+        <img src="/static/images/student-services.png"
+         alt="Student Services"
+         style="max-width:100%; height:auto; border-radius:20px;">
+    </div>
 </section>
 
 <section class="page-content">
-    <div class="content-box">
-        <h3>Exams & Results</h3>
-        <p>Information about exams, schedules, and results.</p>
+    <div style="text-align:center; margin-bottom:60px; animation: fadeInUp 0.8s ease;">
+        <h2 style="font-size:42px; margin-bottom:12px; color:#0f172a; font-weight:800;">Quick Access</h2>
+        <p style="font-size:17px; color:#64748b; font-weight:500;">Click any option to ask UNIGuide about it</p>
     </div>
 
-    <div class="content-box">
-        <h3>Fees & Scholarships</h3>
-        <p>Guidance on fee payments and financial support.</p>
+    <div class="features-grid">
+        <a href="/learning-resources" class="feature-btn">
+            <span class="btn-emoji">📚</span>
+            <span class="btn-text">Learning Resources</span>
+         </a>
+
+        <a href="/mock-tests" class="feature-btn">
+            <span class="btn-emoji">📝</span>
+            <span class="btn-text">Mock Tests</span>
+        </a>
+
+        <a href="/coding-practice" class="feature-btn">
+            <span class="btn-emoji">💻</span>
+            <span class="btn-text">Coding Practice</span>
+        </a>
+
+        <a href="/placement-preparation" class="feature-btn">
+            <span class="btn-emoji">🎯</span>
+            <span class="btn-text">Placement Prep</span>
+        </a>
+
+        <a href="/resume-builder" class="feature-btn">
+            <span class="btn-emoji">📄</span>
+            <span class="btn-text">Resume Builder</span>
+        </a>
+
+        <a href="/mock-interview" class="feature-btn">
+            <span class="btn-emoji">🎤</span>
+            <span class="btn-text">Mock Interview</span>
+        </a>
+
+        <a href="/study-planner" class="feature-btn">
+            <span class="btn-emoji">📅</span>
+            <span class="btn-text">Study Planner</span>
+        </a>
+
+        <a href="/scholarships" class="feature-btn">
+            <span class="btn-emoji">🎓</span>
+            <span class="btn-text">Scholarships</span>
+        </a>
+
+        <a href="/academic-calendar" class="feature-btn">
+            <span class="btn-emoji">📜</span>
+            <span class="btn-text">Academic Calendar</span>
+        </a>
+
+        <a href="/ai-assistant" class="feature-btn">
+            <span class="btn-emoji">🤖</span>
+            <span class="btn-text">AI Assistant</span>
+        </a>
+
+        <a href="/gpa-calculator" class="feature-btn">
+            <span class="btn-emoji">📊</span>
+            <span class="btn-text">GPA Calculator</span>
+        </a>
+
+        <a href="/exam-countdown" class="feature-btn">
+            <span class="btn-emoji">⏰</span>
+            <span class="btn-text">Exam Countdown</span>
+        </a>
+
+        <a href="/campus-announcements" class="feature-btn">
+            <span class="btn-emoji">📢</span>
+            <span class="btn-text">Announcements</span>
+        </a>
+
+        <a href="/attendance-tracker" class="feature-btn">
+            <span class="btn-emoji">🧾</span>
+            <span class="btn-text">Attendance</span>
+        </a>
+
+        <a href="/library-search" class="feature-btn">
+            <span class="btn-emoji">📚</span>
+            <span class="btn-text">Library Search</span>
+        </a>
+
+        <a href="/internship-finder" class="feature-btn">
+            <span class="btn-emoji">💼</span>
+            <span class="btn-text">Internships</span>
+        </a>
+
+        <a href="/ai-notes-summarizer" class="feature-btn">
+            <span class="btn-emoji">🧠</span>
+            <span class="btn-text">Notes Summarizer</span>
+        </a>
+
+        <a href="/previous-papers" class="feature-btn">
+            <span class="btn-emoji">📑</span>
+            <span class="btn-text">Previous Papers</span>
+        </a>
     </div>
 
-    <div class="content-box">
-        <h3>Certificates & Documents</h3>
-        <p>Bonafide, transcripts, and official certificates.</p>
-    </div>
-
-    <div class="content-box">
-        <h3>Hostel & Transport</h3>
-        <p>Details about accommodation and transport facilities.</p>
-    </div>
-
-    <div style="text-align:center; margin-top:30px;">
-        <button class="launch-btn" onclick="location.href='/'">
-            Ask UNIGuide
+    <div style="text-align:center; margin-top:50px;">
+        <button class="get-started-btn" onclick="location.href='/chatbot'">
+            💬 Ask UNIGuide Chatbot
         </button>
     </div>
 </section>
+
+<script>
+function sendQuery(query) {
+    // Redirect to chatbot with the query
+    window.location.href = '/chatbot?query=' + encodeURIComponent(query);
+}
+</script>
 
 </body>
 </html>

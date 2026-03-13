@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>UNIGuide AI – BVCEC</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{{ url_for('static', filename='chatbot-exact.css') }}">
+</head>
+
+<body>
+
+<div class="chat-layout">
+
+  <!-- ================= SIDEBAR ================= -->
+  <aside class="chat-sidebar">
+
+    <!-- Brand -->
+    <div class="sidebar-header">
+      <h2>🎓 UNIGuide</h2>
+    </div>
+
+    <!-- New Chat -->
+    <button class="new-chat-btn" onclick="createNewChat()">
+      ➕ New Chat
+    </button>
+
+    <!-- Search -->
+    <input
+      type="text"
+      class="chat-search"
+      placeholder="Search chats..."
+      oninput="searchChats(this.value)"
+    />
+
+    <!-- Chat History -->
+    <div id="chatList" class="chat-history">
+      <!-- dynamically filled -->
+    </div>
+
+  </aside>
+
+  <!-- ================= CHAT AREA ================= -->
+  <main class="chat-main">
+
+    <!-- Chat Header -->
+    <div class="chat-header">
+      <div class="bot-info">
+        <img src="/static/images/bot-avatar.png" class="bot-avatar">
+        <div>
+          <div class="bot-name">
+            UNIGuide AI <span class="online-dot"></span>
+          </div>
+          <div class="bot-status">Online</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Chat Messages -->
+    <div id="chat-body" class="chat-body">
+
+      <div class="message bot-message">
+        <div class="message-content">
+          👋 <b>Hello, I’m UNIGuide AI</b><br>
+          I’m your BVCEC Smart Assistant.  
+          Ask me anything about campus, courses, admissions & more.
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Chat Input -->
+    <div class="chat-input">
+      <input
+        type="text"
+        id="userInput"
+        placeholder="Ask something..."
+      />
+
+      <button onclick="startVoice()" title="Voice Input">🎤</button>
+      <button onclick="sendMessage()">➤</button>
+    </div>
+
+  </main>
+
+</div>
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

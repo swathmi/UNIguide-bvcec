@@ -5,30 +5,80 @@
 <title>Sign Up – UNIGuide</title>
 <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
+
 <body class="auth-body">
 
-<header class="navbar">
-    <span class="logo">🎓 UNIGuide <b>BVCEC</b></span>
-</header>
+<div class="auth-wrapper">
 
-<section class="auth-container">
-    <div class="auth-box">
-        <h2>Create Account</h2>
-        <p>Join UNIGuide today</p>
+    <div class="auth-card">
+        <h2>Create Account 🚀</h2>
+        <p>Join UNIGuide Smart Assistant</p>
 
-        <input type="text" placeholder="Full Name">
-        <input type="email" placeholder="Email">
-        <input type="text" placeholder="Roll Number">
-        <input type="password" placeholder="Password">
+        <form id="signupForm">
 
-        <button class="launch-btn">Sign Up</button>
+            <div class="input-group">
+                <input type="text" id="name" required>
+                <label>Full Name</label>
+            </div>
 
-        <p class="auth-link">
+            <div class="input-group">
+                <input type="email" id="email" required>
+                <label>Email</label>
+            </div>
+
+            <div class="input-group">
+                <input type="password" id="password" required>
+                <label>Password</label>
+            </div>
+
+            <div style="text-align:right; font-size:13px;">
+                <input type="checkbox" onclick="togglePassword()"> Show Password
+            </div>
+
+
+            <button type="submit" class="auth-btn">
+                Sign Up
+            </button>
+
+        </form>
+
+        <p id="errorMsg" class="error-msg"></p>
+
+        <div class="auth-footer">
             Already have an account?
             <a href="/login">Login</a>
-        </p>
+        </div>
     </div>
-</section>
+
+</div>
+
+<script>
+document.getElementById("signupForm").addEventListener("submit", function(e){
+    e.preventDefault();
+
+    fetch("/signup", {
+        method: "POST",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify({
+            name: document.getElementById("name").value,
+            email: document.getElementById("email").value,
+            password: document.getElementById("password").value
+        })
+    })
+    .then(res => res.json())
+    .then(data => {
+        if(data.success){
+            window.location.href = "/chat";
+        } else {
+            document.getElementById("errorMsg").innerText = data.error;
+        }
+    });
+});
+function togglePassword() {
+    const pass = document.getElementById("password");
+    pass.type = pass.type === "password" ? "text" : "password";
+}
+</script>
 
 </body>
 </html>

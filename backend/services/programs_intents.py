@@ -1,11 +1,35 @@
 # ---------------- IMPORTS ----------------
-from sentence_transformers import SentenceTransformer, util
-
-# ---------------- LOAD MODEL (SAME MODEL USED EVERYWHERE) ----------------
-model = SentenceTransformer("all-MiniLM-L6-v2")
+from sentence_transformers import util
+from services.shared_model import model
 
 # ---------------- COURSES & PROGRAMS INTENTS ----------------
 COURSES_PROGRAMS_INTENTS = {
+    # ========= ACADEMIC STRUCTURE & REGULATIONS =========
+    "ACADEMIC_STRUCTURE": [
+        "academic structure",
+        "structure of academics",
+        "how is the academic structure",
+        "course structure",
+        "btech structure",
+        "syllabus structure",
+        "curriculum structure"
+    ],
+    "ACADEMIC_REGULATIONS": [
+        "academic regulations",
+        "regulations",
+        "r20 regulations",
+        "r23 regulations",
+        "br 20 academic regulations",
+        "btech regulations"
+    ],
+    "NOTES_MATERIALS": [
+        "notes",
+        "python notes",
+        "study materials",
+        "materials",
+        "class notes",
+        "subject notes"
+    ],
 
     # ========= ACADEMIC LEVEL =========
     "UG_PROGRAMS": [

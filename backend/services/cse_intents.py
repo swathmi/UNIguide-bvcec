@@ -34,7 +34,12 @@ CSE_INTENTS = {
     "faculty": [
         "CSE faculty list",
         "Faculty members of CSE",
-        "Teaching staff of CSE department"
+        "Teaching staff of CSE department",
+        "Who are the faculty in CSE",
+        "CSE teachers",
+        "CSE professors",
+        "CSE faculty members list",
+        "Tell me about CSE faculty"
     ],
 
     # ---------- ACADEMIC STRUCTURE ----------
@@ -152,7 +157,7 @@ CSE_INTENTS = {
 }
 
 # -------- INTENT DETECTOR --------
-def detect_cse_intent(user_query, threshold=0.50):
+def detect_cse_intent(user_query, threshold=0.45):
     query_embedding = model.encode(user_query, convert_to_tensor=True)
 
     best_intent = None

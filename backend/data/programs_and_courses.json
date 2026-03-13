@@ -106,7 +106,13 @@
       "Second & Third Year – Core Subjects",
       "Final Year – Electives & Project Work"
     ],
-    "regulations": ["R20", "R23"]
+    "regulations": ["R20", "R23"],
+    "academic_structure": [
+      "First Year: Foundation courses in Mathematics, Physics, Chemistry, Programming, and Engineering Basics.",
+      "Second Year: Core departmental subjects and introductory electives.",
+      "Third Year: Advanced core subjects, electives, and minor projects.",
+      "Final Year: Major project, internships, and professional electives."
+    ]
   },
 
   "placements": {

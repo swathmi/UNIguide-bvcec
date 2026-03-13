@@ -5,28 +5,169 @@
 <title>Login – UNIGuide</title>
 <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
+
 <body class="auth-body">
 
-<header class="navbar">
-    <span class="logo">🎓 UNIGuide <b>BVCEC</b></span>
-</header>
+<div class="auth-wrapper">
 
-<section class="auth-container">
-    <div class="auth-box">
-        <h2>Login to UNIGuide</h2>
-        <p>Access your smart campus assistant</p>
+    <div class="auth-card">
+        <h2>Welcome Back 👋</h2>
+        <p>Login to continue to UNIGuide</p>
 
-        <input type="text" placeholder="Roll Number / Email">
-        <input type="password" placeholder="Password">
+        <form id="loginForm">
 
-        <button class="launch-btn">Login</button>
+            <div class="input-group">
+                <input type="email" id="email" required>
+                <label>Email</label>
+            </div>
 
-        <p class="auth-link">
+            <div class="input-group">
+                <input type="password" id="password" required>
+                <label>Password</label>
+            </div>
+
+            <div style="text-align:right; margin-top:5px; font-size:13px;">
+                <input type="checkbox" onclick="togglePassword()"> Show Password
+            </div>
+
+
+            <button type="submit" class="auth-btn">
+                Login
+            </button>
+
+            <div style="text-align:right; margin-bottom:10px; font-size:13px;">
+                <a href="#" onclick="openForgotModal()">Forgot Password?</a>
+            </div>
+
+
+        </form>
+
+        <div class="divider">
+            <span>OR</span>
+        </div>
+
+        <a href="/login/google" class="google-btn">
+            <img src="https://cdn-icons-png.flaticon.com/512/2991/2991148.png">
+            Continue with Google
+        </a>
+
+        <p id="errorMsg" class="error-msg"></p>
+
+        <div class="auth-footer">
             Don’t have an account?
             <a href="/signup">Sign Up</a>
-        </p>
+        </div>
     </div>
-</section>
+
+</div>
+
+<script>
+document.getElementById("loginForm").addEventListener("submit", function(e){
+    e.preventDefault();
+
+    fetch("/login", {
+        method: "POST",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify({
+            email: document.getElementById("email").value,
+            password: document.getElementById("password").value
+        })
+    })
+    .then(res => res.json())
+    .then(data => {
+        if(data.success){
+            window.location.href = "/chat";
+        } else {
+            document.getElementById("errorMsg").innerText = data.error;
+        }
+    })
+    .catch(() => {
+        document.getElementById("errorMsg").innerText = "Server error!";
+    });
+});
+
+function togglePassword() {
+    const pass = document.getElementById("password");
+    pass.type = pass.type === "password" ? "text" : "password";
+}
+
+function openForgotModal() {
+    document.getElementById("forgotModal").style.display = "flex";
+}
+
+function closeForgot() {
+    document.getElementById("forgotModal").style.display = "none";
+}
+
+// ✅ Send OTP
+function sendOTP() {
+    fetch("/forgot-password", {
+        method: "POST",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify({
+            email: document.getElementById("forgotEmail").value
+        })
+    })
+    .then(res => res.json())
+    .then(data => {
+        alert(data.message);
+    });
+}
+
+// ✅ Verify OTP
+function verifyOTP() {
+    fetch("/verify-otp", {
+        method: "POST",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify({
+            email: document.getElementById("forgotEmail").value,
+            otp: document.getElementById("otpInput").value
+        })
+    })
+    .then(res => res.json())
+    .then(data => {
+        alert(data.message);
+    });
+}
+
+// ✅ Reset Password (Correct Route)
+function resetPassword() {
+    fetch("/reset-password-otp", {
+        method: "POST",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify({
+            email: document.getElementById("forgotEmail").value,
+            new_password: document.getElementById("newPass").value
+        })
+    })
+    .then(res => res.json())
+    .then(data => {
+        alert(data.message);
+        closeForgot();
+    });
+}
+</script>
+
+<div class="forgot-modal" id="forgotModal">
+  <div class="forgot-box">
+    <h3>Reset Password</h3>
+
+    <!-- Step 1: Enter Email -->
+    <input type="email" id="forgotEmail" placeholder="Enter your email">
+    <button onclick="sendOTP()">Send OTP</button>
+
+    <!-- Step 2: Enter OTP -->
+    <input type="text" id="otpInput" placeholder="Enter OTP">
+    <button onclick="verifyOTP()">Verify OTP</button>
+
+    <!-- Step 3: New Password -->
+    <input type="password" id="newPass" placeholder="New Password">
+    <button onclick="resetPassword()">Reset Password</button>
+
+    <button onclick="closeForgot()">Close</button>
+  </div>
+</div>
+
 
 </body>
 </html>

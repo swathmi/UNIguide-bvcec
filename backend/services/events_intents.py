@@ -1,8 +1,6 @@
 # ---------------- IMPORTS ----------------
-from sentence_transformers import SentenceTransformer, util
-
-# ---------------- LOAD MODEL ----------------
-model = SentenceTransformer("all-MiniLM-L6-v2")
+from sentence_transformers import util
+from services.shared_model import model
 
 # =========================================================
 # INSTITUTION LEVEL INTENTS

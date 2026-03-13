@@ -36,7 +36,7 @@
             <a href="/contact">Contact / Help</a>
         </nav>
 
-        <<div class="nav-right">
+        <div class="nav-right">
     <!-- 🌙 Dark Mode Toggle -->
     <button class="theme-toggle" onclick="toggleTheme()" title="Toggle Dark Mode">🌙</button>
 
@@ -50,7 +50,7 @@
         Sign Up
     </button>
 </div>
->
+
     </header>
 
     <!-- ================= HERO SECTION ================= -->
@@ -59,11 +59,17 @@
             <h1>Your Smart <span>College Assistant</span> for BVCEC</h1>
             <p>Get answers to all your campus queries, instantly.</p>
 
-            <div class="hero-buttons">
-                <button class="get-started-btn">Get Started</button>
-                <button class="launch-btn" onclick="openChat()">Launch UNIGuide</button>
-            </div>
-        </div>
+        <div class="hero-buttons">
+
+          <button class="get-started-btn">Get Started</button>
+
+          <a href="/chat">
+              <button class="launch-btn">Launch UNIGuide</button>
+          </a>
+
+      </div>
+
+
 
         <div class="hero-right">
             <img 
@@ -158,29 +164,7 @@
 <div class="background"></div>
 
 <!-- ================= CHATBOT UI (UNCHANGED) ================= -->
-<div class="chat-container" id="chatbotContainer" style="display:none;">
-    <div class="chat-header">
-        UNIGuide 🤖<br>
-        <small>BVCEC Smart Campus Assistant</small>
-    </div>
 
-    <div class="chat-body" id="chat-body">
-        <div class="message bot-message">
-            Hello 👋 I'm <b>UNIGuide</b> — your BVCEC Smart Assistant!
-            Ask me any campus-related questions 😊
-        </div>
-    </div>
-
-    <div class="chat-footer">
-        <input id="userInput" placeholder="Ask here..." />
-        <button onclick="sendMessage()">➤</button>
-    </div>
-</div>
-
-<!-- ================= SCROLLING BANNER ================= -->
-<div class="scrolling-banner">
-• CSM Batch 8 (2022 – 2026) • CSM Batch 8 (2022 – 2026) •
-</div>
 
 <!-- ================= FOOTER ================= -->
 <footer class="site-footer">
@@ -214,18 +198,10 @@
 </footer>
 
 <!-- ================= MAIN CHATBOT JS ================= -->
-<script src="{{ url_for('static', filename='script.js') }}"></script>
+
 
 <!-- ================= LANDING PAGE JS ONLY ================= -->
-<script>
-function openChat() {
-    document.getElementById("landing").style.display = "none";
-    document.getElementById("chatbotContainer").style.display = "block";
-    setTimeout(() => {
-        document.getElementById("userInput").focus();
-    }, 300);
-}
-</script>
+
 
 </body>
 </html>

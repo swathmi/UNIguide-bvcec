@@ -177,7 +177,7 @@ def get_courses_programs_response(intent):
             "🛠️"
         )
 
-    # ---------- VALUE ADDED ----------
+
     elif intent == "TECHNICAL_COURSES":
         return format_lines(
             "🧠 Technical Value Added Courses",
@@ -206,6 +206,26 @@ def get_courses_programs_response(intent):
             "🏭 Industry Exposure",
             courses_data["industry_exposure"]["activities"],
             "🤝"
+        )
+
+    # ---------- NEW INTENTS ----------
+    elif intent == "ACADEMIC_STRUCTURE":
+        return format_lines(
+            "📚 Academic Structure",
+            courses_data["syllabus_and_curriculum"].get("academic_structure", []),
+            "📘"
+        )
+    elif intent == "ACADEMIC_REGULATIONS":
+        return format_lines(
+            "📜 Academic Regulations",
+            courses_data["syllabus_and_curriculum"].get("regulations", []),
+            "📄"
+        )
+    elif intent == "NOTES_MATERIALS":
+        return format_lines(
+            "📒 Notes & Study Materials",
+            ["Please refer to the department or faculty for subject-wise notes and materials. For Python notes, check the official resources or contact your course instructor."],
+            "📝"
         )
 
     return "Sorry, I could not find the information you requested."

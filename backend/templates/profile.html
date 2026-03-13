@@ -1,0 +1,12 @@
+<h2>{{ current_user.name }}</h2>
+<p>{{ current_user.email }}</p>
+<p>Role: {{ current_user.role }}</p>
+
+<h3>Your Chats</h3>
+
+{% for chat in chats %}
+    <div>
+        <p><b>You:</b> {{ chat.message }}</p>
+        <p><b>Bot:</b> {{ chat.response }}</p>
+    </div>
+{% endfor %}

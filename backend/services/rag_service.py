@@ -60,3 +60,5 @@ def get_rag_answer(user_query, threshold=0.38):
 
     answers = [WEBSITE_CHUNKS[i] for i in top_k.indices.tolist()]
     return "\n\n".join(answers)
+
+

@@ -33,6 +33,7 @@ def format_response(title, points, emoji="🔹"):
     return response.strip()
 
 
+
 def get_management_profile(designation):
     members = college_data.get("management", {}).get("members", [])
     for member in members:
@@ -45,6 +46,36 @@ def get_management_profile(designation):
                 "photo": member.get("photo", "")
             }
     return "⚠️ Information not available."
+
+
+def search_management_by_name(query):
+    """Search management members by name"""
+    query = query.lower()
+    members = college_data.get("management", {}).get("members", [])
+    
+    for member in members:
+        name = member.get("name", "").lower()
+        # Direct substring match
+        if name in query or query in name:
+            return {
+                "type": "profile_with_text",
+                "name": member.get("name", "Not available"),
+                "designation": member.get("designation", ""),
+                "description": member.get("description", "Information not available"),
+                "photo": member.get("photo", "")
+            }
+        # Check if any part of the name matches the query
+        name_parts = name.split()
+        for part in name_parts:
+            if part and part in query:
+                return {
+                    "type": "profile_with_text",
+                    "name": member.get("name", "Not available"),
+                    "designation": member.get("designation", ""),
+                    "description": member.get("description", "Information not available"),
+                    "photo": member.get("photo", "")
+                }
+    return None
 
 
 # ================= MAIN RESPONSE FUNCTION =================
@@ -209,6 +240,8 @@ def get_college_overview_response(intent):
 
 
 
+
+
     # -------- WHY CHOOSE COLLEGE --------
     elif intent == "WHY_CHOOSE_COLLEGE":
         highlights = college_data.get("why_choose_bvcec", {}).get("highlights", [])
@@ -216,6 +249,30 @@ def get_college_overview_response(intent):
             "⭐ Why Choose BVCEC",
             highlights,
             "💡"
+        )
+
+    # -------- DEPARTMENTS --------
+    elif intent == "DEPARTMENT_COUNT":
+        dept_info = college_data.get("departments", {})
+        count = dept_info.get("count", "9")
+        return format_response(
+            "🏛️ Departments at BVCEC",
+            [f"We have {count} departments offering various engineering programs"],
+            "📚"
+        )
+
+    elif intent == "DEPARTMENT_LIST":
+        dept_info = college_data.get("departments", {})
+        dept_list = dept_info.get("list", [])
+        formatted_depts = []
+        for dept in dept_list:
+            formatted_depts.append(
+                f"{dept.get('name')} ({dept.get('short_name')}) - Established: {dept.get('established')}, Intake: {dept.get('intake')}"
+            )
+        return format_response(
+            "🏛️ All Departments",
+            formatted_depts,
+            "📚"
         )
 
     return "Sorry, I could not find the information you requested."

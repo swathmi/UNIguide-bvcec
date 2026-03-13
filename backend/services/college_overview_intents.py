@@ -1,9 +1,5 @@
-from sentence_transformers import SentenceTransformer, util
-
-# ==================================================
-# Load Model ONCE
-# ==================================================
-model = SentenceTransformer("all-MiniLM-L6-v2")
+from sentence_transformers import util
+from services.shared_model import model
 
 # ==================================================
 # COLLEGE OVERVIEW INTENTS (100% JSON COVERAGE)
@@ -71,7 +67,13 @@ COLLEGE_OVERVIEW_INTENTS = {
 
     "FOUNDER_DETAILS": [
         "founder",
-        "who founded the college"
+        "who founded the college",
+        "who is the founder",
+        "founder of bvcec",
+        "who is the founder of bvcec",
+        "who is the founder of the college",
+        "who established bvcec",
+        "who established the college"
     ],
 
     "PRINCIPAL_DETAILS": [
@@ -202,6 +204,24 @@ COLLEGE_OVERVIEW_INTENTS = {
         "why choose bvcec",
         "why our college",
         "advantages of bvcec"
+    ],
+
+    # ================= DEPARTMENTS =================
+    "DEPARTMENT_COUNT": [
+        "how many departments are there",
+        "number of departments",
+        "total departments",
+        "departments count",
+        "how many departments in our college"
+    ],
+
+    "DEPARTMENT_LIST": [
+        "list of departments",
+        "all departments",
+        "what are the departments",
+        "departments offered",
+        "available departments",
+        "departments in college"
     ]
 }
 
@@ -212,7 +232,21 @@ def detect_college_overview_intent(user_query, threshold=0.55):
     """
     Detects best matching college overview intent
     using semantic similarity.
+    EXCLUDES queries that mention specific departments.
     """
+    
+    query_lower = user_query.lower()
+    
+    # Department keywords to exclude college overview matching
+    DEPARTMENT_KEYWORDS = [
+        "csm", "cse aiml", "aiml", "cad", "aids", "civil", "ce", "cse", 
+        "computer science", "ece", "electronics", "eee", "electrical", 
+        "it", "information technology", "mech", "mechanical"
+    ]
+    
+    # If query mentions a specific department, don't match college overview
+    if any(dept in query_lower for dept in DEPARTMENT_KEYWORDS):
+        return None
 
     query_embedding = model.encode(user_query, convert_to_tensor=True)
 

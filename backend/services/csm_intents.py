@@ -52,7 +52,17 @@ CSE_AIML_INTENTS = {
         "who are the faculty of csm",
         "csm teaching staff",
         "faculty of csm department",
-        "cse aiml faculty members"
+        "cse aiml faculty members",
+        "csm faculty",
+        "csm staff",
+        "csm teachers",
+        "csm professors",
+        "tell me about csm staff",
+        "tell me about csm faculty members",
+        "csm faculty members",
+        "details of csm faculty members",
+        "faculty members details",
+        "staff members of csm"
     ],
 
     # ---------- PEO PO PSO ----------
@@ -164,7 +174,7 @@ CSE_AIML_INTENTS = {
 }
 
 # -------- INTENT DETECTOR (UNCHANGED) --------
-def detect_cse_aiml_intent(user_query, threshold=0.50):
+def detect_cse_aiml_intent(user_query, threshold=0.45):
     query_embedding = model.encode(user_query, convert_to_tensor=True)
 
     best_intent = None

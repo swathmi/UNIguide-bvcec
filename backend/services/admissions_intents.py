@@ -1,7 +1,5 @@
-from sentence_transformers import SentenceTransformer, util
-
-# Load model ONCE
-model = SentenceTransformer("all-MiniLM-L6-v2")
+from sentence_transformers import util
+from services.shared_model import model
 
 # ================= ADMISSIONS INTENTS =================
 

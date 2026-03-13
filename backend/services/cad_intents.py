@@ -153,7 +153,7 @@ CAD_INTENTS = {
 }
 
 # ================= DETECTOR =================
-def detect_cad_intent(user_query, threshold=0.50):
+def detect_cad_intent(user_query, threshold=0.45):
     query_embedding = model.encode(user_query, convert_to_tensor=True)
 
     best_intent = None

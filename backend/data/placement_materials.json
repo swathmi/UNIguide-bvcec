@@ -1,0 +1,288 @@
+{
+  "placement_materials": {
+    "programming_languages": [
+      {
+        "language": "C",
+        "description": "Fundamentals of C programming",
+        "resources": [
+          {
+            "type": "notes",
+            "title": "C Basics - Variables, Functions, Pointers",
+            "url": "/materials/c_basics.pdf"
+          },
+          {
+            "type": "questions",
+            "title": "100 C Programming Questions",
+            "url": "/materials/c_100_questions.pdf"
+          },
+          {
+            "type": "code_snippets",
+            "title": "Common C Patterns and Solutions",
+            "url": "/materials/c_patterns.pdf"
+          }
+        ]
+      },
+      {
+        "language": "Java",
+        "description": "Object-oriented programming with Java",
+        "resources": [
+          {
+            "type": "notes",
+            "title": "Java Fundamentals - OOPS, Collections, Streams",
+            "url": "/materials/java_fundamentals.pdf"
+          },
+          {
+            "type": "questions",
+            "title": "100 Java Interview Questions",
+            "url": "/materials/java_100_questions.pdf"
+          },
+          {
+            "type": "code_snippets",
+            "title": "Java Design Patterns",
+            "url": "/materials/java_patterns.pdf"
+          }
+        ]
+      },
+      {
+        "language": "Python",
+        "description": "Python programming for data science and web",
+        "resources": [
+          {
+            "type": "notes",
+            "title": "Python Fundamentals - Data Types, Functions, OOP",
+            "url": "/materials/python_fundamentals.pdf"
+          },
+          {
+            "type": "questions",
+            "title": "100 Python Programming Questions",
+            "url": "/materials/python_100_questions.pdf"
+          },
+          {
+            "type": "code_snippets",
+            "title": "Python Libraries - NumPy, Pandas, Scikit-Learn",
+            "url": "/materials/python_libraries.pdf"
+          }
+        ]
+      },
+      {
+        "language": "SQL",
+        "description": "Database design and SQL queries",
+        "resources": [
+          {
+            "type": "notes",
+            "title": "SQL Basics - DDL, DML, Joins, Aggregation",
+            "url": "/materials/sql_fundamentals.pdf"
+          },
+          {
+            "type": "questions",
+            "title": "50 SQL Interview Questions",
+            "url": "/materials/sql_50_questions.pdf"
+          },
+          {
+            "type": "code_snippets",
+            "title": "SQL Optimization and Advanced Queries",
+            "url": "/materials/sql_advanced.pdf"
+          }
+        ]
+      }
+    ],
+    "aptitude": [
+      {
+        "category": "Quantitative Aptitude",
+        "description": "Mathematics, numbers, and problem-solving",
+        "resources": [
+          {
+            "type": "notes",
+            "title": "Number Systems, HCF, LCM, Percentages",
+            "url": "/materials/aptitude_numbers.pdf"
+          },
+          {
+            "type": "practice_problems",
+            "title": "100 Quantitative Aptitude Problems with Solutions",
+            "url": "/materials/aptitude_quant_100.pdf"
+          },
+          {
+            "type": "time_management",
+            "title": "Speed & Time, Work & Time, Distance",
+            "url": "/materials/aptitude_speed_time.pdf"
+          }
+        ]
+      },
+      {
+        "category": "Logical Reasoning",
+        "description": "Logic, series, and analytical thinking",
+        "resources": [
+          {
+            "type": "notes",
+            "title": "Series, Patterns, Analogies, Syllogisms",
+            "url": "/materials/logical_reasoning.pdf"
+          },
+          {
+            "type": "practice_problems",
+            "title": "100 Logical Reasoning Problems",
+            "url": "/materials/logical_100_problems.pdf"
+          },
+          {
+            "type": "puzzles",
+            "title": "Brain Teasers and Logic Puzzles",
+            "url": "/materials/logic_puzzles.pdf"
+          }
+        ]
+      }
+    ],
+    "verbal": [
+      {
+        "category": "English Communication",
+        "description": "Grammar, vocabulary, and communication skills",
+        "resources": [
+          {
+            "type": "grammar",
+            "title": "English Grammar - Tenses, Articles, Prepositions",
+            "url": "/materials/english_grammar.pdf"
+          },
+          {
+            "type": "vocabulary",
+            "title": "1000 Important Words for Placements",
+            "url": "/materials/english_vocabulary.pdf"
+          },
+          {
+            "type": "practice",
+            "title": "Reading Comprehension and Sentence Correction",
+            "url": "/materials/english_practice.pdf"
+          }
+        ]
+      }
+    ]
+  },
+  "previous_exam_papers": {
+    "metadata": {
+      "note": "Previous exam papers by subject and department",
+      "update_frequency": "After each exam cycle",
+      "total_papers_available": "150+"
+    },
+    "how_to_access": "Ask for 'previous papers of [subject]' or '[subject] question papers' or '[subject] exam papers'"
+  },
+  "company_placements": {
+    "2025": {
+      "top_companies": [
+        {
+          "company_name": "TCS",
+          "students_placed": 45,
+          "branches": ["CSE", "ECE", "IT", "MECH"],
+          "package": "6.5 LPA",
+          "roles": ["Developer", "Associate Engineer", "Business Analyst"]
+        },
+        {
+          "company_name": "Infosys",
+          "students_placed": 38,
+          "branches": ["CSE", "ECE", "IT"],
+          "package": "6 LPA",
+          "roles": ["Software Developer", "Systems Engineer"]
+        },
+        {
+          "company_name": "Wipro",
+          "students_placed": 32,
+          "branches": ["CSE", "IT"],
+          "package": "5.5 LPA",
+          "roles": ["Developer", "QA Engineer"]
+        },
+        {
+          "company_name": "BVS Infotech",
+          "students_placed": 28,
+          "branches": ["CSE", "CSM"],
+          "package": "6 LPA",
+          "roles": ["AI/ML Engineer", "Full Stack Developer"]
+        }
+      ],
+      "placement_statistics": {
+        "total_placed": "300+",
+        "average_package": "6 LPA",
+        "highest_package": "12 LPA"
+      }
+    },
+    "2026": {
+      "first_placement": {
+        "company": "BVS Infotech",
+        "student": "Mr. Gubbala Nagendra Kumar",
+        "branch": "CSE (AI & DS)",
+        "package": "6 LPA",
+        "date": "03-12-2025"
+      }
+    }
+  },
+  "policies": {
+    "attendance_policy": {
+      "minimum_attendance": "75%",
+      "subject_wise": "75% in each subject",
+      "exemptions": [
+        "Medical reasons with valid certificate",
+        "College-sponsored events and competitions",
+        "University exams and academic activities"
+      ],
+      "consequences": [
+        "Below 75%: Not allowed to appear for exam",
+        "Between 60-75%: Medical Certificate required",
+        "Below 60%: Debarred from exam and may lead to re-registration"
+      ],
+      "contact": "Department HOD or Academic Office"
+    },
+    "faculty_development_programs": [
+      {
+        "program": "Research Enhancement Scheme",
+        "duration": "Ongoing",
+        "benefits": [
+          "Research grant up to Rs. 2 lakhs",
+          "Conference participation support",
+          "Publication incentives"
+        ]
+      },
+      {
+        "program": "Industry Collaborative Projects",
+        "duration": "6-12 months",
+        "benefits": [
+          "Industry exposure",
+          "Consultancy projects",
+          "Curriculum enhancement"
+        ]
+      },
+      {
+        "program": "Teaching Methodology Workshops",
+        "duration": "Quarterly",
+        "benefits": [
+          "Advanced pedagogy techniques",
+          "Digital learning tools",
+          "Assessment methods"
+        ]
+      },
+      {
+        "program": "Doctoral Programs Support",
+        "duration": "Ongoing",
+        "benefits": [
+          "Partial fee sponsorship",
+          "Research infrastructure access",
+          "Mentorship"
+        ]
+      }
+    ],
+    "circulars": [
+      {
+        "date": "2026-02-01",
+        "title": "Semester Exam Schedule Released",
+        "content": "End Semester Exams scheduled for March 15-30, 2026",
+        "category": "Academic"
+      },
+      {
+        "date": "2026-02-01",
+        "title": "Placement Drive - Hiring Open",
+        "content": "TCS, Infosys, Wipro campus drive - Register now",
+        "category": "Placement"
+      },
+      {
+        "date": "2026-01-25",
+        "title": "Hostel Applications Open",
+        "content": "Hostel accommodation for next semester",
+        "category": "Administration"
+      }
+    ]
+  }
+}
