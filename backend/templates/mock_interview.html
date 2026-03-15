@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>Mock Interview – UNIGuide</title>
+
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVJkEZSMUkrQ6usKICUPf7qccffygSTNOWOZv+7mZ5IrZjO0rYwQMNGWEZlt9z2issrnetqah3Lg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+<style>
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #f0f4f8 0%, #d9e7f7 100%);
+  min-height: 100vh;
+}
+
+.page {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 80px 10% 60px 10%;
+}
+
+.page h2 {
+  font-size: 48px;
+  font-weight: 800;
+  color: #0f172a;
+  margin-bottom: 40px;
+  letter-spacing: -1px;
+}
+
+.question-box {
+  background: white;
+  padding: 40px;
+  border-radius: 16px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+  margin-bottom: 30px;
+  border-left: 5px solid #0f62cc;
+}
+
+textarea {
+  width: 100%;
+  padding: 14px 16px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  border: 2px solid #e2e8f0;
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  color: #0f172a;
+  min-height: 120px;
+  transition: all 0.3s ease;
+  box-sizing: border-box;
+}
+
+textarea:focus {
+  outline: none;
+  border-color: #0f62cc;
+  box-shadow: 0 0 0 4px rgba(15, 98, 204, 0.1);
+  background: #f0f7ff;
+}
+
+button {
+  background: linear-gradient(135deg, #0f62cc, #0b3c7a);
+  color: white;
+  padding: 14px 32px;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 700;
+  transition: all 0.3s ease;
+  margin-right: 12px;
+  margin-top: 20px;
+  display: inline-block;
+}
+
+button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(15, 98, 204, 0.35);
+}
+
+button:active {
+  transform: translateY(0);
+}
+
+#question {
+  font-size: 18px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  font-weight: 700;
+  color: #0f172a;
+  line-height: 1.6;
+}
+
+#feedback {
+  margin-top: 30px;
+  background: linear-gradient(135deg, #dbeafe 0%, #e0f2fe 100%);
+  padding: 25px;
+  border-radius: 12px;
+  white-space: pre-line;
+  border-left: 5px solid #0f62cc;
+  color: #0b3c7a;
+  font-weight: 500;
+  line-height: 1.8;
+}
+
+@media (max-width: 768px) {
+  .page {
+    padding: 60px 5%;
+  }
+
+  .page h2 {
+    font-size: 36px;
+  }
+
+  button {
+    display: block;
+    width: 100%;
+    margin-bottom: 12px;
+  }
+}
+
+</style>
+
+</head>
+}
+
+#question{
+font-size:18px;
+margin-top:20px;
+font-weight:bold;
+}
+
+#feedback{
+margin-top:20px;
+background:#f5f7ff;
+padding:15px;
+border-radius:8px;
+white-space:pre-line;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header class="navbar">
+<span class="logo">🎓 UNIGuide <b>BVCEC</b></span>
+</header>
+
+<div class="page">
+
+<h2>Mock Interview</h2>
+
+<div class="question-box">
+
+<button onclick="nextQuestion()">Start Interview</button>
+
+<p id="question"></p>
+
+<textarea id="answer" placeholder="Type your answer here"></textarea>
+
+<button onclick="submitAnswer()">Submit Answer</button>
+<button onclick="nextQuestion()">Next Question</button>
+
+<h3 id="feedback"></h3>
+
+</div>
+
+</div>
+
+<script>
+
+function nextQuestion(){
+
+fetch("/get-interview-question")
+.then(res=>res.json())
+.then(data=>{
+
+document.getElementById("question").innerText=data.question
+document.getElementById("answer").value=""
+document.getElementById("feedback").innerText=""
+
+})
+
+}
+
+function submitAnswer(){
+
+let answer=document.getElementById("answer").value
+
+fetch("/evaluate-answer",{
+method:"POST",
+headers:{
+"Content-Type":"application/json"
+},
+body:JSON.stringify({answer:answer})
+})
+.then(res=>res.json())
+.then(data=>{
+
+document.getElementById("feedback").innerText=data.feedback
+
+})
+
+}
+
+</script>
+
+</body>
+</html>

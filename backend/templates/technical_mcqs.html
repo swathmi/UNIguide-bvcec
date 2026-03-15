@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Technical MCQs – UNIGuide</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVJkEZSMUkrQ6usKICUPf7qccffygSTNOWOZv+7mZ5IrZjO0rYwQMNGWEZlt9z2issrnetqah3Lg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<style>
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #f0f4f8 0%, #d9e7f7 100%);
+  min-height: 100vh;
+}
+
+.page {
+  padding: 80px 10% 60px 10%;
+  max-width: 1000px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.page h2 {
+  font-size: 52px;
+  font-weight: 800;
+  color: #0f172a;
+  margin-bottom: 40px;
+  letter-spacing: -1px;
+}
+
+#sections {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 25px;
+  margin-bottom: 60px;
+}
+
+.section-card {
+  background: white;
+  padding: 40px 30px;
+  border-radius: 16px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: 700;
+  color: #0f172a;
+  transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+  border: 1px solid rgba(15, 98, 204, 0.08);
+  position: relative;
+  overflow: hidden;
+}
+
+.section-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #0f62cc 0%, #2563eb 100%);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.section-card:hover {
+  background: linear-gradient(135deg, #0b3c7a 0%, #0f62cc 100%);
+  color: white;
+  transform: translateY(-10px);
+  box-shadow: 0 20px 50px rgba(15, 98, 204, 0.25);
+}
+
+.section-card:hover::before {
+  transform: scaleX(1);
+}
+
+#questions {
+  background: white;
+  padding: 40px;
+  border-radius: 16px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+  text-align: left;
+}
+
+.question {
+  background: #f8fafc;
+  padding: 25px;
+  margin-bottom: 30px;
+  border-radius: 12px;
+  border-left: 4px solid #0f62cc;
+}
+
+.question p {
+  font-size: 16px;
+  font-weight: 600;
+  color: #0f172a;
+  margin: 0 0 16px 0;
+}
+
+.question label {
+  display: flex;
+  align-items: center;
+  padding: 12px 16px;
+  margin-bottom: 10px;
+  background: white;
+  border-radius: 8px;
+  cursor: pointer;
+  border: 2px solid #e2e8f0;
+  transition: all 0.3s ease;
+  font-weight: 500;
+  color: #64748b;
+}
+
+.question label:hover {
+  border-color: #0f62cc;
+  background: #f0f7ff;
+}
+
+.question input[type="radio"] {
+  margin-right: 12px;
+  cursor: pointer;
+}
+
+.submit-btn {
+  background: linear-gradient(135deg, #0f62cc, #0b3c7a);
+  color: white;
+  padding: 14px 40px;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 16px;
+  transition: all 0.3s ease;
+  margin-top: 30px;
+}
+
+.submit-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(15, 98, 204, 0.35);
+}
+
+#score {
+  font-size: 24px;
+  font-weight: 800;
+  color: #0f62cc;
+  margin-top: 40px;
+  padding: 30px;
+  background: linear-gradient(135deg, #dbeafe 0%, #e0f2fe 100%);
+  border-radius: 16px;
+  border-left: 6px solid #0f62cc;
+}
+</style>
+</head>
+<body>
+
+<header class="navbar">
+<span class="logo">🎓 UNIGuide <b>BVCEC</b></span>
+</header>
+
+<div class="page">
+<h2 id="title">Technical MCQs</h2>
+
+<div id="sections">
+  <div class="section-card" onclick="loadQuestions('core')">Core CS</div>
+  <div class="section-card" onclick="loadQuestions('java')">Java</div>
+  <div class="section-card" onclick="loadQuestions('python')">Python</div>
+  <div class="section-card" onclick="loadQuestions('database')">Database</div>
+  <div class="section-card" onclick="loadQuestions('network')">Networking</div>
+  <div class="section-card" onclick="loadQuestions('web')">Web Dev</div>
+</div>
+
+<div id="questions" style="display:none">
+  <form id="quiz"></form>
+  <button type="button" class="submit-btn" onclick="submitAnswers()">Submit Answers</button>
+  <h3 id="score"></h3>
+</div>
+</div>
+
+<script>
+const questions = {
+  'core': [
+    {'question': 'What is OOPS?', 'options': ['Object Oriented Programming System', 'Object Organising Programming Syntax', 'Object Output Programming System', 'None'], 'answer': 'Object Oriented Programming System'},
+    {'question': 'What are the 4 pillars of OOP?', 'options': ['Encapsulation, Inheritance, Polymorphism, Abstraction', 'Encapsulation, Declaration, Polymorphism, Abstraction', 'Elements, Inheritance, Polymorphism, Abstraction', 'None of above'], 'answer': 'Encapsulation, Inheritance, Polymorphism, Abstraction'},
+    {'question': 'What is polymorphism?', 'options': ['One name, many forms', 'Single inheritance', 'Multiple data types', 'None'], 'answer': 'One name, many forms'},
+    {'question': 'What is inheritance?', 'options': ['Transfer of properties from parent to child', 'No concept in OOP', 'Creating multiple objects', 'None'], 'answer': 'Transfer of properties from parent to child'},
+    {'question': 'What is encapsulation?', 'options': ['Binding data and methods together', 'Breaking code into parts', 'Creating classes', 'None'], 'answer': 'Binding data and methods together'}
+  ],
+  'java': [
+    {'question': 'What is JVM?', 'options': ['Java Virtual Machine', 'Java Verification Module', 'Java Variable Memory', 'None'], 'answer': 'Java Virtual Machine'},
+    {'question': 'What is a class in Java?', 'options': ['Blueprint for creating objects', 'A type of variable', 'A loop construct', 'None'], 'answer': 'Blueprint for creating objects'},
+    {'question': 'What is the difference between '==' and equals()?', 'options': ['== compares references, equals() compares values', '== compares values, equals() compares references', 'Both are same', 'None'], 'answer': '== compares references, equals() compares values'},
+    {'question': 'What are access modifiers in Java?', 'options': ['public, private, protected, default', 'public, private, local, default', 'global, private, protected, default', 'None'], 'answer': 'public, private, protected, default'},
+    {'question': 'What is final keyword?', 'options': ['Makes variable immutable', 'Necessary for inheritance', 'Used in loops', 'None'], 'answer': 'Makes variable immutable'}
+  ],
+  'python': [
+    {'question': 'What is Python?', 'options': ['High-level programming language', 'A snake', 'A framework', 'None'], 'answer': 'High-level programming language'},
+    {'question': 'What is a list in Python?', 'options': ['Ordered, mutable collection', 'Unordered collection', 'Immutable collection', 'None'], 'answer': 'Ordered, mutable collection'},
+    {'question': 'What is tuple?', 'options': ['Immutable sequence of values', 'Mutable sequence', 'Dictionary type', 'None'], 'answer': 'Immutable sequence of values'},
+    {'question': 'What is a lambda function?', 'options': ['Anonymous function', 'Named function', 'Built-in function', 'None'], 'answer': 'Anonymous function'},
+    {'question': 'What is PEP 8?', 'options': ['Python Enhancement Proposal for style guide', 'Python version', 'Library name', 'None'], 'answer': 'Python Enhancement Proposal for style guide'}
+  ],
+  'database': [
+    {'question': 'What is DBMS?', 'options': ['Database Management System', 'Data Basic Management System', 'Database Module System', 'None'], 'answer': 'Database Management System'},
+    {'question': 'What is normalization?', 'options': ['Process of eliminating redundancy', 'Creating tables', 'Writing queries', 'None'], 'answer': 'Process of eliminating redundancy'},
+    {'question': 'What is Primary Key?', 'options': ['Unique identifier for a row', 'Key to database', 'Main database key', 'None'], 'answer': 'Unique identifier for a row'},
+    {'question': 'What is Foreign Key?', 'options': ['Key that refers to primary key of another table', 'External key', 'Key outside database', 'None'], 'answer': 'Key that refers to primary key of another table'},
+    {'question': 'What is SQL?', 'options': ['Structured Query Language', 'Standard Query Language', 'System Query Language', 'None'], 'answer': 'Structured Query Language'}
+  ],
+  'network': [
+    {'question': 'What is OSI Model?', 'options': ['Open Systems Interconnection model with 7 layers', 'Operating System Interface', 'Open Source Interface', 'None'], 'answer': 'Open Systems Interconnection model with 7 layers'},
+    {'question': 'What is TCP/IP?', 'options': ['Transmission Control Protocol/Internet Protocol', 'Total Control Protocol', 'Transmission Communication Protocol', 'None'], 'answer': 'Transmission Control Protocol/Internet Protocol'},
+    {'question': 'What is IP Address?', 'options': ['Unique identifier for devices on network', 'Internet Password', 'Internet Protocol Address', 'Internet Port'], 'answer': 'Unique identifier for devices on network'},
+    {'question': 'What is DNS?', 'options': ['Domain Name System', 'Direct Name Service', 'Database Naming System', 'None'], 'answer': 'Domain Name System'},
+    {'question': 'What is HTTP?', 'options': ['HyperText Transfer Protocol', 'High Tech Transfer Protocol', 'Home Transfer Protocol', 'None'], 'answer': 'HyperText Transfer Protocol'}
+  ],
+  'web': [
+    {'question': 'What is HTML?', 'options': ['HyperText Markup Language', 'High Tech Markup Language', 'Home Text Markup Language', 'None'], 'answer': 'HyperText Markup Language'},
+    {'question': 'What is CSS?', 'options': ['Cascading Style Sheets', 'Computer Style System', 'Cascading Style System', 'None'], 'answer': 'Cascading Style Sheets'},
+    {'question': 'What is JavaScript?', 'options': ['Client-side scripting language', 'Server-side language', 'Database language', 'None'], 'answer': 'Client-side scripting language'},
+    {'question': 'What is REST API?', 'options': ['Representational State Transfer API', 'Remote Exchange Service Transfer', 'Resource Exchange API', 'None'], 'answer': 'Representational State Transfer API'},
+    {'question': 'What is JSON?', 'options': ['JavaScript Object Notation', 'Java Standard Object Notation', 'JavaScript Online Notation', 'None'], 'answer': 'JavaScript Object Notation'}
+  ]
+};
+
+function loadQuestions(category) {
+  document.getElementById('sections').style.display = 'none';
+  document.getElementById('questions').style.display = 'block';
+  document.getElementById('title').innerText = category.toUpperCase() + ' - Technical MCQs';
+  
+  let quiz = document.getElementById('quiz');
+  quiz.innerHTML = '';
+  
+  questions[category].forEach((q, index) => {
+    let html = `
+      <div class="question">
+        <p>${index + 1}. ${q.question}</p>
+        ${q.options.map(opt => `
+          <label>
+            <input type="radio" name="q${index}" value="${opt}">
+            ${opt}
+          </label>
+        `).join('')}
+      </div>
+    `;
+    quiz.innerHTML += html;
+  });
+}
+
+function submitAnswers() {
+  let score = 0;
+  let totalQuestions = Object.values(questions).flat().length;
+  
+  Object.values(questions).forEach((categoryQuestions) => {
+    categoryQuestions.forEach((q, i) => {
+      let ans = document.querySelector(`input[name="q${i}"]:checked`);
+      if(ans && ans.value === q.answer) {
+        score++;
+      }
+    });
+  });
+  
+  document.getElementById('score').innerText = `Score: ${score}/${totalQuestions} (${Math.round(score/totalQuestions * 100)}%)`;
+}
+</script>
+
+</body>
+</html>

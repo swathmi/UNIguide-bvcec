@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>Placement Prep – UNIGuide</title>
+
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVJkEZSMUkrQ6usKICUPf7qccffygSTNOWOZv+7mZ5IrZjO0rYwQMNGWEZlt9z2issrnetqah3Lg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+<style>
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #f0f4f8 0%, #d9e7f7 100%);
+  min-height: 100vh;
+}
+
+.page {
+  padding: 80px 10% 60px 10%;
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.page h2 {
+  font-size: 52px;
+  font-weight: 800;
+  color: #0f172a;
+  margin: 0 0 12px 0;
+  letter-spacing: -1px;
+}
+
+.page p {
+  font-size: 16px;
+  color: #64748b;
+  margin-bottom: 50px;
+  font-weight: 500;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 25px;
+  margin: 40px 0;
+}
+
+.card {
+  background: white;
+  padding: 40px 30px;
+  border-radius: 16px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: 700;
+  color: #0f172a;
+  transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+  border: 1px solid rgba(15, 98, 204, 0.08);
+  position: relative;
+  overflow: hidden;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #0f62cc 0%, #2563eb 100%);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.card:hover {
+  background: linear-gradient(135deg, #0b3c7a 0%, #0f62cc 100%);
+  color: white;
+  transform: translateY(-12px);
+  box-shadow: 0 20px 50px rgba(15, 98, 204, 0.25);
+}
+
+.card:hover::before {
+  transform: scaleX(1);
+}
+
+.back-btn {
+  background: linear-gradient(135deg, #0f62cc, #0b3c7a);
+  color: white;
+  border: none;
+  padding: 14px 32px;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 700;
+  transition: all 0.3s ease;
+  margin-top: 40px;
+  display: inline-block;
+}
+
+.back-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(15, 98, 204, 0.35);
+}
+
+.back-btn:active {
+  transform: translateY(0);
+}
+
+@media (max-width: 768px) {
+  .page {
+    padding: 60px 5%;
+  }
+
+  .page h2 {
+    font-size: 36px;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+</style>
+
+</head>
+
+</style>
+
+</head>
+
+<body>
+
+<header class="navbar">
+<span class="logo">🎓 UNIGuide <b>BVCEC</b></span>
+</header>
+
+<div class="page">
+
+<h2 id="title">Placement Preparation</h2>
+<p id="subtitle">Select company to prepare</p>
+
+
+<!-- COMPANY SELECTION -->
+
+<div id="companies" class="grid">
+
+<div class="card" onclick="openCompany('TCS')">🏢 TCS</div>
+
+<div class="card" onclick="openCompany('Infosys')">🏢 Infosys</div>
+
+<div class="card" onclick="openCompany('Wipro')">🏢 Wipro</div>
+
+<div class="card" onclick="openCompany('Accenture')">🏢 Accenture</div>
+
+<div class="card" onclick="openCompany('Cognizant')">🏢 Cognizant</div>
+
+<div class="card" onclick="openCompany('Capgemini')">🏢 Capgemini</div>
+
+</div>
+
+
+<!-- COMPANY MODULES -->
+
+<div id="company-modules" class="grid" style="display:none">
+
+<a href="/mock-tests">
+<div class="card">🧠 Aptitude Practice</div>
+</a>
+
+<a href="/coding-practice">
+<div class="card">💻 Coding Practice</div>
+</a>
+
+<a href="/technical-mcqs">
+<div class="card">📚 Technical MCQs</div>
+</a>
+
+<a href="/mock-interview">
+<div class="card">🎤 Mock Interview</div>
+</a>
+
+<a id="previous-papers-link" href="/previous-papers">
+<div class="card">📑 Previous Papers</div>
+</a>
+
+<a id="interview-tips-link" href="/interview-tips">
+<div class="card">💡 Interview Tips</div>
+</a>
+
+</div>
+
+
+<button id="backBtn" class="back-btn" onclick="goBack()" style="display:none">
+← Back to Companies
+</button>
+
+
+</div>
+
+
+<script>
+
+function openCompany(company){
+
+document.getElementById("companies").style.display="none"
+
+document.getElementById("company-modules").style.display="grid"
+
+document.getElementById("backBtn").style.display="inline-block"
+
+document.getElementById("title").innerText =
+company + " Placement Preparation"
+
+document.getElementById("subtitle").innerText =
+"Prepare for " + company + " recruitment rounds"
+
+// Update links with company parameter
+document.getElementById("previous-papers-link").href = "/previous-papers?company=" + company
+document.getElementById("interview-tips-link").href = "/interview-tips?company=" + company
+
+}
+
+
+function goBack(){
+
+document.getElementById("companies").style.display="grid"
+
+document.getElementById("company-modules").style.display="none"
+
+document.getElementById("backBtn").style.display="none"
+
+document.getElementById("title").innerText="Placement Preparation"
+
+document.getElementById("subtitle").innerText=
+"Select company to prepare"
+
+}
+
+</script>
+
+</body>
+</html>

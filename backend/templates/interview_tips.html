@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Interview Tips – UNIGuide</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVJkEZSMUkrQ6usKICUPf7qccffygSTNOWOZv+7mZ5IrZjO0rYwQMNGWEZlt9z2issrnetqah3Lg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<style>
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #f0f4f8 0%, #d9e7f7 100%);
+  min-height: 100vh;
+}
+
+.page {
+  padding: 80px 10% 60px 10%;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.page h2 {
+  font-size: 52px;
+  font-weight: 800;
+  color: #0f172a;
+  margin-bottom: 40px;
+  letter-spacing: -1px;
+}
+
+.tips-container {
+  display: grid;
+  gap: 30px;
+}
+
+.tip-section {
+  background: white;
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+  border-top: 4px solid #0f62cc;
+}
+
+.tip-section h3 {
+  font-size: 22px;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0 0 16px 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.tip-section ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.tip-section li {
+  padding: 12px 0;
+  color: #64748b;
+  line-height: 1.6;
+  border-bottom: 1px solid #e2e8f0;
+  font-weight: 500;
+}
+
+.tip-section li:last-child {
+  border-bottom: none;
+}
+
+.tip-section li strong {
+  color: #0f172a;
+}
+
+.icon {
+  font-size: 24px;
+}
+
+@media (max-width: 768px) {
+  .page {
+    padding: 60px 5%;
+  }
+
+  .page h2 {
+    font-size: 36px;
+  }
+
+  .tip-section {
+    padding: 20px;
+  }
+
+  .tip-section h3 {
+    font-size: 18px;
+  }
+}
+</style>
+</head>
+<body>
+
+<header class="navbar">
+<span class="logo">🎓 UNIGuide <b>BVCEC</b></span>
+</header>
+
+<div class="page">
+<h2 id="title">Interview Tips</h2>
+
+<div class="tips-container" id="tipsContainer"></div>
+</div>
+
+<script>
+const interviewTips = {
+  'TCS': {
+    'Preparation': [
+      '<strong>30 Days Before:</strong> Focus on DSA and SQL fundamentals',
+      '<strong>15 Days Before:</strong> Start with company-specific projects and previous papers',
+      '<strong>1 Week Before:</strong> Do mock interviews and practice HR questions',
+      '<strong>2 Days Before:</strong> Review resume and prepare answers for key points'
+    ],
+    'Technical Round': [
+      '<strong>DSA Focus:</strong> Arrays, Strings, Linked Lists, Trees prominently asked',
+      '<strong>Database:</strong> SQL queries, joins, and normalization',
+      '<strong>OOPS:</strong> Polymorphism, inheritance, and design patterns',
+      '<strong>Coding Speed:</strong> Write optimal solutions quickly with clean code'
+    ],
+    'Communication': [
+      '<strong>Be Confident:</strong> Maintain eye contact and clear speech',
+      '<strong>Explain Well:</strong> Before coding, explain your approach thoroughly',
+      '<strong>Ask Questions:</strong> Clarify requirements before jumping to code',
+      '<strong>Follow Up:</strong> Keep communication channel open for feedback'
+    ],
+    'General Tips': [
+      '<strong>Punctuality:</strong> Be 10 minutes early, either online or offline',
+      '<strong>Professional Attire:</strong> Formal dress for in-person interviews',
+      '<strong>Enthusiasm:</strong> Show genuine interest in the company and role',
+      '<strong>Post Interview:</strong> Send thank you email within 24 hours'
+    ]
+  },
+  'Infosys': {
+    'Preparation': [
+      '<strong>Focus on Coding:</strong> Heavy emphasis on data structures and algorithms',
+      '<strong>Practice Hard:</strong> Use HackerRank, LeetCode for coding problems',
+      '<strong>System Design:</strong> Basic understanding of scalability concepts',
+      '<strong>Aptitude Skills:</strong> Keep quantitative and logical reasoning sharp'
+    ],
+    'Technical Round': [
+      '<strong>Coding Problems:</strong> 2-3 problems with increasing difficulty',
+      '<strong>Complexity Analysis:</strong> Must explain time and space complexity',
+      '<strong>Edge Cases:</strong> Discuss edge cases and handle them',
+      '<strong>Optimization:</strong> Optimize brute force solutions to efficient ones'
+    ],
+    'Communication': [
+      '<strong>Think Aloud:</strong> Verbalize your thinking process',
+      '<strong>Code Quality:</strong> Write readable and well-commented code',
+      '<strong>Discuss Trade-offs:</strong> Explain why you chose one approach over another',
+      '<strong>Ask for Hints:</strong> Don\'t hesitate to ask if stuck'
+    ],
+    'General Tips': [
+      '<strong>Company Knowledge:</strong> Know Infosys\' recent projects and initiatives',
+      '<strong>Salary Expectations:</strong> Research market rate before HR round',
+      '<strong>Hobby & Interests:</strong> Prepare interesting topics beyond academics',
+      '<strong>Growth Aspirations:</strong> Show eagerness to learn and grow'
+    ]
+  },
+  'Wipro': {
+    'Preparation': [
+      '<strong>Balanced Approach:</strong> Equally focus on theory and practical coding',
+      '<strong>Core Subjects:</strong> Strengthen OOPS, networking, and databases',
+      '<strong>Real-World Problem:</strong> Be ready to explain how you\'ve applied concepts',
+      '<strong>Project Experience:</strong> Have 2-3 solid projects to discuss'
+    ],
+    'Technical Round': [
+      '<strong>Problem Solving:</strong> They test problem-solving logic and approach',
+      '<strong>Code Review:</strong> Be prepared for code review type questions',
+      '<strong>Debugging:</strong> Might ask you to debug given code snippets',
+      '<strong>Architecture:</strong> Basic microservices and architecture questions'
+    ],
+    'Communication': [
+      '<strong>Clarity First:</strong> Crystal clear explanation is valued more than speed',
+      '<strong>Documentation:</strong> Explain what your code does step by step',
+      '<strong>Testing Mindset:</strong> Think about test cases while coding',
+      '<strong>Feedback Reception:</strong> Listen to feedback gracefully'
+    ],
+    'General Tips': [
+      '<strong>Wipro Culture:</strong> Research their workspaces and team structure',
+      '<strong>Continuous Learning:</strong> Mention your commitment to upskilling',
+      '<strong>Diversity & Inclusion:</strong> Show awareness of company values',
+      '<strong>Long-term Goals:</strong> Align your goals with company\'s growth'
+    ]
+  },
+  'Accenture': {
+    'Preparation': [
+      '<strong>Client Mindset:</strong> Accenture focuses on client satisfaction',
+      '<strong>Communication Skills:</strong> heavily weighted in evaluation',
+      '<strong>Soft Skills:</strong> Teamwork and collaboration are important',
+      '<strong>Industry Knowledge:</strong> Basic understanding of their service lines'
+    ],
+    'Technical Round': [
+      '<strong>Fundamentals First:</strong> Strong grasp of basics is crucial',
+      '<strong>Practical Implementation:</strong> How theory applies in industry',
+      '<strong>Problem Analysis:</strong> Breaking down complex problems',
+      '<strong>Code Maintainability:</strong> Writing code others can understand'
+    ],
+    'Communication': [
+      '<strong>Storytelling:</strong> Share stories of problem-solving experiences',
+      '<strong>Client Interaction:</strong> Demonstrate how you\'d handle client queries',
+      '<strong>Presentation Skills:</strong> Be prepared to present a mini project',
+      '<strong>Adaptability:</strong> Show flexibility in approach and thinking'
+    ],
+    'General Tips': [
+      '<strong>Accenture Values:</strong> Client obsession, excellence, unity',
+      '<strong>Industry 4.0:</strong> Familiarize with digital transformation trends',
+      '<strong>Global Mindset:</strong> Accenture is global, show cultural awareness',
+      '<strong>Career Path:</strong> Ask about growth opportunities (PM, Architect, etc.)'
+    ]
+  },
+  'Cognizant': {
+    'Preparation': [
+      '<strong>Programming Languages:</strong> Strong foundation in Java/Python',
+      '<strong>Databases:</strong> SQL and NoSQL concepts',
+      '<strong>Web Development:</strong> Basic HTML, CSS, JavaScript knowledge',
+      '<strong>Agile Methodology:</strong> Understand Scrum and Agile practices'
+    ],
+    'Technical Round': [
+      '<strong>Mid-Level Questions:</strong> Not too easy, not extremely hard',
+      '<strong>Code Optimization:</strong> They appreciate clean and optimized code',
+      '<strong>Knowledge Gaps:</strong> Be honest about what you don\'t know',
+      '<strong>Learning Ability:</strong> Show you can quickly learn new technologies'
+    ],
+    'Communication': [
+      '<strong>Business Understanding:</strong> Connect technical solution to business value',
+      '<strong>Innovation:</strong> Share ideas on how to improve current solutions',
+      '<strong>Documentation:</strong> Explain your approach clearly before coding',
+      '<strong>Customer Perspective:</strong> Think like an end-user of your code'
+    ],
+    'General Tips': [
+      '<strong>Digital Transformation:</strong> They work on modern tech stacks',
+      '<strong>Portfolio:</strong> Prepare portfolio with GitHub links',
+      '<strong>Behavioral Questions:</strong> Use STAR method for answers',
+      '<strong>Questions to Ask:</strong> Ask about team composition and work culture'
+    ]
+  },
+  'Capgemini': {
+    'Preparation': [
+      '<strong>Basics Are Key:</strong> Ensure strong fundamentals in CS subjects',
+      '<strong>Problem-Based Thinking:</strong> They love solution-oriented candidates',
+      '<strong>Industry Trends:</strong> Know about cloud, AI, and digital solutions',
+      '<strong>Portfolio Projects:</strong> Demonstrate hands-on experience'
+    ],
+    'Technical Round': [
+      '<strong>Realistic Scenarios:</strong> Questions based on real-world problems',
+      '<strong>Code Analysis:</strong> Analyzing existing code for improvements',
+      '<strong>Performance Tuning:</strong> Optimize code for better performance',
+      '<strong>Testing & QA:</strong> Knowledge of testing approaches'
+    ],
+    'Communication': [
+      '<strong>Enthusiasm:</strong> Show genuine passion for technology',
+      '<strong>Practical Examples:</strong> Use real examples from your projects',
+      '<strong>Industry Talk:</strong> Discuss emerging technologies intelligently',
+      '<strong>Collaboration:</strong> Emphasize teamwork and pair programming'
+    ],
+    'General Tips': [
+      '<strong>Capgemini Culture:</strong> Innovation, collaboration, responsibility',
+      '<strong>Emerging Tech:</strong> Familiarity with ML, Cloud, IoT',
+      '<strong>Certification Value:</strong> Any relevant certifications are a plus',
+      '<strong>Future Goals:</strong> Mention desire to work on cutting-edge projects'
+    ]
+  }
+};
+
+const company = new URLSearchParams(window.location.search).get('company') || 'TCS';
+document.getElementById('title').innerText = company + ' - Interview Tips';
+
+const container = document.getElementById('tipsContainer');
+const tips = interviewTips[company] || {};
+
+Object.keys(tips).forEach(section => {
+  let html = `
+    <div class="tip-section">
+      <h3><span class="icon">💡</span>${section}</h3>
+      <ul>
+        ${tips[section].map(tip => `<li>${tip}</li>`).join('')}
+      </ul>
+    </div>
+  `;
+  container.innerHTML += html;
+});
+</script>
+
+</body>
+</html>

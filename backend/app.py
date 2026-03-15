@@ -14,6 +14,10 @@ import logging
 logging.getLogger("transformers").setLevel(logging.ERROR)
 logging.getLogger("sentence_transformers").setLevel(logging.ERROR)
 from flask_mail import Mail, Message
+from reportlab.lib.pagesizes import letter
+from reportlab.pdfgen import canvas
+from flask import send_file
+import io
 
 
 
@@ -251,9 +255,468 @@ def features():
 def student_services():
     return render_template("student-services.html")
 
+@app.route("/mock-tests")
+def mock_tests():
+    return render_template("mock_tests.html")
+
+APTITUDE_QUESTIONS = [
+
+{"question":"What is 5 + 7?", "options":["10","11","12","13"], "answer":"12"},
+
+{"question":"If 6 × 4 = ?", "options":["20","22","24","26"], "answer":"24"},
+
+{"question":"Square root of 81?", "options":["7","8","9","10"], "answer":"9"},
+
+{"question":"What is 15% of 200?", "options":["20","25","30","35"], "answer":"30"},
+
+{"question":"If a train runs 60 km in 1 hour, speed?", "options":["60 km/h","50 km/h","70 km/h","80 km/h"], "answer":"60 km/h"},
+
+{"question":"What comes next: 2,4,6,8,?", "options":["9","10","11","12"], "answer":"10"},
+
+{"question":"What is 100 ÷ 4?", "options":["20","25","30","35"], "answer":"25"},
+
+{"question":"What is 9 × 9?", "options":["72","81","90","99"], "answer":"81"},
+
+{"question":"What is 45 + 55?", "options":["90","95","100","105"], "answer":"100"},
+
+{"question":"What is 120 ÷ 10?", "options":["10","11","12","13"], "answer":"12"}
+
+]
+TECHNICAL_QUESTIONS = [
+
+{"question":"Which language is used for web pages?", "options":["HTML","C","Python","Java"], "answer":"HTML"},
+
+{"question":"Which data structure uses FIFO?", "options":["Stack","Queue","Tree","Graph"], "answer":"Queue"},
+
+{"question":"Which keyword defines function in Python?", "options":["function","define","def","fun"], "answer":"def"},
+
+{"question":"Which symbol is used for comments in Python?", "options":["//","#","<!--","**"], "answer":"#"},
+
+{"question":"Which language is used for styling web pages?", "options":["HTML","CSS","C++","Python"], "answer":"CSS"},
+
+{"question":"Which database language is used for queries?", "options":["SQL","HTML","Java","Python"], "answer":"SQL"},
+
+{"question":"Which company created Java?", "options":["Microsoft","Sun Microsystems","Google","Apple"], "answer":"Sun Microsystems"},
+
+{"question":"Which loop repeats until condition false?", "options":["for","while","if","switch"], "answer":"while"},
+
+{"question":"Which device stores permanent data?", "options":["RAM","ROM","Cache","Register"], "answer":"ROM"},
+
+{"question":"Which protocol is used for websites?", "options":["HTTP","FTP","SMTP","POP"], "answer":"HTTP"}
+
+]
+CODING_QUESTIONS = [
+
+{"question":"Which language is popular for data science?", "options":["Python","C","Java","PHP"], "answer":"Python"},
+
+{"question":"What is output of print(3*3)?", "options":["6","9","12","3"], "answer":"9"},
+
+{"question":"Which operator is used for addition?", "options":["+","-","*","/"], "answer":"+"},
+
+{"question":"Which keyword creates loop in Python?", "options":["loop","for","repeat","iterate"], "answer":"for"},
+
+{"question":"Which symbol starts a block in Python?", "options":[":",";","{}","()"], "answer":":"},
+
+{"question":"Which function prints output in Python?", "options":["echo()","print()","show()","display()"], "answer":"print()"},
+
+{"question":"Which datatype stores text?", "options":["int","string","float","bool"], "answer":"string"},
+
+{"question":"Which operator checks equality?", "options":["=","==","!=","<"], "answer":"=="},
+
+{"question":"Which keyword stops loop?", "options":["stop","break","exit","end"], "answer":"break"},
+
+{"question":"Which language runs in browser?", "options":["Python","JavaScript","C++","Java"], "answer":"JavaScript"}
+
+]
+@app.route("/get-questions/<section>")
+def get_questions(section):
+
+    if section == "aptitude":
+        return jsonify(APTITUDE_QUESTIONS)
+
+    elif section == "technical":
+        return jsonify(TECHNICAL_QUESTIONS)
+
+    elif section == "coding":
+        return jsonify(CODING_QUESTIONS)
+
+    return jsonify([])
+
+
+
+
 @app.route("/contact")
 def contact():
     return render_template("contact.html") 
+
+@app.route("/coding-practice")
+@login_required
+def coding_practice():
+    return render_template("coding_practice.html")
+
+@app.route("/practice/<language>")
+@login_required
+def practice(language):
+    return render_template("practice.html", language=language)
+
+import random
+import subprocess
+import tempfile
+
+PROBLEMS=[
+
+{
+"title":"Sum of Two Numbers",
+"description":"Write a program that reads two numbers and prints their sum.",
+"example":"Input: 5 7\nOutput: 12"
+},
+
+{
+"title":"Print Numbers 1 to 10",
+"description":"Write a program to print numbers from 1 to 10.",
+"example":"Output:\n1 2 3 4 5 6 7 8 9 10"
+},
+
+{
+"title":"Even Numbers",
+"description":"Print all even numbers from 1 to 20.",
+"example":"Output:\n2 4 6 8 10 12 14 16 18 20"
+}
+
+]
+
+@app.route("/get-problem")
+def get_problem():
+
+    problem=random.choice(PROBLEMS)
+
+    return jsonify(problem)
+
+
+@app.route("/run-code", methods=["POST"])
+def run_code():
+
+    data=request.get_json()
+
+    code=data.get("code")
+
+    with tempfile.NamedTemporaryFile(delete=False,suffix=".py") as f:
+        f.write(code.encode())
+        filename=f.name
+
+    try:
+
+        result=subprocess.check_output(
+        ["python",filename],
+        stderr=subprocess.STDOUT,
+        timeout=5
+        )
+
+        output=result.decode()
+
+    except subprocess.CalledProcessError as e:
+
+        output=e.output.decode()
+
+    except Exception as e:
+
+        output=str(e)
+
+    return jsonify({"output":output})
+
+@app.route("/placement-preparation")
+def placement_prep():
+    return render_template("placement_prep.html")
+
+@app.route("/technical-mcqs")
+def technical_mcqs():
+    return render_template("technical_mcqs.html")
+
+
+@app.route("/previous-papers")
+def previous_papers():
+    return render_template("previous_papers.html")
+
+@app.route("/interview-tips")
+def interview_tips():
+    return render_template("interview_tips.html")
+
+@app.route("/resume-builder")
+def resume_builder():
+    return render_template("resume_builder.html")
+
+@app.route("/ai-resume", methods=["POST"])
+@login_required
+def ai_resume():
+
+    data=request.get_json()
+    prompt=data.get("prompt")
+
+    ai_prompt=f"""
+Generate resume content for: {prompt}
+
+Return JSON with:
+summary
+skills
+projects
+certifications
+"""
+
+    result=call_llm(ai_prompt)
+
+    return jsonify(result)
+@app.route("/generate-resume", methods=["POST"])
+def generate_resume():
+
+    name=request.form.get("name")
+    email=request.form.get("email")
+    phone=request.form.get("phone")
+    linkedin=request.form.get("linkedin")
+
+    summary=request.form.get("summary")
+    skills=request.form.get("skills")
+    projects=request.form.get("projects")
+    internships=request.form.get("internships")
+    degree=request.form.get("degree")
+    college=request.form.get("college")
+    cgpa=request.form.get("cgpa")
+    certifications=request.form.get("certifications")
+
+    buffer=io.BytesIO()
+
+    pdf=canvas.Canvas(buffer,pagesize=letter)
+
+    y=750
+
+    pdf.drawString(100,y,name)
+    y-=20
+    pdf.drawString(100,y,email)
+    y-=20
+    pdf.drawString(100,y,phone)
+    y-=20
+    pdf.drawString(100,y,linkedin)
+
+    y-=40
+    pdf.drawString(100,y,"SUMMARY")
+    y-=20
+    pdf.drawString(120,y,summary)
+
+    y-=40
+    pdf.drawString(100,y,"SKILLS")
+    y-=20
+    pdf.drawString(120,y,skills)
+
+    y-=40
+    pdf.drawString(100,y,"PROJECTS")
+    y-=20
+    pdf.drawString(120,y,projects)
+
+    y-=40
+    pdf.drawString(100,y,"INTERNSHIPS")
+    y-=20
+    pdf.drawString(120,y,internships)
+
+    y-=40
+    pdf.drawString(100,y,"EDUCATION")
+    y-=20
+    pdf.drawString(120,y,f"{degree} - {college} - {cgpa}")
+
+    y-=40
+    pdf.drawString(100,y,"CERTIFICATIONS")
+    y-=20
+    pdf.drawString(120,y,certifications)
+
+    pdf.save()
+
+    buffer.seek(0)
+
+    return send_file(
+        buffer,
+        as_attachment=True,
+        download_name="resume.pdf",
+        mimetype="application/pdf"
+    )
+
+@app.route("/mock-interview")
+def mock_interview():
+    return render_template("mock_interview.html")
+INTERVIEW_QUESTIONS=[
+
+{"question":"Tell me about yourself"},
+
+{"question":"What are your strengths?"},
+
+{"question":"Why should we hire you?"},
+
+{"question":"Explain OOP concepts"},
+
+{"question":"What is REST API?"},
+
+{"question":"Explain difference between SQL and NoSQL"},
+
+{"question":"What is Python used for?"},
+
+{"question":"Explain client server architecture"}
+
+]
+@app.route("/get-interview-question")
+def get_interview_question():
+
+    question = random.choice(INTERVIEW_QUESTIONS)
+
+    return jsonify(question)
+
+@app.route("/evaluate-answer", methods=["POST"])
+def evaluate_answer():
+
+    data = request.get_json()
+
+    answer = data.get("answer")
+
+    prompt = f"""
+You are an interview evaluator.
+
+Evaluate the following candidate answer.
+
+Answer:
+{answer}
+
+Give response in this format:
+
+Score: /10
+Strengths:
+Improvements:
+"""
+
+    ai_feedback = call_llm(prompt)
+
+    return jsonify({"feedback": ai_feedback})
+
+@app.route("/gpa-calculator")
+def gpa_calculator():
+    return render_template("gpa_calculator.html")
+
+
+
+@app.route("/campus-announcements")
+def campus_announcements():
+
+    import requests
+    from bs4 import BeautifulSoup
+
+    url = "https://bvcec.edu.in/"
+
+    r = requests.get(url)
+    soup = BeautifulSoup(r.text,"html.parser")
+
+    announcements = []
+
+    for item in soup.find_all("p")[:10]:
+        text = item.get_text(strip=True)
+        if text:
+            announcements.append(text)
+
+    return render_template(
+        "announcements.html",
+        announcements=announcements
+    )
+@app.route("/attendance-tracker")
+def attendance_tracker():
+    return render_template("attendance.html")
+
+import PyPDF2
+
+@app.route("/notes-summarizer")
+def notes_summarizer():
+    return render_template("notes_summarizer.html")
+
+
+@app.route("/summarize-notes", methods=["POST"])
+def summarize_notes():
+
+    file = request.files["file"]
+
+    text=""
+
+    pdf_reader = PyPDF2.PdfReader(file)
+
+    for page in pdf_reader.pages:
+        text += page.extract_text()
+
+    prompt = f"""
+Summarize the following notes in simple bullet points for students:
+
+{text[:3000]}
+"""
+
+    summary = call_llm(prompt)
+    
+
+    return jsonify({"summary": summary})
+@app.route("/library-search")
+def library_search():
+    return render_template("library_search.html")
+
+@app.route("/search-books")
+def search_books():
+
+    query = request.args.get("q","").lower()
+
+    books = [
+
+    {"title":"Data Structures and Algorithms","author":"Mark Allen"},
+    {"title":"Introduction to Algorithms","author":"Thomas H. Cormen"},
+    {"title":"Python Programming","author":"John Zelle"},
+    {"title":"Java Programming","author":"Herbert Schildt"},
+    {"title":"C Programming Language","author":"Dennis Ritchie"},
+    {"title":"Operating Systems Concepts","author":"Silberschatz"},
+    {"title":"Computer Networks","author":"Andrew Tanenbaum"},
+    {"title":"Database System Concepts","author":"Abraham Silberschatz"},
+    {"title":"Artificial Intelligence: A Modern Approach","author":"Stuart Russell"},
+    {"title":"Machine Learning","author":"Tom Mitchell"},
+    {"title":"Deep Learning","author":"Ian Goodfellow"},
+    {"title":"Software Engineering","author":"Ian Sommerville"},
+    {"title":"Digital Logic Design","author":"Morris Mano"},
+    {"title":"Computer Organization","author":"Carl Hamacher"},
+    {"title":"Microprocessors and Interfacing","author":"Douglas Hall"},
+    {"title":"Theory of Computation","author":"Michael Sipser"},
+    {"title":"Compiler Design","author":"Aho, Lam, Sethi"},
+    {"title":"Cloud Computing","author":"Rajkumar Buyya"},
+    {"title":"Cyber Security Essentials","author":"James Graham"},
+    {"title":"Big Data Analytics","author":"Seema Acharya"}
+
+    ]
+
+    results=[b for b in books if query in b["title"].lower()]
+
+    return jsonify({"books":results})
+@app.route("/internship-finder")
+def internship_finder():
+    return render_template("internship_finder.html")
+
+@app.route("/search-internships")
+def search_internships():
+
+    query=request.args.get("q","").lower()
+
+    jobs=[
+
+    {"role":"Python Developer Intern","company":"Infosys","location":"Bangalore"},
+    {"role":"Java Developer Intern","company":"TCS","location":"Hyderabad"},
+    {"role":"Web Development Intern","company":"Wipro","location":"Chennai"},
+    {"role":"Data Science Intern","company":"Accenture","location":"Bangalore"},
+    {"role":"AI/ML Intern","company":"Cognizant","location":"Hyderabad"},
+    {"role":"Frontend Developer Intern","company":"Zoho","location":"Chennai"},
+    {"role":"Backend Developer Intern","company":"Amazon","location":"Bangalore"}
+
+    ]
+
+    if query:
+        results=[j for j in jobs if query in j["role"].lower()]
+    else:
+        results=jobs
+
+    return jsonify({"jobs":results})
 
 @app.route("/profile")
 @login_required

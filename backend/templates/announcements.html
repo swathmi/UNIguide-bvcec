@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>Campus Announcements – UNIGuide</title>
+
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVJkEZSMUkrQ6usKICUPf7qccffygSTNOWOZv+7mZ5IrZjO0rYwQMNGWEZlt9z2issrnetqah3Lg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+<style>
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #f0f4f8 0%, #d9e7f7 100%);
+  min-height: 100vh;
+}
+
+.page {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 80px 10% 60px 10%;
+}
+
+.page h2 {
+  font-size: 48px;
+  font-weight: 800;
+  color: #0f172a;
+  margin-bottom: 40px;
+  letter-spacing: -1px;
+}
+
+.announcement {
+  background: white;
+  padding: 30px;
+  margin-bottom: 20px;
+  border-radius: 12px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+  border-left: 5px solid #0f62cc;
+  transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.announcement:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 35px rgba(15, 98, 204, 0.15);
+}
+
+.announcement strong {
+  font-size: 18px;
+  color: #0f172a;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.announcement p {
+  color: #64748b;
+  line-height: 1.6;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .page {
+    padding: 60px 5%;
+  }
+
+  .page h2 {
+    font-size: 36px;
+  }
+
+  .announcement {
+    padding: 20px;
+  }
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header class="navbar">
+<span class="logo">🎓 UNIGuide <b>BVCEC</b></span>
+</header>
+
+<div class="page">
+
+<h2>Latest Campus Announcements</h2>
+
+{% for a in announcements %}
+
+<div class="announcement">
+{{ a }}
+</div>
+
+{% endfor %}
+
+</div>
+
+</body>
+</html>

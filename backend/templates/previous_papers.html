@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Previous Papers – UNIGuide</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVJkEZSMUkrQ6usKICUPf7qccffygSTNOWOZv+7mZ5IrZjO0rYwQMNGWEZlt9z2issrnetqah3Lg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<style>
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #f0f4f8 0%, #d9e7f7 100%);
+  min-height: 100vh;
+}
+
+.page {
+  padding: 80px 10% 60px 10%;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.page h2 {
+  font-size: 52px;
+  font-weight: 800;
+  color: #0f172a;
+  margin-bottom: 40px;
+  letter-spacing: -1px;
+}
+
+.papers-container {
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+}
+
+.paper-item {
+  padding: 30px;
+  border-bottom: 1px solid #e2e8f0;
+  transition: all 0.3s ease;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.paper-item:hover {
+  background: #f0f7ff;
+  border-left: 5px solid #0f62cc;
+  padding-left: 25px;
+}
+
+.paper-item:last-child {
+  border-bottom: none;
+}
+
+.paper-info h3 {
+  font-size: 18px;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0 0 8px 0;
+}
+
+.paper-info p {
+  color: #64748b;
+  margin: 0;
+  font-size: 14px;
+}
+
+.download-btn {
+  background: linear-gradient(135deg, #0f62cc, #0b3c7a);
+  color: white;
+  padding: 10px 24px;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 14px;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+  margin-left: 20px;
+}
+
+.download-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(15, 98, 204, 0.3);
+}
+
+@media (max-width: 768px) {
+  .page {
+    padding: 60px 5%;
+  }
+
+  .page h2 {
+    font-size: 36px;
+  }
+
+  .paper-item {
+    flex-direction: column;
+    text-align: left;
+  }
+
+  .download-btn {
+    margin-left: 0;
+    margin-top: 15px;
+    width: 100%;
+  }
+}
+</style>
+</head>
+<body>
+
+<header class="navbar">
+<span class="logo">🎓 UNIGuide <b>BVCEC</b></span>
+</header>
+
+<div class="page">
+<h2 id="title">Previous Papers</h2>
+
+<div class="papers-container" id="papersContainer"></div>
+</div>
+
+<script>
+const paperData = {
+  'TCS': [
+    {year: 2024, round: 'Online Test', difficulty: 'Moderate'},
+    {year: 2023, round: 'Technical Round', difficulty: 'Medium'},
+    {year: 2023, round: 'HR Round', difficulty: 'Easy'},
+    {year: 2022, round: 'Online Test', difficulty: 'Moderate'},
+  ],
+  'Infosys': [
+    {year: 2024, round: 'Online Coding Test', difficulty: 'Hard'},
+    {year: 2024, round: 'Technical Interview', difficulty: 'Medium'},
+    {year: 2023, round: 'Aptitude Test', difficulty: 'Moderate'},
+    {year: 2023, round: 'HR Interview', difficulty: 'Easy'},
+  ],
+  'Wipro': [
+    {year: 2024, round: 'Online Assessment', difficulty: 'Moderate'},
+    {year: 2023, round: 'Technical Round', difficulty: 'Medium'},
+    {year: 2023, round: 'Aptitude & English', difficulty: 'Easy'},
+    {year: 2022, round: 'HR Round', difficulty: 'Easy'},
+  ],
+  'Accenture': [
+    {year: 2024, round: 'Online Test', difficulty: 'Easy'},
+    {year: 2023, round: 'Technical Interview', difficulty: 'Medium'},
+    {year: 2023, round: 'Communication Round', difficulty: 'Easy'},
+    {year: 2022, round: 'HR Round', difficulty: 'Easy'},
+  ],
+  'Cognizant': [
+    {year: 2024, round: 'CoCubes Test', difficulty: 'Moderate'},
+    {year: 2023, round: 'Technical Round', difficulty: 'Medium'},
+    {year: 2023, round: 'Aptitude Test', difficulty: 'Moderate'},
+    {year: 2022, round: 'HR Round', difficulty: 'Easy'},
+  ],
+  'Capgemini': [
+    {year: 2024, round: 'Campus Recruitment', difficulty: 'Easy'},
+    {year: 2023, round: 'Technical Round', difficulty: 'Medium'},
+    {year: 2023, round: 'Aptitude', difficulty: 'Moderate'},
+    {year: 2022, round: 'HR Round', difficulty: 'Easy'},
+  ]
+};
+
+const company = new URLSearchParams(window.location.search).get('company') || 'TCS';
+document.getElementById('title').innerText = company + ' - Previous Papers';
+
+const container = document.getElementById('papersContainer');
+const papers = paperData[company] || [];
+
+papers.forEach(paper => {
+  let html = `
+    <div class="paper-item">
+      <div class="paper-info">
+        <h3>${paper.year} - ${paper.round}</h3>
+        <p>Difficulty: <strong>${paper.difficulty}</strong></p>
+      </div>
+      <button class="download-btn" onclick="downloadPaper('${company}', '${paper.year}', '${paper.round}')">
+        <i class="fas fa-download"></i> Download
+      </button>
+    </div>
+  `;
+  container.innerHTML += html;
+});
+
+function downloadPaper(company, year, round) {
+  alert(`Download link for ${company} ${year} - ${round} (PDF will be available soon)`);
+}
+</script>
+
+</body>
+</html>

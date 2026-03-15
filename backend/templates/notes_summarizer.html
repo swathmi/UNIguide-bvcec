@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>AI Notes Summarizer – UNIGuide</title>
+
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVJkEZSMUkrQ6usKICUPf7qccffygSTNOWOZv+7mZ5IrZjO0rYwQMNGWEZlt9z2issrnetqah3Lg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+<style>
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #f0f4f8 0%, #d9e7f7 100%);
+  min-height: 100vh;
+}
+
+.page {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 80px 10% 60px 10%;
+}
+
+.page h2 {
+  font-size: 48px;
+  font-weight: 800;
+  color: #0f172a;
+  margin-bottom: 40px;
+  letter-spacing: -1px;
+}
+
+textarea {
+  width: 100%;
+  padding: 16px;
+  margin-top: 20px;
+  border-radius: 10px;
+  border: 2px solid #e2e8f0;
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  color: #0f172a;
+  min-height: 200px;
+  transition: all 0.3s ease;
+  box-sizing: border-box;
+}
+
+textarea:focus {
+  outline: none;
+  border-color: #0f62cc;
+  box-shadow: 0 0 0 4px rgba(15, 98, 204, 0.1);
+  background: #f0f7ff;
+}
+
+button {
+  background: linear-gradient(135deg, #0f62cc, #0b3c7a);
+  color: white;
+  padding: 14px 32px;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 700;
+  margin-top: 20px;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(15, 98, 204, 0.35);
+}
+
+button:active {
+  transform: translateY(0);
+}
+
+#summary {
+  margin-top: 40px;
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  border-left: 5px solid #0f62cc;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+  white-space: pre-line;
+  color: #0f172a;
+  line-height: 1.8;
+  font-size: 15px;
+}
+
+@media (max-width: 768px) {
+  .page {
+    padding: 60px 5%;
+  }
+
+  .page h2 {
+    font-size: 36px;
+  }
+
+  textarea {
+    min-height: 150px;
+  }
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header class="navbar">
+<span class="logo">🎓 UNIGuide <b>BVCEC</b></span>
+</header>
+
+<div class="page">
+
+<h2>AI Notes Summarizer</h2>
+
+<p>Upload your notes PDF to generate summary</p>
+
+<input type="file" id="file">
+
+<br>
+
+<button onclick="summarize()">Summarize Notes</button>
+
+<div id="summary"></div>
+
+</div>
+
+<script>
+
+function summarize(){
+
+let file=document.getElementById("file").files[0]
+
+let formData=new FormData()
+
+formData.append("file",file)
+
+fetch("/summarize-notes",{
+method:"POST",
+body:formData
+})
+.then(res=>res.json())
+.then(data=>{
+
+document.getElementById("summary").innerText=data.summary
+
+})
+
+}
+
+</script>
+
+</body>
+
+</html>

@@ -3,8 +3,138 @@
 <head>
 <meta charset="UTF-8">
 <title>Learning Resources – UNIGuide</title>
-<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-</head>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"><link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css\" integrity=\"sha512-iecdLmaskl7CVJkEZSMUkrQ6usKICUPf7qccffygSTNOWOZv+7mZ5IrZjO0rYwQMNGWEZlt9z2issrnetqah3Lg==\" crossorigin=\"anonymous\" referrerpolicy=\"no-referrer\" />
+<style>
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #f0f4f8 0%, #d9e7f7 100%);
+  min-height: 100vh;
+}
+
+.page-content {
+  padding: 80px 10% 60px 10%;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.page-content h1 {
+  font-size: 52px;
+  font-weight: 800;
+  margin: 0 0 16px 0;
+  color: #0f172a;
+  letter-spacing: -1px;
+}
+
+.page-content > p {
+  font-size: 18px;
+  color: #64748b;
+  margin-bottom: 60px;
+  font-weight: 500;
+}
+
+.courses-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 30px;
+  margin-bottom: 40px;
+}
+
+.course-card {
+  background: white;
+  border-radius: 16px;
+  padding: 35px 28px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+  transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+  border: 1px solid rgba(15, 98, 204, 0.08);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.course-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #0f62cc 0%, #2563eb 100%);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.course-card:hover {
+  transform: translateY(-12px);
+  box-shadow: 0 20px 50px rgba(15, 98, 204, 0.15);
+}
+
+.course-card:hover::before {
+  transform: scaleX(1);
+}
+
+.course-card h3 {
+  font-size: 20px;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0 0 8px 0;
+  transition: color 0.3s ease;
+}
+
+.course-card:hover h3 {
+  color: #0f62cc;
+}
+
+.course-card p {
+  font-size: 14px;
+  color: #64748b;
+  margin: 0 0 20px 0;
+  font-weight: 500;
+  flex-grow: 1;
+}
+
+.course-card a {
+  display: inline-block;
+  background: linear-gradient(135deg, #0f62cc, #0b3c7a);
+  color: white;
+  padding: 12px 28px;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14px;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+  cursor: pointer;
+}
+
+.course-card a:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(15, 98, 204, 0.3);
+  background: linear-gradient(135deg, #0b3c7a, #0f62cc);
+}
+
+.course-card a:active {
+  transform: translateY(0);
+}
+
+@media (max-width: 768px) {
+  .page-content {
+    padding: 60px 5%;
+  }
+
+  .page-content h1 {
+    font-size: 36px;
+  }
+
+  .courses-grid {
+    grid-template-columns: 1fr;
+  }
+}
+</style></head>
 
 <body>
 

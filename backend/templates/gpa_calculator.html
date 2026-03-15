@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>GPA & CGPA Calculator – UNIGuide</title>
+
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVJkEZSMUkrQ6usKICUPf7qccffygSTNOWOZv+7mZ5IrZjO0rYwQMNGWEZlt9z2issrnetqah3Lg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+<style>
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #f0f4f8 0%, #d9e7f7 100%);
+  min-height: 100vh;
+}
+
+.page {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 80px 10% 60px 10%;
+}
+
+.page h2 {
+  font-size: 48px;
+  font-weight: 800;
+  color: #0f172a;
+  margin-bottom: 40px;
+  letter-spacing: -1px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+}
+
+th {
+  background: linear-gradient(135deg, #0f62cc 0%, #0b3c7a 100%);
+  color: white;
+  padding: 18px;
+  text-align: center;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+}
+
+td {
+  padding: 16px;
+  text-align: center;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+td:last-child {
+  border-bottom: none;
+}
+
+tr:hover {
+  background: #f0f7ff;
+}
+
+input, select {
+  padding: 12px 14px;
+  width: 100%;
+  border: 2px solid #e2e8f0;
+  border-radius: 8px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  color: #0f172a;
+  box-sizing: border-box;
+  transition: all 0.3s ease;
+}
+
+input:focus, select:focus {
+  outline: none;
+  border-color: #0f62cc;
+  box-shadow: 0 0 0 4px rgba(15, 98, 204, 0.1);
+  background: #f0f7ff;
+}
+
+button {
+  background: linear-gradient(135deg, #0f62cc, #0b3c7a);
+  color: white;
+  padding: 14px 32px;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 700;
+  transition: all 0.3s ease;
+  margin-top: 25px;
+}
+
+button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(15, 98, 204, 0.35);
+}
+
+button:active {
+  transform: translateY(0);
+}
+
+.result {
+  margin-top: 30px;
+  font-size: 20px;
+  font-weight: 800;
+  color: #0b3c7a;
+  background: linear-gradient(135deg, #dbeafe 0%, #e0f2fe 100%);
+  padding: 25px;
+  border-radius: 12px;
+  border-left: 5px solid #0f62cc;
+  text-align: center;
+}
+
+.converter {
+  margin-top: 50px;
+  background: white;
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+}
+
+.converter h3 {
+  font-size: 20px;
+  font-weight: 700;
+  color: #0f172a;
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+
+@media (max-width: 768px) {
+  .page {
+    padding: 60px 5%;
+  }
+
+  .page h2 {
+    font-size: 36px;
+  }
+
+  table {
+    font-size: 13px;
+  }
+
+  th, td {
+    padding: 12px 8px;
+  }
+}
+
+</style>
+
+</head>
+
+</style>
+
+</head>
+
+<body>
+
+<header class="navbar">
+<span class="logo">🎓 UNIGuide <b>BVCEC</b></span>
+</header>
+
+<div class="page">
+
+<h2>GPA Calculator</h2>
+
+<table id="gpaTable">
+
+<tr>
+<th>Subject</th>
+<th>Credits</th>
+<th>Grade</th>
+</tr>
+
+<tr>
+<td><input type="text" placeholder="Subject"></td>
+
+<td><input type="number" class="credit"></td>
+
+<td>
+<select class="grade">
+<option value="10">O</option>
+<option value="9">A+</option>
+<option value="8">A</option>
+<option value="7">B+</option>
+<option value="6">B</option>
+<option value="5">C</option>
+<option value="0">F</option>
+</select>
+</td>
+
+</tr>
+
+</table>
+
+<button onclick="addRow()">Add Subject</button>
+<button onclick="calculateGPA()">Calculate GPA</button>
+
+<div class="result" id="gpaResult"></div>
+
+<div class="converter">
+
+<h2>CGPA ↔ Percentage Converter</h2>
+
+<label>Enter CGPA</label>
+<input type="number" id="cgpa">
+
+<button onclick="cgpaToPercentage()">Convert to Percentage</button>
+
+<div class="result" id="percentageResult"></div>
+
+<br>
+
+<label>Enter Percentage</label>
+<input type="number" id="percentage">
+
+<button onclick="percentageToCgpa()">Convert to CGPA</button>
+
+<div class="result" id="cgpaResult"></div>
+
+</div>
+
+</div>
+
+<script>
+
+function addRow(){
+
+let table=document.getElementById("gpaTable")
+
+let row=table.insertRow()
+
+row.innerHTML=`
+<td><input type="text" placeholder="Subject"></td>
+<td><input type="number" class="credit"></td>
+<td>
+<select class="grade">
+<option value="10">O</option>
+<option value="9">A+</option>
+<option value="8">A</option>
+<option value="7">B+</option>
+<option value="6">B</option>
+<option value="5">C</option>
+<option value="0">F</option>
+</select>
+</td>
+`
+
+}
+
+function calculateGPA(){
+
+let credits=document.querySelectorAll(".credit")
+let grades=document.querySelectorAll(".grade")
+
+let totalCredits=0
+let totalPoints=0
+
+for(let i=0;i<credits.length;i++){
+
+let credit=parseFloat(credits[i].value)
+let grade=parseFloat(grades[i].value)
+
+if(!isNaN(credit)){
+
+totalCredits+=credit
+totalPoints+=credit*grade
+
+}
+
+}
+
+let gpa=totalPoints/totalCredits
+
+document.getElementById("gpaResult").innerText="Your GPA: "+gpa.toFixed(2)
+
+}
+
+function cgpaToPercentage(){
+
+let cgpa=document.getElementById("cgpa").value
+
+let percentage=cgpa*9.5
+
+document.getElementById("percentageResult").innerText=
+"Percentage: "+percentage.toFixed(2)+" %"
+
+}
+
+function percentageToCgpa(){
+
+let percentage=document.getElementById("percentage").value
+
+let cgpa=percentage/9.5
+
+document.getElementById("cgpaResult").innerText=
+"CGPA: "+cgpa.toFixed(2)
+
+}
+
+</script>
+
+</body>
+</html>

@@ -4,170 +4,496 @@
 <meta charset="UTF-8">
 <title>Login – UNIGuide</title>
 <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #0f3d8c 0%, #1e5cb3 50%, #0d2d5c 100%);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* NAVBAR */
+.navbar {
+  background: rgba(30, 92, 179, 0.95);
+  color: white;
+  padding: 20px 40px;
+  font-size: 20px;
+  font-weight: 600;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(10px);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* MAIN CONTAINER */
+.auth-wrapper {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+}
+
+/* AUTH CARD */
+.auth-card {
+  width: 100%;
+  max-width: 420px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  padding: 50px 40px;
+  border-radius: 16px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  animation: slideUp 0.6s ease-out;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.auth-card h2 {
+  margin-bottom: 8px;
+  color: #1e3a8a;
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.auth-card p {
+  color: #666;
+  font-size: 0.95rem;
+  margin-bottom: 30px;
+}
+
+/* FORM GROUPS */
+.input-group {
+  margin-bottom: 18px;
+}
+
+.input-group label {
+  display: block;
+  margin-bottom: 8px;
+  color: #333;
+  font-weight: 500;
+  font-size: 0.95rem;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 14px 16px;
+  border: 2px solid #e2e8f0;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-family: inherit;
+  transition: all 0.3s ease;
+}
+
+.input-group input:focus {
+  outline: none;
+  border-color: #2563eb;
+  box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.1);
+}
+
+.input-group input::placeholder {
+  color: #999;
+}
+
+/* CHECKBOX */
+.checkbox-group {
+  margin: 20px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.9rem;
+}
+
+.checkbox-group input[type="checkbox"] {
+  cursor: pointer;
+  margin-right: 6px;
+}
+
+.checkbox-group a {
+  color: #2563eb;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.checkbox-group a:hover {
+  color: #1e40af;
+  text-decoration: underline;
+}
+
+/* BUTTONS */
+.auth-btn {
+  width: 100%;
+  padding: 14px;
+  background: linear-gradient(135deg, #2563eb, #1e40af);
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 20px;
+}
+
+.auth-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(37, 99, 235, 0.3);
+}
+
+.auth-btn:active {
+  transform: translateY(0);
+}
+
+.divider {
+  text-align: center;
+  margin: 25px 0;
+  color: #999;
+  font-size: 0.9rem;
+  position: relative;
+}
+
+.divider::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 100%;
+  height: 1px;
+  background: #e2e8f0;
+  z-index: 0;
+}
+
+.divider span {
+  position: relative;
+  background: white;
+  padding: 0 10px;
+  z-index: 1;
+}
+
+/* GOOGLE BUTTON */
+.google-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  width: 100%;
+  padding: 14px;
+  background: white;
+  border: 2px solid #e2e8f0;
+  border-radius: 8px;
+  text-decoration: none;
+  color: #333;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.google-btn:hover {
+  background: #f8fafc;
+  border-color: #cbd5e1;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+}
+
+.google-btn img {
+  width: 20px;
+}
+
+/* ERROR MESSAGE */
+.error-msg {
+  color: #dc2626;
+  margin-top: 15px;
+  padding: 12px;
+  background: #fee2e2;
+  border-radius: 6px;
+  text-align: center;
+  display: none;
+  font-size: 0.9rem;
+}
+
+.error-msg.show {
+  display: block;
+}
+
+/* AUTH FOOTER */
+.auth-footer {
+  margin-top: 25px;
+  text-align: center;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.auth-footer a {
+  color: #2563eb;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.auth-footer a:hover {
+  color: #1e40af;
+  text-decoration: underline;
+}
+
+/* FOOTER */
+footer {
+  background: rgba(0, 0, 0, 0.3);
+  color: white;
+  padding: 40px 20px;
+  text-align: center;
+  margin-top: auto;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-section {
+  margin-bottom: 25px;
+}
+
+.footer-section h3 {
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.developer-info {
+  font-size: 0.95rem;
+  margin-bottom: 8px;
+}
+
+.developer-info a {
+  color: #93c5fd;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.developer-info a:hover {
+  color: white;
+  text-decoration: underline;
+}
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin: 15px 0;
+}
+
+.social-links a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 45px;
+  height: 45px;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 50%;
+  color: white;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  font-size: 1.2rem;
+}
+
+.social-links a:hover {
+  background: rgba(255, 255, 255, 0.25);
+  transform: translateY(-3px);
+}
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-top: 15px;
+  font-size: 0.9rem;
+}
+
+.footer-links a {
+  color: #93c5fd;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: white;
+}
+
+.copyright {
+  font-size: 0.85rem;
+  opacity: 0.8;
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+</style>
+
 </head>
 
-<body class="auth-body">
+<body>
+
+<!-- TOP NAVBAR -->
+<header class="navbar">
+  <span class="logo">🎓 UNIGuide <b>BVCEC</b></span>
+</header>
 
 <div class="auth-wrapper">
+  <div class="auth-card">
+    <h2>Welcome Back 👋</h2>
+    <p>Login to access UNIGuide and explore campus resources</p>
 
-    <div class="auth-card">
-        <h2>Welcome Back 👋</h2>
-        <p>Login to continue to UNIGuide</p>
+    <form id="loginForm">
+      <div class="input-group">
+        <label for="email">Email Address</label>
+        <input type="email" id="email" placeholder="Enter your email" required>
+      </div>
 
-        <form id="loginForm">
+      <div class="input-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" placeholder="Enter your password" required>
+      </div>
 
-            <div class="input-group">
-                <input type="email" id="email" required>
-                <label>Email</label>
-            </div>
+      <div class="checkbox-group">
+        <label>
+          <input type="checkbox" id="showPassword" onchange="togglePassword()"> 
+          Show Password
+        </label>
+        <a href="#" onclick="openForgotModal()">Forgot Password?</a>
+      </div>
 
-            <div class="input-group">
-                <input type="password" id="password" required>
-                <label>Password</label>
-            </div>
+      <button type="submit" class="auth-btn">Login</button>
 
-            <div style="text-align:right; margin-top:5px; font-size:13px;">
-                <input type="checkbox" onclick="togglePassword()"> Show Password
-            </div>
+      <div class="divider"><span>OR</span></div>
 
+      <a href="/login/google" class="google-btn">
+        <img src="https://cdn-icons-png.flaticon.com/512/2991/2991148.png" alt="Google">
+        Continue with Google
+      </a>
 
-            <button type="submit" class="auth-btn">
-                Login
-            </button>
+      <div id="errorMsg" class="error-msg"></div>
+    </form>
 
-            <div style="text-align:right; margin-bottom:10px; font-size:13px;">
-                <a href="#" onclick="openForgotModal()">Forgot Password?</a>
-            </div>
+    <div class="auth-footer">
+      Don't have an account?
+      <a href="/signup">Sign Up Now</a>
+    </div>
+  </div>
+</div>
 
-
-        </form>
-
-        <div class="divider">
-            <span>OR</span>
-        </div>
-
-        <a href="/login/google" class="google-btn">
-            <img src="https://cdn-icons-png.flaticon.com/512/2991/2991148.png">
-            Continue with Google
+<!-- FOOTER -->
+<footer>
+  <div class="footer-content">
+    <div class="footer-section">
+      <h3>Connect With Us</h3>
+      <div class="social-links">
+        <a href="https://facebook.com" target="_blank" title="Facebook">
+          <i class="fab fa-facebook-f"></i>
         </a>
-
-        <p id="errorMsg" class="error-msg"></p>
-
-        <div class="auth-footer">
-            Don’t have an account?
-            <a href="/signup">Sign Up</a>
-        </div>
+        <a href="https://twitter.com" target="_blank" title="Twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+        <a href="https://linkedin.com" target="_blank" title="LinkedIn">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+        <a href="https://instagram.com" target="_blank" title="Instagram">
+          <i class="fab fa-instagram"></i>
+        </a>
+      </div>
     </div>
 
+    <div class="footer-section">
+      <h3>Developer</h3>
+      <div class="developer-info">
+        Developed by <strong>Swathmi Pechetti</strong>
+      </div>
+      <div class="developer-info">
+        📧 <a href="mailto:swathmipechetti@gmail.com">swathmipechetti@gmail.com</a>
+      </div>
+    </div>
+
+    <div class="footer-links">
+      <a href="/about">About</a>
+      <a href="/contact">Contact</a>
+      <a href="/features">Features</a>
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms of Service</a>
+    </div>
+
+    <div class="copyright">
+      &copy; 2026 UNIGuide BVCEC. All rights reserved. | Designed & Developed by Swathmi Pechetti
+    </div>
+  </div>
+</footer>
+
+<div class="auth-footer">
+  Don't have an account?
+  <a href="/signup">Sign Up Now</a>
+</div>
 </div>
 
 <script>
 document.getElementById("loginForm").addEventListener("submit", function(e){
-    e.preventDefault();
+  e.preventDefault();
 
-    fetch("/login", {
-        method: "POST",
-        headers: {"Content-Type": "application/json"},
-        body: JSON.stringify({
-            email: document.getElementById("email").value,
-            password: document.getElementById("password").value
-        })
+  const errorMsg = document.getElementById("errorMsg");
+  errorMsg.classList.remove("show");
+
+  fetch("/login", {
+    method:"POST",
+    headers:{"Content-Type":"application/json"},
+    body:JSON.stringify({
+      email:document.getElementById("email").value,
+      password:document.getElementById("password").value
     })
-    .then(res => res.json())
-    .then(data => {
-        if(data.success){
-            window.location.href = "/chat";
-        } else {
-            document.getElementById("errorMsg").innerText = data.error;
-        }
-    })
-    .catch(() => {
-        document.getElementById("errorMsg").innerText = "Server error!";
-    });
+  })
+  .then(res=>res.json())
+  .then(data=>{
+    if(data.success){
+      window.location.href="/chat";
+    }else{
+      errorMsg.innerText = data.error || "Login failed. Please try again.";
+      errorMsg.classList.add("show");
+    }
+  })
+  .catch(()=>{
+    errorMsg.innerText = "Server error! Please try again later.";
+    errorMsg.classList.add("show");
+  });
 });
 
-function togglePassword() {
-    const pass = document.getElementById("password");
-    pass.type = pass.type === "password" ? "text" : "password";
+function togglePassword(){
+  const pass = document.getElementById("password");
+  pass.type = pass.type === "password" ? "text" : "password";
 }
 
-function openForgotModal() {
-    document.getElementById("forgotModal").style.display = "flex";
+function openForgotModal(){
+  alert("Password reset feature coming soon!");
 }
 
-function closeForgot() {
-    document.getElementById("forgotModal").style.display = "none";
-}
-
-// ✅ Send OTP
-function sendOTP() {
-    fetch("/forgot-password", {
-        method: "POST",
-        headers: {"Content-Type": "application/json"},
-        body: JSON.stringify({
-            email: document.getElementById("forgotEmail").value
-        })
-    })
-    .then(res => res.json())
-    .then(data => {
-        alert(data.message);
-    });
-}
-
-// ✅ Verify OTP
-function verifyOTP() {
-    fetch("/verify-otp", {
-        method: "POST",
-        headers: {"Content-Type": "application/json"},
-        body: JSON.stringify({
-            email: document.getElementById("forgotEmail").value,
-            otp: document.getElementById("otpInput").value
-        })
-    })
-    .then(res => res.json())
-    .then(data => {
-        alert(data.message);
-    });
-}
-
-// ✅ Reset Password (Correct Route)
-function resetPassword() {
-    fetch("/reset-password-otp", {
-        method: "POST",
-        headers: {"Content-Type": "application/json"},
-        body: JSON.stringify({
-            email: document.getElementById("forgotEmail").value,
-            new_password: document.getElementById("newPass").value
-        })
-    })
-    .then(res => res.json())
-    .then(data => {
-        alert(data.message);
-        closeForgot();
-    });
-}
 </script>
-
-<div class="forgot-modal" id="forgotModal">
-  <div class="forgot-box">
-    <h3>Reset Password</h3>
-
-    <!-- Step 1: Enter Email -->
-    <input type="email" id="forgotEmail" placeholder="Enter your email">
-    <button onclick="sendOTP()">Send OTP</button>
-
-    <!-- Step 2: Enter OTP -->
-    <input type="text" id="otpInput" placeholder="Enter OTP">
-    <button onclick="verifyOTP()">Verify OTP</button>
-
-    <!-- Step 3: New Password -->
-    <input type="password" id="newPass" placeholder="New Password">
-    <button onclick="resetPassword()">Reset Password</button>
-
-    <button onclick="closeForgot()">Close</button>
-  </div>
-</div>
-
 
 </body>
 </html>

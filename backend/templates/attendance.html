@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>Attendance Tracker – UNIGuide</title>
+
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVJkEZSMUkrQ6usKICUPf7qccffygSTNOWOZv+7mZ5IrZjO0rYwQMNGWEZlt9z2issrnetqah3Lg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+<style>
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #f0f4f8 0%, #d9e7f7 100%);
+  min-height: 100vh;
+}
+
+.page {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 80px 10% 60px 10%;
+}
+
+.page h2 {
+  font-size: 48px;
+  font-weight: 800;
+  color: #0f172a;
+  margin-bottom: 50px;
+  letter-spacing: -1px;
+}
+
+label {
+  display: block;
+  font-size: 16px;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 8px;
+  margin-top: 20px;
+}
+
+input {
+  width: 100%;
+  padding: 14px 16px;
+  margin-top: 8px;
+  margin-bottom: 25px;
+  border-radius: 10px;
+  border: 2px solid #e2e8f0;
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+  color: #0f172a;
+  box-sizing: border-box;
+  transition: all 0.3s ease;
+}
+
+input:focus {
+  outline: none;
+  border-color: #0f62cc;
+  box-shadow: 0 0 0 4px rgba(15, 98, 204, 0.1);
+  background: #f0f7ff;
+}
+
+button {
+  background: linear-gradient(135deg, #0f62cc, #0b3c7a);
+  color: white;
+  padding: 14px 40px;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 700;
+  transition: all 0.3s ease;
+  width: 100%;
+}
+
+button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(15, 98, 204, 0.35);
+}
+
+button:active {
+  transform: translateY(0);
+}
+
+.result {
+  margin-top: 30px;
+  font-size: 16px;
+  font-weight: 600;
+  background: linear-gradient(135deg, #dbeafe 0%, #e0f2fe 100%);
+  padding: 25px;
+  border-radius: 12px;
+  border-left: 5px solid #0f62cc;
+  color: #0b3c7a;
+  white-space: pre-line;
+  line-height: 1.8;
+}
+
+@media (max-width: 768px) {
+  .page {
+    padding: 60px 5%;
+  }
+
+  .page h2 {
+    font-size: 36px;
+  }
+}
+
+</style>
+
+</head>
+
+</style>
+
+</head>
+
+<body>
+
+<header class="navbar">
+<span class="logo">🎓 UNIGuide <b>BVCEC</b></span>
+</header>
+
+<div class="page">
+
+<h2>Attendance Tracker</h2>
+
+<label>Total Classes</label>
+<input type="number" id="total">
+
+<label>Classes Attended</label>
+<input type="number" id="attended">
+
+<button onclick="calculateAttendance()">Calculate</button>
+
+<div class="result" id="result"></div>
+
+</div>
+
+<script>
+
+function calculateAttendance(){
+
+let total=parseInt(document.getElementById("total").value)
+let attended=parseInt(document.getElementById("attended").value)
+
+let percentage=(attended/total)*100
+
+let bunk=Math.floor((attended/0.75)-total)
+
+let needed=Math.ceil((0.75*total)-attended)
+
+let result="Attendance: "+percentage.toFixed(2)+" %"
+
+if(percentage>=75){
+
+result+="\nYou can bunk "+bunk+" classes"
+
+}else{
+
+result+="\nYou must attend "+needed+" more classes to reach 75%"
+
+}
+
+document.getElementById("result").innerText=result
+
+}
+
+</script>
+
+</body>
+</html>

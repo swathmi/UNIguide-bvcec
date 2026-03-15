@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>Mock Tests – UNIGuide</title>
+
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVJkEZSMUkrQ6usKICUPf7qccffygSTNOWOZv+7mZ5IrZjO0rYwQMNGWEZlt9z2issrnetqah3Lg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+<style>
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #f0f4f8 0%, #d9e7f7 100%);
+  min-height: 100vh;
+}
+
+.page {
+  padding: 80px 10% 60px 10%;
+  max-width: 1000px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.page h2 {
+  font-size: 52px;
+  font-weight: 800;
+  color: #0f172a;
+  margin-bottom: 40px;
+  letter-spacing: -1px;
+}
+
+.page h3 {
+  font-size: 24px;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 40px 0 30px 0;
+}
+
+.section-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 25px;
+  margin-bottom: 60px;
+}
+
+.section-card {
+  background: white;
+  padding: 40px 30px;
+  border-radius: 16px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: 700;
+  color: #0f172a;
+  transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+  border: 1px solid rgba(15, 98, 204, 0.08);
+  position: relative;
+  overflow: hidden;
+}
+
+.section-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #0f62cc 0%, #2563eb 100%);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.section-card:hover {
+  background: linear-gradient(135deg, #0b3c7a 0%, #0f62cc 100%);
+  color: white;
+  transform: translateY(-10px);
+  box-shadow: 0 20px 50px rgba(15, 98, 204, 0.25);
+}
+
+.section-card:hover::before {
+  transform: scaleX(1);
+}
+
+#quiz {
+  background: white;
+  padding: 40px;
+  border-radius: 16px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+  text-align: left;
+}
+
+.question {
+  background: #f8fafc;
+  padding: 25px;
+  margin-bottom: 30px;
+  border-radius: 12px;
+  border-left: 4px solid #0f62cc;
+  text-align: left;
+}
+
+.question p {
+  font-size: 16px;
+  font-weight: 600;
+  color: #0f172a;
+  margin: 0 0 16px 0;
+}
+
+.question label {
+  display: flex;
+  align-items: center;
+  padding: 12px 16px;
+  margin-bottom: 10px;
+  background: white;
+  border-radius: 8px;
+  cursor: pointer;
+  border: 2px solid #e2e8f0;
+  transition: all 0.3s ease;
+  font-weight: 500;
+  color: #64748b;
+}
+
+.question label:hover {
+  border-color: #0f62cc;
+  background: #f0f7ff;
+}
+
+.question input[type="radio"] {
+  margin-right: 12px;
+  cursor: pointer;
+  width: 18px;
+  height: 18px;
+}
+
+.submit-btn {
+  background: linear-gradient(135deg, #0f62cc, #0b3c7a);
+  color: white;
+  padding: 14px 40px;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 16px;
+  transition: all 0.3s ease;
+  margin-top: 30px;
+}
+
+.submit-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(15, 98, 204, 0.35);
+}
+
+#score {
+  font-size: 24px;
+  font-weight: 800;
+  color: #0f62cc;
+  margin-top: 40px;
+  padding: 30px;
+  background: linear-gradient(135deg, #dbeafe 0%, #e0f2fe 100%);
+  border-radius: 16px;
+  border-left: 6px solid #0f62cc;
+}
+
+@media (max-width: 768px) {
+  .page {
+    padding: 60px 5%;
+  }
+
+  .page h2 {
+    font-size: 36px;
+  }
+
+  .section-grid {
+    grid-template-columns: 1fr;
+  }
+
+  #quiz {
+    padding: 20px;
+  }
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header class="navbar">
+<span class="logo">🎓 UNIGuide <b>BVCEC</b></span>
+</header>
+
+
+<div class="page">
+
+<h2 id="test-title">Mock Test</h2>
+
+<!-- SECTION SELECTION -->
+
+<div id="sections">
+
+<h3>Select Test Section</h3>
+
+<div class="section-grid">
+
+<div class="section-card" onclick="startTest('aptitude')">
+Aptitude
+</div>
+
+<div class="section-card" onclick="startTest('technical')">
+Technical
+</div>
+
+<div class="section-card" onclick="startTest('coding')">
+Coding
+</div>
+
+</div>
+
+</div>
+
+
+<!-- QUESTIONS -->
+
+<div id="test-area" style="display:none">
+
+<form id="quiz"></form>
+
+<button type="button" class="submit-btn" onclick="submitTest()">
+Submit Test
+</button>
+
+<h3 id="score"></h3>
+
+</div>
+
+</div>
+
+
+<script>
+
+let questions=[]
+
+
+// START TEST
+
+function startTest(section){
+
+document.getElementById("sections").style.display="none"
+document.getElementById("test-area").style.display="block"
+
+document.getElementById("test-title").innerText =
+section.toUpperCase() + " MOCK TEST"
+
+fetch("/get-questions/"+section)
+
+.then(res=>res.json())
+
+.then(data=>{
+
+questions=data
+
+let quiz=document.getElementById("quiz")
+
+quiz.innerHTML=""
+
+data.forEach((q,index)=>{
+
+let html=`<div class="question">
+
+<p>${index+1}. ${q.question}</p>
+
+${q.options.map(opt=>
+
+`<label>
+
+<input type="radio" name="q${index}" value="${opt}">
+${opt}
+
+</label><br>`
+
+).join("")}
+
+</div>`
+
+quiz.innerHTML+=html
+
+})
+
+})
+
+}
+
+
+// SUBMIT TEST
+
+function submitTest(){
+
+let score=0
+
+questions.forEach((q,i)=>{
+
+let ans=document.querySelector(`input[name="q${i}"]:checked`)
+
+if(ans && ans.value===q.answer){
+
+score++
+
+}
+
+})
+
+document.getElementById("score").innerText =
+"Your Score: "+score+" / "+questions.length
+
+document.getElementById("score").scrollIntoView()
+
+}
+
+</script>
+
+</body>
+</html>

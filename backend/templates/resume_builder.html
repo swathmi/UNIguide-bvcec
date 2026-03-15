@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>Resume Builder – UNIGuide</title>
+
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVJkEZSMUkrQ6usKICUPf7qccffygSTNOWOZv+7mZ5IrZjO0rYwQMNGWEZlt9z2issrnetqah3Lg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+<style>
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #f0f4f8 0%, #d9e7f7 100%);
+  min-height: 100vh;
+}
+
+.page {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 80px 10% 60px 10%;
+}
+
+.page h2 {
+  font-size: 48px;
+  font-weight: 800;
+  color: #0f172a;
+  margin-bottom: 40px;
+  letter-spacing: -1px;
+}
+
+.page h3 {
+  font-size: 20px;
+  font-weight: 700;
+  color: #0f172a;
+  margin-top: 40px;
+  margin-bottom: 20px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid rgba(15, 98, 204, 0.2);
+}
+
+input, textarea {
+  width: 100%;
+  padding: 14px 16px;
+  margin-top: 8px;
+  margin-bottom: 16px;
+  border-radius: 10px;
+  border: 2px solid #e2e8f0;
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  color: #0f172a;
+  transition: all 0.3s ease;
+  box-sizing: border-box;
+}
+
+input:focus, textarea:focus {
+  outline: none;
+  border-color: #0f62cc;
+  box-shadow: 0 0 0 4px rgba(15, 98, 204, 0.1);
+  background: #f0f7ff;
+}
+
+input::placeholder, textarea::placeholder {
+  color: #94a3b8;
+}
+
+button {
+  background: linear-gradient(135deg, #0f62cc, #0b3c7a);
+  color: white;
+  padding: 14px 32px;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 700;
+  transition: all 0.3s ease;
+  margin-top: 16px;
+}
+
+button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(15, 98, 204, 0.35);
+}
+
+button:active {
+  transform: translateY(0);
+}
+
+.ai-box {
+  background: linear-gradient(135deg, #dbeafe 0%, #e0f2fe 100%);
+  padding: 25px;
+  border-radius: 12px;
+  margin-top: 20px;
+  margin-bottom: 30px;
+  border-left: 5px solid #0f62cc;
+  box-shadow: 0 4px 12px rgba(15, 98, 204, 0.1);
+}
+
+.ai-box strong {
+  color: #0b3c7a;
+}
+
+@media (max-width: 768px) {
+  .page {
+    padding: 60px 5%;
+  }
+
+  .page h2 {
+    font-size: 36px;
+  }
+}
+
+</style>
+
+</head>
+
+.ai-box{
+background:#f3f6ff;
+padding:20px;
+border-radius:10px;
+margin-bottom:30px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header class="navbar">
+<span class="logo">🎓 UNIGuide <b>BVCEC</b></span>
+</header>
+
+<div class="page">
+
+<h2>Resume Builder</h2>
+
+<div class="ai-box">
+
+<h3>AI Resume Generator</h3>
+
+<input type="text" id="aiPrompt"
+placeholder="Example: Generate resume for Python developer fresher">
+
+<button onclick="generateAIResume()">
+Generate Using AI
+</button>
+
+</div>
+
+
+<form method="POST" action="/generate-resume">
+
+<h3>Personal Information</h3>
+
+<label>Full Name</label>
+<input type="text" name="name" required>
+
+<label>Email</label>
+<input type="email" name="email">
+
+<label>Phone</label>
+<input type="text" name="phone">
+
+<label>LinkedIn</label>
+<input type="text" name="linkedin">
+
+
+<h3>Career Summary</h3>
+
+<textarea name="summary"></textarea>
+
+
+<h3>Technical Skills</h3>
+
+<textarea name="skills"></textarea>
+
+
+<h3>Projects</h3>
+
+<textarea name="projects"></textarea>
+
+
+<h3>Internships</h3>
+
+<textarea name="internships"></textarea>
+
+
+<h3>Education</h3>
+
+<label>Degree</label>
+<input type="text" name="degree">
+
+<label>College</label>
+<input type="text" name="college">
+
+<label>CGPA</label>
+<input type="text" name="cgpa">
+
+
+<h3>Certifications</h3>
+
+<textarea name="certifications"></textarea>
+
+
+<button type="submit">
+Download Resume PDF
+</button>
+
+</form>
+
+</div>
+
+
+<script>
+
+function generateAIResume(){
+
+let prompt=document.getElementById("aiPrompt").value
+
+fetch("/ai-resume",{
+method:"POST",
+headers:{
+"Content-Type":"application/json"
+},
+body:JSON.stringify({prompt:prompt})
+})
+.then(res=>res.json())
+.then(data=>{
+
+document.querySelector("[name='summary']").value=data.summary
+document.querySelector("[name='skills']").value=data.skills
+document.querySelector("[name='projects']").value=data.projects
+document.querySelector("[name='certifications']").value=data.certifications
+
+})
+
+}
+
+</script>
+
+</body>
+</html>

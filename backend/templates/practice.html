@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>{{language|capitalize}} Practice – UNIGuide</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVJkEZSMUkrQ6usKICUPf7qccffygSTNOWOZv+7mZ5IrZjO0rYwQMNGWEZlt9z2issrnetqah3Lg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+<style>
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #f0f4f8 0%, #d9e7f7 100%);
+  min-height: 100vh;
+}
+
+.page {
+  padding: 60px 10%;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.page h2 {
+  font-size: 48px;
+  font-weight: 800;
+  color: #0f172a;
+  margin: 0 0 30px 0;
+  letter-spacing: -1px;
+}
+
+.practice-container {
+  display: flex;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.problem-box {
+  flex: 1;
+  min-width: 300px;
+  background: white;
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+  border-top: 4px solid #0f62cc;
+}
+
+.problem-box h3 {
+  font-size: 20px;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0 0 16px 0;
+}
+
+.problem-box p {
+  color: #64748b;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.editor-box {
+  flex: 1;
+  min-width: 300px;
+  background: white;
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+  border-top: 4px solid #0f62cc;
+}
+
+.editor-box h3 {
+  font-size: 20px;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0 0 16px 0;
+}
+
+textarea {
+  width: 100%;
+  height: 220px;
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+  font-size: 14px;
+  padding: 14px;
+  border-radius: 10px;
+  border: 2px solid #e2e8f0;
+  color: #0f172a;
+  background: #f8fafc;
+  transition: all 0.3s ease;
+  box-sizing: border-box;
+}
+
+textarea:focus {
+  outline: none;
+  border-color: #0f62cc;
+  box-shadow: 0 0 0 4px rgba(15, 98, 204, 0.1);
+  background: #f0f7ff;
+}
+
+.button-group {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+
+.run-btn {
+  background: linear-gradient(135deg, #0f62cc, #0b3c7a);
+  color: white;
+  border: none;
+  padding: 12px 28px;
+  border-radius: 25px;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+
+.run-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(15, 98, 204, 0.3);
+}
+
+.next-btn {
+  background: linear-gradient(135deg, #64748b, #475569);
+  color: white;
+  border: none;
+  padding: 12px 28px;
+  border-radius: 25px;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+
+.next-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(100, 116, 139, 0.3);
+}
+
+.output {
+  margin-top: 20px;
+  background: #0f172a;
+  color: #0f0;
+  padding: 20px;
+  border-radius: 10px;
+  min-height: 80px;
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+  font-size: 13px;
+  line-height: 1.6;
+  border: 1px solid #334155;
+  overflow-x: auto;
+}
+
+.output.error {
+  color: #ff6b6b;
+}
+
+@media (max-width: 768px) {
+  .page {
+    padding: 40px 5%;
+  }
+
+  .page h2 {
+    font-size: 36px;
+  }
+
+  .practice-container {
+    flex-direction: column;
+  }
+
+  .problem-box, .editor-box {
+    min-width: 100%;
+  }
+
+  textarea {
+    height: 180px;
+  }
+
+  .button-group {
+    flex-direction: column;
+  }
+
+  .run-btn, .next-btn {
+    width: 100%;
+  }
+}
+
+</style>
+</head>
+
+<body>
+
+<header class="navbar">
+<span class="logo">🎓 UNIGuide <b>BVCEC</b></span>
+</header>
+
+<div class="page">
+
+<h2>{{language|capitalize}} Coding Practice</h2>
+
+<div class="practice-container">
+
+<div class="problem-box">
+
+<h3 id="title"></h3>
+
+<p id="desc"></p>
+
+<pre id="example"></pre>
+
+<button onclick="loadProblem()" class="next-btn">Next Problem</button>
+
+</div>
+
+<div class="editor-box">
+
+<h3>Code Editor</h3>
+
+<textarea id="code"></textarea>
+
+<br>
+
+<button onclick="runCode()" class="run-btn">Run Code</button>
+
+<div class="output" id="output"></div>
+
+</div>
+
+</div>
+
+</div>
+
+<script>
+
+function loadProblem(){
+
+fetch("/get-problem")
+.then(res=>res.json())
+.then(data=>{
+
+document.getElementById("title").innerText=data.title
+document.getElementById("desc").innerText=data.description
+document.getElementById("example").innerText=data.example
+
+})
+
+}
+
+function runCode(){
+
+let code=document.getElementById("code").value
+
+fetch("/run-code",{
+
+method:"POST",
+headers:{"Content-Type":"application/json"},
+body:JSON.stringify({code:code})
+
+})
+.then(res=>res.json())
+.then(data=>{
+
+document.getElementById("output").innerText=data.output
+
+})
+
+}
+
+window.onload=loadProblem
+
+</script>
+
+</body>
+</html>
