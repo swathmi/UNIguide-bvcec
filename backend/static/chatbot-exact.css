@@ -54,20 +54,48 @@ body {
 
 /* ================= LOGO ================= */
 .logo {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  cursor: pointer;
+  width: 32px;
+  height: 32px;
+  overflow: hidden;
+  border-radius: 8px;
+}
+.logo-image {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
 }
 
 .logo img {
-  width: 42px;
-  height: 42px;
+  width: 24px;
+  height: 24px;
+  object-fit: cover;   /* 🔥 main fix */
+  border-radius: 8px; 
 }
 
 .logo span {
   font-size: 18px;
   font-weight: 600;
+}
+.header-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.main-nav {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    margin-left: 600px;   /* 👈 adjust this */
+}
+
+  .auth-section {
+    margin-left: auto;   /* 👈 only profile right ki vellali */
+}  /* 👈 adjust this */
+
+    .logo-section {
+    display: flex;
+    align-items: center;
+    gap: 8px;
 }
 
 /* ================= MAIN CARD ================= */
@@ -349,7 +377,8 @@ body {
 }
 
 .nav-logo {
-    width: 42px;
+    width: 24px;
+    height: 24px;
 }
 
 .nav-title {
@@ -615,4 +644,189 @@ body {
     color: #00d4ff;
     font-weight: bold;
     margin-right: 4px;
+}
+.questions-container {
+  display: flex;
+  flex-direction: column;   /* 🔥 line by line */
+  gap: 10px;
+}
+
+.question-btn {
+  width: 100%;              /* full width */
+  text-align: left;
+  padding: 10px 12px;
+  border-radius: 8px;
+}
+.questions-panel {
+  width: 20%;   /* before ~30% */
+  padding: 15px;
+}
+.chat-card {
+  display: flex;
+}
+
+.questions-panel {
+  width: 18%;
+}
+
+.chat-sidebar {
+  width: 22%;
+}
+
+.chat-main {
+  width: 60%;
+}
+.question-btn {
+  background: rgba(255,255,255,0.08);
+  border: none;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.question-btn:hover {
+  background: rgba(120,140,255,0.2);
+}
+.input-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+}
+
+.chat-input {
+  flex: 1;
+}
+
+.input-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.action-btn {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: none;
+  background: #2563eb;
+  color: white;
+  cursor: pointer;
+}
+.features-showcase {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  font-size: 13px;
+  padding: 10px;
+  opacity: 0.85;
+  order: 2;
+}
+
+.chat-input-wrapper {
+  order: 1;
+}
+.chat-main {
+  display: flex;
+  flex-direction: column;
+}
+.features-showcase {
+  background: rgba(255,255,255,0.03);
+  border-top: 1px solid rgba(255,255,255,0.08);
+}
+.chat-main {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  position: relative;   /* 🔥 important */
+}
+.chat-footer {
+  position: absolute;
+  bottom: 10px;
+  left: 20px;
+  font-size: 12px;
+  opacity: 0.6;
+}
+.features-showcase {
+  position: absolute;
+  bottom: 40px;   /* footer paina */
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 25px;
+  font-size: 12px;
+  opacity: 0.7;
+}
+.chat-input-wrapper {
+  position: absolute;
+  bottom: 70px;   /* features paina */
+  left: 0;
+  width: 100%;
+  padding: 10px;
+}
+.chat-input {
+  color: white;              /* 🔥 main fix */
+  background: #020617;
+}
+
+.chat-input::placeholder {
+  color: rgba(255,255,255,0.6);  /* placeholder visible */
+}
+.chat-body {
+  padding-bottom: 120px;  /* 🔥 important */
+}
+.chat-input-wrapper {
+  position: absolute;
+  bottom: 60px;
+  left: 0;
+  width: 100%;
+  padding: 10px;
+}
+.features-showcase {
+  position: absolute;
+  bottom: 35px;
+}
+
+.chat-footer {
+  position: absolute;
+  bottom: 10px;
+}
+.logo-text {
+  font-size: 22px;
+  font-weight: 700;
+
+  background: linear-gradient(
+    90deg,
+    #60a5fa,
+    #a78bfa,
+    #60a5fa
+  );
+
+  background-size: 200% auto;   /* 🔥 important */
+  
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  animation: shine 3s linear infinite;   /* 🔥 animation */
+
+  letter-spacing: 0.5px;
+
+  text-shadow: 0 0 10px rgba(124,58,237,0.5);
+}
+@keyframes shine {
+  0% {
+    background-position: 0% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+.logo-section {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.logo-text:hover {
+  transform: scale(1.05);
+  transition: 0.3s;
 }

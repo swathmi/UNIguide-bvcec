@@ -1,164 +1,252 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>UNIGuide AI</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="{{ url_for('static', filename='chatbot-exact.css') }}?v={{ range(1, 10000)|random }}">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="UNIGuide AI - Your BVCEC Smart Assistant">
+  <title>UNIGuide AI | College Assistant Chatbot</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='chatbot-exact.css') }}?v={{ range(1, 10000)|random }}">
 </head>
 
 <body>
+  <!-- Background -->
+  <div class="chat-bg" aria-hidden="true"></div>
 
-<div class="chat-bg"></div>
+  <!-- Main Application Container -->
+  <div class="chat-wrapper">
 
-<div class="chat-wrapper">
+    <!-- HEADER / NAVIGATION -->
+    <header class="chat-top" role="banner">
+      <div class="header-container">
+        <!-- Logo Section -->
+        <div class="logo-section">
+          <img src="/static/images/uniguide-logo.png" alt="UNIGuide Logo" class="logo-image">
+          <span class="logo-text">UNIGuide AI</span>
+        </div>
 
-  <!-- TOP BAR -->
-  <header class="chat-top">
-    <div class="logo">
-      <img src="/static/images/uniguide-logo.png">
-      <span>UNIGuide AI</span>
-    </div>
-    <nav>
-      <a href="/">Home</a>
-      <a href="/about">About</a>
-      <a href="/contact">Contact</a>
+        <!-- Navigation Menu -->
+        <nav class="main-nav" role="navigation" aria-label="Main navigation">
+          <a href="/" class="nav-link">Home</a>
+          <a href="/about" class="nav-link">About</a>
+          <a href="/contact" class="nav-link">Contact</a>
 
-      {% if current_user.is_authenticated %}
-<div class="profile-dropdown">
+          <!-- User Authentication Section -->
+          <div class="auth-section">
+            {% if current_user.is_authenticated %}
+              <div class="profile-dropdown">
+                <button class="profile-circle" id="profileCircle" aria-label="User profile menu" aria-haspopup="true">
+                  {% if current_user.profile_image %}
+                    <img src="{{ url_for('static', filename='uploads/' + current_user.profile_image) }}" alt="{{ current_user.name }}'s profile" class="profile-img">
+                  {% else %}
+                    <span class="profile-initial">{{ current_user.name[0]|upper }}</span>
+                  {% endif %}
+                </button>
 
-    <div class="profile-circle" id="profileCircle">
-        {% if current_user.profile_image %}
-            <img src="{{ url_for('static', filename='uploads/' + current_user.profile_image) }}" class="profile-img">
-        {% else %}
-            {{ current_user.name[0]|upper }}
-        {% endif %}
-    </div>
+                <div class="dropdown-menu" role="menu">
+                  <p class="profile-name">{{ current_user.name }}</p>
+                  <p class="profile-email">{{ current_user.email }}</p>
+                  <hr aria-hidden="true">
+                  <button onclick="openProfileModal()" role="menuitem" class="dropdown-item">Edit Profile</button>
+                  <a href="/logout" role="menuitem" class="dropdown-item">Logout</a>
+                </div>
+              </div>
+            {% else %}
+              <a href="/login" class="signin-btn">Sign In</a>
+            {% endif %}
+          </div>
+        </nav>
+      </div>
+    </header>
 
-    <div class="dropdown-menu">
-        <p class="profile-name">{{ current_user.name }}</p>
-        <p class="profile-email">{{ current_user.email }}</p>
-        <hr>
-        <button onclick="openProfileModal()">Edit Profile</button>
-        <a href="/logout">Logout</a>
-    </div>
+    <!-- MAIN CHAT INTERFACE -->
+    <section class="chat-card" role="main">
 
-</div>
-{% else %}
-<a href="/login" class="signin">Sign In</a>
-{% endif %}
+      <!-- LEFT PANEL: POPULAR QUESTIONS -->
+      <aside class="questions-panel" role="complementary" aria-label="Popular questions">
+        <div class="panel-header">
+          <h2 class="panel-title">Popular Questions</h2>
+        </div>
+        <div class="questions-container">
+          <button class="question-btn" onclick="sendSuggestion('Who is the founder of BVCEC?')" type="button">
+            Who is the founder of BVCEC?
+          </button>
+          <button class="question-btn" onclick="sendSuggestion('What courses are offered?')" type="button">
+            What courses are offered?
+          </button>
+          <button class="question-btn" onclick="sendSuggestion('How do I apply for admission?')" type="button">
+            How do I apply for admission?
+          </button>
+          <button class="question-btn" onclick="sendSuggestion('What are the campus facilities?')" type="button">
+            What are the campus facilities?
+          </button>
+          <button class="question-btn" onclick="sendSuggestion('Placement opportunities?')" type="button">
+            Placement opportunities?
+          </button>
+          <button class="question-btn" onclick="sendSuggestion('Fee structure?')" type="button">
+            Fee structure?
+          </button>
+          <button class="question-btn" onclick="sendSuggestion('Scholarships available?')" type="button">
+            Scholarships available?
+          </button>
+        </div>
+      </aside>
 
-    </nav>
+      <!-- CENTER PANEL: CHAT SIDEBAR -->
+      <aside class="chat-sidebar" role="complementary" aria-label="Chat history">
+        <button class="new-chat-btn" onclick="createNewChat()" type="button" aria-label="Create new chat">
+          <span class="btn-icon">+</span>
+          <span class="btn-text">New Chat</span>
+        </button>
 
-  </header>
+        <input 
+          type="text" 
+          id="searchChat" 
+          class="search-input"
+          placeholder="Search chats..." 
+          onkeyup="searchChats()"
+          aria-label="Search chat history" />
 
-  <!-- MAIN CARD -->
-  <section class="chat-card">
+        <div id="chatList" class="chat-history"></div>
+      </aside>
 
-    <!-- LEFT -->
-    <aside class="questions">
-      <h4>Popular Questions</h4>
-      <ul>
-        <li onclick="sendSuggestion('Who is the founder of BVCEC?')">Who is the founder of BVCEC?</li>
-        <li onclick="sendSuggestion('What courses are offered?')">What courses are offered?</li>
-        <li onclick="sendSuggestion('How do I apply for admission?')">How do I apply for admission?</li>
-        <li onclick="sendSuggestion('What are the campus facilities?')">What are the campus facilities?</li>
-        <li onclick="sendSuggestion('Placement opportunities?')">Placement opportunities?</li>
-        <li onclick="sendSuggestion('Fee structure?')">Fee structure?</li>
-        <li onclick="sendSuggestion('Scholarships available?')">Scholarships available?</li>
-      </ul>
-    </aside>
-    <!-- CHAT SIDEBAR -->
-<aside class="chat-sidebar">
-
-  <button class="new-chat-btn"
-          onclick="createNewChat()">
-    + New Chat
-  </button>
-
-  <input type="text"
-         id="searchChat"
-         placeholder="Search chats..."
-         onkeyup="searchChats()" />
-
-  <div id="chatList"></div>
-
-</aside>
-
-
-    <!-- RIGHT -->
-    <main class="chat-main">
-      <div class="chat-header">
-        <div class="bot-info">
-          <img src="/static/images/bot-avatar.png" class="bot-avatar">
-          <div class="bot-text">
-            <div class="bot-name">
-              UNIGuide AI <span class="online-dot"></span>
+      <!-- RIGHT PANEL: MAIN CHAT -->
+      <main class="chat-main" role="article">
+        
+        <!-- Chat Header -->
+        <div class="chat-header">
+          <div class="bot-info">
+            <img src="/static/images/bot-avatar.png" alt="UNIGuide AI Avatar" class="bot-avatar">
+            <div class="bot-details">
+              <div class="bot-name">
+                UNIGuide AI 
+                <span class="online-indicator" aria-label="Bot is online" title="Online"></span>
+              </div>
+              <div class="bot-status">Online & Ready to Help</div>
             </div>
-            <div class="bot-status">Online</div>
+          </div>
+
+          <button class="back-btn" aria-label="Go back" type="button">
+            ← Back
+          </button>
+        </div>
+
+        <!-- Chat Messages Area -->
+        <div id="chat-body" class="chat-body" role="log" aria-label="Chat messages">
+          <div class="message bot-message">
+            <div class="message-content">
+              <strong>Hello, I'm UNIGuide AI 👋</strong>
+              <p>I'm your BVCEC Smart Assistant. Ask me any campus-related questions.</p>
+            </div>
           </div>
         </div>
 
-        <div class="back-btn">← Back</div>
-      </div>
-
-      
-
-
-      
-      <div id="chat-body" class="chat-body">
-
-        <div class="message bot-message">
-          <div class="message-content">
-            <b>Hello, I'm UNIGuide AI 👋</b><br>
-            I'm your BVCEC Smart Assistant. Ask me any campus-related questions.
+        <!-- Features Highlight -->
+        <div class="features-showcase" aria-label="Features">
+          <div class="feature-item">
+            <span class="feature-icon">⚡</span>
+            <span class="feature-text">Instant Responses</span>
+          </div>
+          <div class="feature-item">
+            <span class="feature-icon">🛡️</span>
+            <span class="feature-text">Accurate Information</span>
+          </div>
+          <div class="feature-item">
+            <span class="feature-icon">🎧</span>
+            <span class="feature-text">Here to Help</span>
           </div>
         </div>
 
-      </div>
+        <!-- Chat Input Section -->
+        <div class="chat-input-wrapper">
+          <div class="input-group">
+            <input 
+              type="text" 
+              id="userInput" 
+              class="chat-input"
+              placeholder="Ask something..." 
+              aria-label="Chat message input"
+              autocomplete="off" />
+            
+            <div class="input-actions">
+              <button 
+                onclick="startVoice()" 
+                type="button"
+                class="action-btn voice-btn" 
+                aria-label="Send voice message"
+                title="Voice input">
+                🎤
+              </button>
 
+              <button 
+                onclick="sendMessage()" 
+                type="button"
+                class="action-btn send-btn" 
+                aria-label="Send message"
+                title="Send message">
+                ➤
+              </button>
+            </div>
+          </div>
+        </div>
 
-      <div class="chat-input">
-        <input type="text" id="userInput" placeholder="Ask something..." />
-        <button onclick="startVoice()">🎤</button>
+        <!-- Footer -->
+        <footer class="chat-footer" role="contentinfo">
+          <p>&copy; 2024 BVCEC. All rights reserved.</p>
+        </footer>
 
-        <button onclick="sendMessage()">➤</button>
-      </div>
+      </main>
 
+    </section>
 
-      <div class="features">
-        <div>⚡ Instant Responses</div>
-        <div>🛡 Accurate Information</div>
-        <div>🎧 Here to Help</div>
-      </div>
-
-      <footer>© 2024 BVCEC. All rights reserved.</footer>
-
-    </main>
-
-  </section>
-
-</div>
-<script src="{{ url_for('static', filename='script.js') }}?v={{ range(1, 10000)|random }}"></script>
-<div class="profile-modal" id="profileModal">
-  <div class="profile-modal-content">
-    <h3>Edit Profile</h3>
-
-    <form action="/upload-profile" method="POST" enctype="multipart/form-data">
-      <input type="file" name="image" accept="image/*">
-      <button type="submit">Upload Photo</button>
-    </form>
-
-    <hr>
-
-    <form id="changePasswordForm">
-      <input type="password" id="newPassword" placeholder="New Password" required>
-      <button type="submit">Change Password</button>
-    </form>
-
-    <button onclick="closeProfileModal()" class="close-btn">Close</button>
   </div>
-</div>
+
+  <!-- PROFILE EDIT MODAL -->
+  <div class="profile-modal" id="profileModal" role="dialog" aria-labelledby="profileModalTitle" aria-hidden="true">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 id="profileModalTitle">Edit Profile</h3>
+        <button type="button" class="modal-close" onclick="closeProfileModal()" aria-label="Close profile modal">×</button>
+      </div>
+
+      <div class="modal-body">
+        <!-- Profile Photo Upload -->
+        <div class="form-section">
+          <h4 class="section-title">Profile Photo</h4>
+          <form action="/upload-profile" method="POST" enctype="multipart/form-data" class="upload-form">
+            <input type="file" name="image" accept="image/*" class="file-input" aria-label="Choose profile photo">
+            <button type="submit" class="btn-primary">Upload Photo</button>
+          </form>
+        </div>
+
+        <hr class="modal-divider" aria-hidden="true">
+
+        <!-- Password Change -->
+        <div class="form-section">
+          <h4 class="section-title">Security</h4>
+          <form id="changePasswordForm" class="password-form">
+            <input 
+              type="password" 
+              id="newPassword" 
+              class="form-input"
+              placeholder="Enter new password" 
+              required 
+              aria-label="New password">
+            <button type="submit" class="btn-primary">Change Password</button>
+          </form>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" onclick="closeProfileModal()" class="btn-secondary">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Backdrop -->
+  <div class="modal-backdrop" id="modalBackdrop" onclick="closeProfileModal()"></div>
+
+  <!-- Scripts -->
+  <script src="{{ url_for('static', filename='script.js') }}?v={{ range(1, 10000)|random }}"></script>
 
 </body>
 </html>
