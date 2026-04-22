@@ -790,10 +790,10 @@ Swathmi
 UNIGuide AI
 """
             mail.send(msg)
-            print("✅ Welcome email sent successfully")
+            print(" Welcome email sent successfully")
 
         except Exception as e:
-            print("❌ Email sending failed:", e)
+            print(" Email sending failed:", e)
         
         login_user(user)
         return jsonify({"success": True, "user": {"name": user.name, "email": user.email}})
@@ -1123,36 +1123,6 @@ def proxy_pdf():
 def chat_api():
     
 
-    # Lazy imports to avoid TensorFlow loading on app startup
-    # from services.programs_intents import detect_courses_programs_intent
-    # from services.programs_service import get_courses_programs_response
-    # from services.college_overview_intents import detect_college_overview_intent
-    # from services.college_overview_service import get_college_overview_response
-    # from services.admissions_intents import detect_admission_intent
-    # from services.admissions_service import get_admissions_response
-    # from services.events_intents import detect_institution_intent
-    # from services.events_services import get_institution_response
-    # from services.placement_intents import detect_placement_intent
-    # from services.placement_services import get_placement_response
-    # from services.csm_intents import detect_cse_aiml_intent
-    # from services.csm_services import get_cse_aiml_department_response
-    # from services.aiml_intents import detect_aiml_intent
-    # from services.aiml_services import get_aiml_department_response
-    # from services.cad_intents import detect_cad_intent
-    # from services.cad_services import get_cad_department_response
-    # from services.civil_intents import detect_civil_intent
-    # from services.civil_services import get_civil_department_response
-    # from services.cse_intents import detect_cse_intent
-    # from services.cse_services import get_cse_department_response
-    # from services.ece_intents import detect_ece_intent
-    # from services.ece_services import get_ece_department_response
-    # from services.eee_intents import detect_eee_intent
-    # from services.eee_services import get_eee_department_response
-    # from services.it_intents import detect_it_intent
-    # from services.it_services import get_it_department_response
-    # from services.mech_intents import detect_mech_intent
-    # from services.mech_services import get_mech_department_response
-    # from services.students_service import handle_student_query
     
     data = request.get_json(force=True)
     import json
@@ -1192,6 +1162,11 @@ def chat_api():
         return jsonify({"answer": "Please ask a valid question."})
 
     q = user_query.lower()
+    # 🔥 timetable logic
+    if "period" in q or "today" in q or "tomorrow" in q:
+        answer = get_period_answer(q)
+    else:
+        answer = "your existing chatbot logic"
 
     intent = None
 
@@ -1458,6 +1433,73 @@ def chat_api():
                 return jsonify({
                     "answer": "⚠️ Events information temporarily unavailable."
                 })
+    
+    def get_related(user_input):
+        user_input = user_input.lower()
+
+        if "placement" in user_input:
+            return [
+                "What is average package?",
+                "Top companies visiting?",
+                "Highest package?",
+                "Placement percentage?"
+            ]
+
+        elif "cgpa" in user_input:
+            return [
+                "How to calculate CGPA?",
+                "Minimum CGPA for placements?",
+                "CGPA conversion to percentage?",
+                "Is CGPA important?"
+            ]
+
+        elif "admission" in user_input:
+            return [
+                "Admission process?",
+                "Eligibility criteria?",
+                "Documents required?",
+                "Admission last date?"
+            ]
+
+        return []
+        return jsonify({
+        "answer": answer,
+        "related": get_related(user_input)
+    })
+timetable = {
+"monday": {"1": "Maths", "2": "Physics"},
+"tuesday": {"1": "English", "2": "DSA"},
+"wednesday": {"1": "DBMS", "2": "OS"},
+"thursday": {"1": "AI", "2": "ML"},
+"friday": {"1": "Networks", "2": "Cloud"}
+}
+import datetime
+import re
+
+def get_period_answer(user_input):
+    user_input = user_input.lower()
+
+    today = datetime.datetime.today()
+    
+    # check today / tomorrow
+    if "tomorrow" in user_input:
+        day = today + datetime.timedelta(days=1)
+    else:
+        day = today
+
+    day_name = day.strftime("%A").lower()
+
+    # extract period number
+    match = re.search(r'(\d+)', user_input)
+    if match:
+        period = match.group(1)
+
+        if day_name in timetable:
+            subject = timetable[day_name].get(period)
+            if subject:
+                return f"{day_name.capitalize()} {period} period is {subject}"
+
+    return "No data found"
 
     # ==================================================
     # 7️⃣ STUDENTS
